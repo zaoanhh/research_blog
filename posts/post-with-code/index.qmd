@@ -1,0 +1,11 @@
+---
+title: "Post With Code"
+author: "Harlow Malloc"
+date: "2024-09-01"
+categories: [news, code, analysis]
+image: "image.jpg"
+---
+
+This is a post with executable code.
+
+你好

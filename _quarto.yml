@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: "Research Tips"
+  navbar:
+    search: true
+    right:
+      - about.qmd
+      # - icon: github
+      #   text: Github
+      #   href: https://github.com/zaoanhh
+      # - icon: homepage
+      #   text: Homepage
+      #   href: https://zaoanhh.github.io/
+format:
+  html:
+    # theme: litera ## 衬线字体
+    theme: morph ## 无衬线字体
+    css: styles.css
+
+
+
