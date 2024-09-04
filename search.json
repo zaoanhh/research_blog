@@ -105,11 +105,172 @@
     "text": "仿真"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Research Tips",
-    "section": "",
-    "text": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 3, 2024\n\n\nAmmar Ahmed, Yimin D. Zhang, Braham Hime\n\n\n\n\n\n\n\n\n\n\n\n\n联合雷达和通信\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 1, 2024\n\n\n尚飞\n\n\n\n\n\n\nNo matching items"
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#论文信息",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#论文信息",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "论文信息",
+    "text": "论文信息\n@ARTICLE{9585321,\n  author={Zhang, J. Andrew and Rahman, Md. Lushanur and Wu, Kai and Huang, Xiaojing and Guo, Y. Jay and Chen, Shanzhi and Yuan, Jinhong},\n  journal={IEEE Communications Surveys & Tutorials}, \n  title={Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey}, \n  year={2022},\n  volume={24},\n  number={1},\n  pages={306-345},\n  doi={10.1109/COMST.2021.3122519}\n  }"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#背景",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#背景",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "背景",
+    "text": "背景\n集成C & S系统的最初概念可以追溯到20世纪60年代，并且主要用于开发多模式或多功能军用雷达。在早期，大多数此类系统属于具有分离波形的C & S类型。关于国内系统2010年的JCAS的研究有限。在过去的十年中，JCAS的研究基于简单的点对点通信，如车载网络和复杂的移动/蜂窝网络。前者可以在自动驾驶中找到很好的应用，而后者可能会彻底改变当前仅通信的移动网络。\nJCAS具有将无线电感知集成到大规模移动网络中的潜力，创造了我们所说的感知移动网络 (pmn)。通过 “感知”，我们指的是通过无线电视觉和对现有移动网络的推断来感知环境的附加能力。这种感知可以远远超出定位和跟踪，使移动网络能够 “看到” 和理解环境。从当前的移动网络发展而来，PMN有望充当无处不在的辐射感应网络，同时提供不妥协的移动通信服务。它可以建立在现有的移动网络基础设施之上，而无需对网络结构和设备进行重大更改。它将释放移动网络的最大能力，并避免构建单独的广域无线电感知网络的高昂基础设施成本。在大的覆盖范围的情况下，集成的通信和感知能力有望实现许多新的应用，对于这些应用，当前的感知解决方案要么不切实际，要么成本太高。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#背景-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#背景-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "背景",
+    "text": "背景"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#潜在应用",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#潜在应用",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "潜在应用",
+    "text": "潜在应用\n大规模感知对于我们的工业和社会的发展变得越来越重要。 它是颠覆性物联网应用和各种智能计划 (如智能城市和智能交通) 的关键推动者。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#基本分类",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#基本分类",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "基本分类",
+    "text": "基本分类\n\n\n\n以雷达为中心的设计: 在主雷达系统中实现通信功能 (或将通信集成到雷达中);\n以通信为中心的设计: 在主通信系统中实现无线电/雷达感知功能 (或将雷达集成到通信中);\n联合设计和优化: 不受底层系统和信号约束的技术"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#基本分类-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#基本分类-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "基本分类",
+    "text": "基本分类"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#以通信为中心的设计-在主要通信系统中实现感知",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#以通信为中心的设计-在主要通信系统中实现感知",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "以通信为中心的设计: 在主要通信系统中实现感知",
+    "text": "以通信为中心的设计: 在主要通信系统中实现感知\n将感知集成到通信中的两个基本问题是：\n\n如何在感知接收器和发射器位于同一位置的单静态设置中实现全双工操作\n如何在双静态或多静态设置中去除由于空间分离的发射器和 (感知) 接收器之间的通常未锁定的时钟而引起的时钟异步影响。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#没有基础系统的联合设计",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#没有基础系统的联合设计",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "没有基础系统的联合设计",
+    "text": "没有基础系统的联合设计\n可以开发JCAS技术而不限于现有的通信或雷达系统。从这个意义上讲，可以通过考虑通信和感知的基本要求来设计和优化它们，从而可能在两个功能之间提供更好的折衷。 毫米波和 (亚) 太赫兹波JCAS系统是促进这种联合设计的很好的例子。一方面，毫米波和太赫兹信号具有大带宽和短波长，为高速率通信和高精度感知提供了巨大的潜力。另一方面，毫米波和太赫兹系统正在兴起。它们尚未得到广泛部署，太赫兹系统的标准尚未开发。毫米波和太赫兹JCAS可以促进许多新的令人兴奋的应用，包括室内和室外。关于毫米波JCAS的现有研究已经证明了其在室内和车载网络中的可行性和潜力。作者 1 提供了基于mmwave的JCAS的深入信号处理方面，重点是JCAS系统的波形设计。有工作2 设想了未来用于室内感知的毫米波JCAS。mmWave JCAS系统的混合波束成形设计进行了研究 3 。研究者 4 设计了一种自适应毫米波波形结构。研究者 5 研究了汽车应用的JCAS波形的设计和选择，其中通过分析系统模型并列举设计参数的影响，提供了相位调制连续波JCAS和基于OFDMA的JCAS波形之间的比较。研究者 6 7 开发了多波束技术，以允许使用公共传输信号在不同方向进行C & S。波束成形向量被设计和优化以实现快速波束更新并实现C & S之间的平衡性能。研究者 8 研究了太赫兹大规模MIMO JCAS系统的波束成形设计。\nToward millimeter-wave joint radar communications: A signal processing perspectiveFuture millimeter-wave indoor systems: A blueprint for joint communication and sensingHybrid beamforming with sub-arrayed MIMO radar: Enabling joint sensing and communication at mmWave bandAdaptive virtual waveform design for millimeter-wave joint communication–radarA mmWave automotive joint radar-communications systemMultibeam for joint communication and radar sensing using steerable analog antenna arraysOptimization and quantization of multibeam beamforming vector for joint communication and radio sensingTerahertz-band joint ultra-massive MIMO radar-communications: Model-based and modelfree hybrid beamforming"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#jsac-系统的优势",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#jsac-系统的优势",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "JSAC 系统的优势",
+    "text": "JSAC 系统的优势\n\n频谱效率: 理想情况下，通过完全共享可用于无线通信和雷达的频谱，频谱效率可以增加一倍;\n波束成形效率: 波束成形性能可以通过利用从感知获得的信道结构来提高，例如，快速波束适应信道动态和波束方向优化;\n降低成本/尺寸: 与两个分离的系统相比，联合系统可以显着降低收发器的成本和尺寸；\nC & S的互惠互利: C & S可以通过整合相互受益。通信链路可以在用于感知的多个节点之间提供更好的协调; 并且感知向通信提供环境感知，具有改进的安全性和性能的潜力。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "系统平台和基础设施",
+    "text": "系统平台和基础设施\n根据网络设置，我们描述了可以实现JCAS的两种类型的拓扑，即云无线电接入网络 (CRAN) 和独立BS。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "系统平台和基础设施",
+    "text": "系统平台和基础设施\nCRAN\n典型的CRAN由一个中央单元和多个分布式天线单元组成，这些单元称为远程无线电单元 (rru)。Rru通常经由光纤连接到CRAN中心。量化的射频信号或基带信号可以在rru和中央单元之间传输。在CRAN的PMN中，密集分布的rru由中央单元协调，为ue提供通信服务。对于C & S两者，由CRAN中心收集和处理它们从它们自身、其它rru或从ue接收的信号。CRAN中央单元托管用于处理通信功能的原始基带单元 (BBU) 池和用于感知的新感知处理单元。此设置与分布式雷达系统的拓扑结构一致。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施-2",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施-2",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "系统平台和基础设施",
+    "text": "系统平台和基础设施\nStandalone BS\nCRAN拓扑对于在pmn中实现感知不是必需的。独立BS还可以使用来自其自己的发送信号或来自ue的接收信号来执行感知。这实际上是文献中广泛考虑的典型且更简单的设置。这种设置包括可以部署在家庭中的小型BS，这推动了边缘计算和感知的概念。像WiFi感知1一样，这样的小BS可以用于支持室内感知应用，例如跌倒检测和房屋监视。它还包括一个路边单元 (RSU)，它是移动网络的一部分，但专门用于支持车辆通信2。\nA survey on behavior recognition using WiFi channel state informationBayesian predictive beamforming for vehicular networks: A low-overhead joint radar-communication approach"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#三类典型的感知",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#三类典型的感知",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "三类典型的感知",
+    "text": "三类典型的感知"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#summary-and-insights",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#summary-and-insights",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "Summary and Insights",
+    "text": "Summary and Insights\n\nPMN可以从当前的移动网络演进，其中在网络侧或UE侧实现感知。网络侧感知具有更高的处理能力和更好的信息访问的优点，因此是优选的。它可以在一个独立的BS中实现，也可以在多个BS或rru中以协作的方式实现；\n在PMN中可以实现三种类型的感知: 使用下行链路通信信号的下行链路有源和无源感知，以及使用上行链路通信信号的上行链路感知。三种类型的感知操作的比较。它们可以单独实现，也可以一起实现；\n几乎所有的通信信号都可以用于感知，具有各自的优点和缺点。表IX中提供了三种类型的这种信号的比较。总的来说，参考信号 (诸如用于通信中的信道估计的DMRS信号) 通常具有用于感知的最佳属性。但是，当需要更多信号时，数据有效载荷和同步信号块可以被使用。由于不同的属性以及因此对感知的不同性能影响，需要仔细规划和优化这些信号用于感知的组合使用。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#从复杂的移动信号中提取感知参数",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#从复杂的移动信号中提取感知参数",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "从复杂的移动信号中提取感知参数",
+    "text": "从复杂的移动信号中提取感知参数\n移动网络的复杂信号结构使得pmn中的感知参数估计具有挑战性。现代移动网络是一种复杂的异构网络，连接着不同的设备，这些设备占用了在时间、频率和空间上交错和不连续的交错资源。由于多用户接入、多样化和分散的资源分配以及空间复用，移动信号也非常复杂。也用于感知的通信信号是使用多用户MIMO和OFDMA技术随机调制的，并且可以针对每个用户分段-在时间、频率或空间上不连续。 由于这种信号结构，大多数现有的感知参数估计技术不能直接应用于pmn。例如，有源雷达感知技术主要传输线性调频 (LFM) 调制发射信号; 大多数无源双静态和多静态雷达考虑简单的单载波和OFDM信号。\n感知参数描述了信号在环境中的传播以及信道的详细组成。它们通常具有连续但不具有离散值。因此，大多数现有的信道估计和定位算法也不能直接应用。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#联合设计与优化",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#联合设计与优化",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "联合设计与优化",
+    "text": "联合设计与优化\nJCAS以及pmn中的一个关键研究问题是如何联合设计和优化C & S的信号和系统。许多研究已经调查了波形和基本信号参数对关节系统性能的影响。这样的波形和系统参数优化可以导致独立系统中的性能改进，但是与处于高级 (即，系统和网络级别) 的那些相比，其具有较小的影响。C & S在系统和网络级别有非常不同的要求。例如，在多用户MIMO通信系统中，发射的信号是多用户随机符号的混合，而理想的MIMO雷达感知信号是未调制且正交的。当使用阵列时，雷达感知侧重于优化虚拟子阵列的形成和结构，以增加天线孔径，然后提高分辨率，但通信强调波束成形增益和方向性。这种冲突的要求可能使联合设计和优化非常具有挑战性。需要更多的研究来利用共性并抑制两个功能之间的冲突。另一个重要问题是C & S如何通过整合从彼此中获益更多。这一点远未得到很好的理解。目前的研究仅限于传播路径优化和安全通信。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#网络感知",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#网络感知",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "网络感知",
+    "text": "网络感知\n将感知集成到移动通信网络中提供了在蜂窝结构下进行无线电感知的巨大机会。然而，关于蜂窝拓扑下的感知的研究仍然非常有限。用于通信的蜂窝结构被设计为极大地增加频率重用因子，从而提高频谱效率和通信容量。蜂窝感知网络直观地还增加了频率重用因子，并且因此增加了总体 “感知” 容量。一方面，这种蜂窝感知网络几乎没有已知的性能界限，除了有限数量的稍微相关的工作，例如共存雷达和蜂窝通信系统的性能分析和使用干扰OFDM信号的雷达感知。另一方面，尽管存在关于分布式雷达和多基站雷达的研究，但是考虑和利用蜂窝结构的感知算法 (诸如共小区干扰、节点协作以及基站上的感知切换) 仍有待开发。挑战在于如何解决蜂窝拓扑下不同基站之间的竞争与合作，以实现网络感知的性能表征和算法开发。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "性能界限",
+    "text": "性能界限\n有两种类型的性能界限可用于表征pmn中感知的性能界限。一种是基于互信息 (MI)，另一种是基于感知参数的估计精度，例如cramer-rao下界 。\nMI 1 可以用作测量雷达和通信性能的工具。具体地，对于通信，可以采用无线信道和接收的通信信号之间的MI作为波形优化准则，而对于感知，使用感知信道和感知信号之间的条件MI2 3。因此，用于感知的MI测量关于信道、传播环境的多少信息被传送到接收器。因此，最大化MI对于更依赖于特征信号提取而不是感知参数估计的感知应用 (例如，用于目标识别) 特别有用。MI和容量的使用对于通信社区是众所周知的。\nMutual information based radar waveform design for joint radar and cellular communication systemsInformation theory and radar waveform designInformation-theoretic optimal radar waveform design"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "性能界限",
+    "text": "性能界限\n让我们考虑简化的信号模型来说明MI的公式。\\(\\mathbf{H}_s\\) 和 \\(\\mathbf{H}_c\\) 分别标识感知信道和通信信道，\\(\\mathbf{Y}_s\\) 和 \\(\\mathbf{Y}_c\\) 是接收到的感知信号和通信信号。令 \\(\\mathbf{X} = f(\\mathbf{S})\\) 是发射信号，其中 \\(\\mathbf{S}\\) 是信息符号, 函数 \\(f\\) 可以是线性或者非线性的。当使用空间预编码矩阵 \\(\\mathbf{P}\\) 代替 \\(f\\) 时，接收信号可以被表示为：\n\\[\\begin{aligned}\\mathbf{Y}_{s}&=\\mathbf{H}_{s}\\mathbf{PS}+\\mathbf{Z};\\\\\\mathbf{Y}_{c}&=\\mathbf{H}_{c}\\mathbf{PS}+\\mathbf{Z},\\end{aligned}\\]\n通信和感知的MI表达式可以表示为：\n\\[I(\\mathbf{H}_s;\\mathbf{Y}_s|\\mathbf{X})=h(\\mathbf{Y}_s|\\mathbf{X})-h(\\mathbf{Z}),\\text{ for sensing;}\\\\I(\\mathbf{S};\\mathbf{Y}_c|\\mathbf{H}_c)=h(\\mathbf{Y}_c|\\mathbf{H}_c)-h(\\mathbf{Z}),\\text{ for comm.}\\]\nJCAS系统的MI已在一些出版物中进行了研究和报告。它们通常通过联合优化两个MI表达式及其在上式中的变化来进行。研究者 1 的工作为JCAS系统制定了雷达互信息和通信信道容量，并提供了初步的数值结果。此外，研究者 2通过最大化MI表达式研究了JCAS系统的雷达波形优化。研究者 3还通过最大化JCAS系统中雷达检测的通信数据速率和条件互信息的加权和，提出了一种优化的OFDM波形。\nRadar mutual information and communication channel capacity of integrated radar-communication system using MIMOMutual information based radar waveform design for joint radar and cellular communication systemsRobust OFDM integrated radar and communications waveform design based on information theory"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限-2",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限-2",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "性能界限",
+    "text": "性能界限\nCRLB是一种更传统的度量，已广泛用于表征雷达中参数估计的下限 1。对于PMN，在使用UMTS (3g) 窄带移动信号的无源感测场景中，报告 2 了关于CRLB的最接近的工作。然而，CRLB表达式并不总是以闭合形式可用，特别是对于mimo-ofdm信号，主要是因为接收信号是感测参数的非线性函数。因此，尽管可以找到它们并对其进行数值评估，但CRLB度量不容易应用于分析优化。将它们与另一个成本函数一起应用于优化甚至更加困难。\nCramer Rao bound on target localization estimation in MIMO radar systemsCramérRao bounds for UMTS-based passive multistatic radar"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "波形优化",
+    "text": "波形优化"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "波形优化",
+    "text": "波形优化\n空间优化\n对于关于pmn中的预编码矩阵 \\(\\mathbf{P}\\) 的空间优化。\n\n一种方法是优化信号转换函数 \\(f (\\cdot)\\)，以使发送信号X的统计特性最适合于C & S。\n另一种方法是将感测波形添加到基础通信波形，同时考虑用于目的地节点的两个波形的相干组合。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-2",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-2",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "波形优化",
+    "text": "波形优化\n空间优化\n在第一种方法中，当优化是关于空间预编码矩阵时，其被设计为改变所发送的信号的统计特性。该方法特别适用于为C & S联合制定的成本函数的全局优化。基本优化公式如下:\n\\[\\begin{aligned}\\arg\\max_{{\\mathbf{P}}}&&\\lambda(\\mathbf{P}),\\\\\\mathrm{subject~to}&&\\text{Constraints} 1,2,\\cdots,\\end{aligned}\\]\n其中 \\(\\lambda (\\mathbf{P})\\) 是目标函数。在定义目标函数和约束时可以有各种方法和组合。每个可以用于通信或单独感测，或加权联合函数。一些示例如下。在1中，在多用户MIMO下行链路通信的信号干扰噪声比 (SINR) 的限制下，通过最小化生成的信号与期望的感测波形之间的差异来实现波形优化。进一步利用多目标函数来权衡生成的波形与所需波形之间的相似性 2。在 3 中，提出了自适应加权最优和帕累托最优波形设计方法，以同时提高距离和速度的估计精度以及通信信道容量。在 4 中，通过考虑涉及通信容量和crlb的多目标函数来优化OFDM系统中子载波的加权向量，以用于感测参数的估计。该方法的一个主要缺点是，一旦通信或感测设置改变，就需要优化或重新设计预编码矩阵。\nToward dual-functional radar-communication systems: Optimal waveform designMU-MIMO communications with MIMO radar: From co-existence to joint transmission,”Multiobjective optimal waveform design for OFDM integrated radar and communication systemsAdaptive OFDM integrated radar and communications waveform design based on information theory"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-3",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-3",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "波形优化",
+    "text": "波形优化\n空间优化\n在第二种方法中，可以预先为C & S中的一个或两个设计基本波形，然后以联合优化C & S性能的方式将两个波形相加。基本思想可以用数学表示如下:\n\\[\\begin{aligned} & \\arg\\max_{\\alpha, \\mathbf{P}_c, \\text{or} \\mathbf{P}_s} \\quad & \\lambda (\\mathbf{P}), \\\\\n& \\text{subject to} \\quad &\\text{Constraints} 1,2,\\cdots\\end{aligned}\\]\n其中 \\(\\mathbf{P}_c\\) 和 \\(\\mathbf{P}_s\\) 分别是主要针对通信和感测的预编码矩阵，并且 \\(\\mathbf{P}\\) 是 \\(\\mathbf{P}_c\\) 和 \\(\\mathbf{P}_s\\) 的函数。例如 \\(\\mathbf{P} = \\alpha \\mathbf{P}_c + (1 − \\alpha) \\mathbf{P}_s\\)，其中 \\(\\alpha\\) 是复数标量。该方法对于使用定向波束成形的毫米波系统特别有用。一个例子是可从 1，其中多波束的方法提出灵活地产生通信和传感子波束使用模拟天线阵列。在 2 3 中进一步研究了组合两个子光束的优化。当然，多波束的效率与C & S的要求有关。根据 4，获得正确的解决方案的波束转向和波束宽度适应JCAS操作高度依赖于环境背景。实际上，反射器位置、阻挡高度、运动速度和其他环境背景因素可能对多波束方法的效率具有显著影响。\n\n\n\n\n\n\nMultibeam for joint communication and radar sensing using steerable analog antenna arrays,Optimization and quantization of multibeam beamforming vector for joint communication and radio sensingMultibeam optimization for joint communication and radio sensing using analog antenna arraysMillimeter-Wave for 5G: Unifying Communication and Sensing"
   },
   {
     "objectID": "about.html",
@@ -117,6 +278,13 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Research Tips",
+    "section": "",
+    "text": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 4, 2024\n\n\nJ. Andrew Zhang, Md. Lushanur Rahman, Kai Wu, Xiaojing Huang, Y. Jay Guo, Shanzhi Chen, Jinhong Yuan\n\n\n\n\n\n\n\n\n\n\n\n\nDistributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 3, 2024\n\n\nAmmar Ahmed, Yimin D. Zhang, Braham Hime\n\n\n\n\n\n\n\n\n\n\n\n\n联合雷达和通信\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 1, 2024\n\n\n尚飞\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "paper_reading/JRC/index.html#无线频谱的价格急剧上升",
