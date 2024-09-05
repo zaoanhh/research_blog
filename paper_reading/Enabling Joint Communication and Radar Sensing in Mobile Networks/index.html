@@ -17,7 +17,7 @@
   <meta name="author" content="Y. Jay Guo">
   <meta name="author" content="Shanzhi Chen">
   <meta name="author" content="Jinhong Yuan">
-  <meta name="dcterms.date" content="2024-09-04">
+  <meta name="dcterms.date" content="2024-09-05">
   <title>Research Tips – Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -438,7 +438,7 @@ Jinhong Yuan
 </div>
 </div>
 
-  <p class="date">September 4, 2024</p>
+  <p class="date">September 5, 2024</p>
 </section>
 <section id="论文信息" class="slide level2">
 <h2>论文信息</h2>
@@ -617,13 +617,112 @@ Jinhong Yuan
 <p><span class="math display">\[\begin{aligned} &amp; \arg\max_{\alpha, \mathbf{P}_c, \text{or} \mathbf{P}_s} \quad &amp; \lambda (\mathbf{P}), \\
 &amp; \text{subject to} \quad &amp;\text{Constraints} 1,2,\cdots\end{aligned}\]</span></p>
 <p>其中 <span class="math inline">\(\mathbf{P}_c\)</span> 和 <span class="math inline">\(\mathbf{P}_s\)</span> 分别是主要针对通信和感测的预编码矩阵，并且 <span class="math inline">\(\mathbf{P}\)</span> 是 <span class="math inline">\(\mathbf{P}_c\)</span> 和 <span class="math inline">\(\mathbf{P}_s\)</span> 的函数。例如 <span class="math inline">\(\mathbf{P} = \alpha \mathbf{P}_c + (1 − \alpha) \mathbf{P}_s\)</span>，其中 <span class="math inline">\(\alpha\)</span> 是复数标量。该方法对于使用定向波束成形的毫米波系统特别有用。一个例子是可从 <sup>1</sup>，其中多波束的方法提出灵活地产生通信和传感子波束使用模拟天线阵列。在 <sup>2</sup> <sup>3</sup> 中进一步研究了组合两个子光束的优化。当然，多波束的效率与C &amp; S的要求有关。根据 <sup>4</sup>，获得正确的解决方案的波束转向和波束宽度适应JCAS操作高度依赖于环境背景。实际上，反射器位置、阻挡高度、运动速度和其他环境背景因素可能对多波束方法的效率具有显著影响。</p>
+<aside><ol class="aside-footnotes"><li id="fn23"><p>Multibeam for joint communication and radar sensing using steerable analog antenna arrays,</p></li><li id="fn24"><p>Optimization and quantization of multibeam beamforming vector for joint communication and radio sensing</p></li><li id="fn25"><p>Multibeam optimization for joint communication and radio sensing using analog antenna arrays</p></li><li id="fn26"><p>Millimeter-Wave for 5G: Unifying Communication and Sensing</p></li></ol></aside></section>
+<section id="波形优化-4" class="slide level2 smaller">
+<h2>波形优化</h2>
+<h3 id="时域和频域">时域和频域</h3>
+<p>优化可以是关于帧结构、子载波占用、功率分配和导频设计的，并且通常需要移动信号的一些轻微改变。可以关于信号格式和资源分配两者来优化帧中的前导码部分。典型的通信帧由前导码和数据有效载荷组成，并且在蜂窝网络中，它们经由逻辑信道来构造。前导通常包含未调制的和正交信号，其可以直接用于感测。对于mimo-ofdm信号，前导码信号的格式可以被设计为模仿传统的雷达波形，同时保持通信所需的属性。例如，在 <sup>1</sup> 中，基于mimo-ofdm JCAS生成MIMO雷达中常用的正交线性调频 (LFM) 信号。还可以通过在mimo-ofdm雷达 <sup>2</sup> 中结合非等距子载波的思想来设计前导码的子载波占用，以平衡C &amp; R的性能。还可以优化前导码或导频的间隔以改善感测性能，同时保持通信效率。如果连续发送分组，则这也可以通过改变分组上的数据有效载荷的长度来实现。</p>
+<aside><ol class="aside-footnotes"><li id="fn27"><p>Waveform design for integration of MIMO radar and communication based on orthogonal frequency division complex modulation</p></li><li id="fn28"><p>OFDM-MIMO radar with optimized nonequidistant subcarrier interleaving</p></li></ol></aside></section>
+<section id="波形优化-5" class="slide level2">
+<h2>波形优化</h2>
+<h3 id="利用下一代信令格式进行优化">利用下一代信令格式进行优化</h3>
+<p>大多数以通信为中心的JCAS系统已在信号载波或OFDM(A) 系统上制定，这与雷达中使用的那些波形一致。联合JCAS波形设计还可以应用于下一代通信信号，诸如正交时间-频率空间 (OTFS) <sup>1</sup> 信令和快于奈奎斯特 (FTN) 调制。为了降低OTFS传感的传统高复杂度，在 <sup>2</sup> 中提出了一种有效的贝叶斯学习方案，以及通过结合真实目标的运动参数限制的先验知识来减少测量矩阵的维度。这些工作证明了OTFS JCAS系统的可行性和潜在效率。尽管没有OTFS JCAS的波形优化结果，但我们推测可以以类似于OFDM的方式进行。特别地，预编码可以在空间域之外更有效地应用，例如应用到延迟-多普勒域。</p>
+<aside><ol class="aside-footnotes"><li id="fn29"><p>Radar sensing with OTFS: Embracing ISI and ICI to surpass the ambiguity barrier</p></li><li id="fn30"><p>Low-complexity parameter learning for OTFS modulation based automotive radar</p></li></ol></aside></section>
+<section id="天线阵列设计" class="slide level2">
+<h2>天线阵列设计</h2>
+<p>对于无线电感测，具有独立RF链的每个天线就像相机中的像素。但是无线电系统允许对发送和接收的信号进行更灵活的控制和处理。因此，除了用于波形优化的MIMO预编码之外，我们还可以对pmn中的天线阵列进行更多设计，如最后一个小节中所讨论的。表XIV中呈现了这些技术的分类，包括虚拟阵列设计、稀疏阵列设计和空间调制。下面详细说明这些技术。</p>
+
+<img data-src="images/51b0998b05ec809f52ac77c1422867d70e89c05f3f16126a1f4591691294f783.png" class="r-stretch"></section>
+<section id="天线阵列设计-1" class="slide level2 smaller">
+<h2>天线阵列设计</h2>
+<h3 id="虚拟mimo和天线分组">虚拟MIMO和天线分组</h3>
+<p>C &amp; S之间的天线阵列设计存在许多矛盾的要求。波束成形和天线放置是两个很好的例子。对于波束成形，通常需要具有变化的波束成形和窄波束宽度的阵列来进行感测; 然而，在至少一个分组周期期间，通信需要固定且准确指向的波束以获得非时变信道，并且需要多波束以支持SDMA。对于天线放置，MIMO雷达通常需要特殊的天线间隔，以实现增加的虚拟天线孔径 <sup>1</sup>; 而MIMO通信侧重于波束成形增益，空间分集和空间复用，因此，天线之间的低相关性更为重要。这些不同且矛盾的要求需要新的天线设计方法。一个潜在的解决方案是引入天线分组和虚拟子阵列的概念。通过将现有天线划分为两个或更多个组/虚拟子阵列，我们可以指定C &amp; S的任务并优化跨天线组的设计。</p>
+<p><img data-src="images/e825b64991970138eb59d2e1f3e3691566148cbb2e43ba718c26e20bcf1adc9d.png" style="width:40.0%"></p>
+<aside><ol class="aside-footnotes"><li id="fn31"><p> Phased-MIMO radar: A tradeoff between phased-array and MIMO radars</p></li></ol></aside></section>
+<section id="天线阵列设计-2" class="slide level2 smaller">
+<h2>天线阵列设计</h2>
+<h3 id="稀疏阵列设计">稀疏阵列设计</h3>
+<p>除了天线分组之外，稀疏阵列设计是利用自由度的另一种方法，当天线的总数固定时，可以通过配置天线的位置来实现该自由度。 稀疏阵列或稀疏阵列的设计 <sup>1</sup>，例如共素阵列 <sup>2</sup>，通常被认为是最佳地将给定数量的天线放置在大量 (均匀) 网格点的子集上 <sup>3</sup>。以这种方式，少量天线可以跨越具有高空间分辨率和低旁瓣的大阵列孔径。</p>
+<p>稀疏阵列设计特别适用于具有数十到数百个天线但具有有限数量的RF链的大规模MIMO阵列，即开关阵列或混合阵列。这种设置可以在pmn中以降低的成本提供更多的自由度和潜在的性能增强。例如，稀疏阵列设计可以为通信部分添加索引调制; 而稀疏阵列设计可以为雷达探测提供更好的空间分辨率。为此，一些有趣的问题仍有待解决，例如如何制定满足两个目标的问题以及C &amp; S之间的新权衡。</p>
+<aside><ol class="aside-footnotes"><li id="fn32"><p>Synthesizing beam-scannable thinned massive antenna array utilizing modiﬁed iterative FFT for millimeter-wave communication</p></li><li id="fn33"><p>Directionof-arrival estimation for coprime array via virtual array interpolation</p></li><li id="fn34"><p>Sparse transmit array design for dual-function radar communications by antenna selection</p></li></ol></aside></section>
+<section id="天线阵列设计-3" class="slide level2 smaller">
+<h2>天线阵列设计</h2>
+<h3 id="空间调制">空间调制</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/d48eb9c126002c700e66dfa3e1e95d2c795f1935a1b5e8ea8e00f523861fb553.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+<p>空间调制使用一组天线索引来调制信息比特，并且已经针对通信系统进行了广泛的研究 <sup>1</sup>。对于多天线JCAS系统，也可以潜在地应用空间调制。在 <sup>2</sup> 中，利用类似于空间调制的概念来提高跳频MIMO DFRC系统中的通信数据速率。在 <sup>3</sup> 中，通过根据传输的消息分配天线元件，将空间调制应用于JCAS，通过在天线选择中嵌入额外的数据位来实现增加的通信速率。尽管这些工作是基于脉冲和连续波雷达，但通过将天线选择添加到现有的时空调制中，它们可以潜在地扩展到PMN。特别地，PMN中的富散射环境提供空间信道之间的较低相关性，导致潜在的更好性能。</p>
+<aside><ol class="aside-footnotes"><li id="fn35"><p>Super-resolution mmWave channel estimation for generalized spatial modulation systems</p></li><li id="fn36"><p>Accurate channel estimation for frequency-hopping dual-function radar communications</p></li><li id="fn37"><p>Spatial modulation for joint radar-communications systems: Design, analysis, and hardware prototype</p></li></ol></aside></section>
+<section id="天线阵列设计-4" class="slide level2">
+<h2>天线阵列设计</h2>
+<h3 id="可重新配置智能surface辅助jcas">可重新配置智能Surface辅助JCAS</h3>
+<p>可重构智能表面 (RIS) ，也称为可重构智能元表面或智能反射表面，可以被视为一种特殊类型的中继 “天线” 阵列，用于影响信号传播。环境对象涂有电磁和可重新配置的超表面的人造薄膜，可以对其进行控制以对无线电传播进行整形。RIS提供大量的空间自由度，其通常可以被建模为可调节的相移。使用RIS可以通过增加波束成形增益，减少干扰和减少衰落来显着提高通信性能; 它还可以通过生成位置相关的无线电指纹和定向感测来对感测产生显着影响。因此，为了分别改善雷达和通信的性能，对RIS进行了广泛的研究。尽管有限，但有关RIS辅助JCAS的研究正在兴起。</p>
+</section>
+<section id="clutter-suppression-techniques" class="slide level2">
+<h2>Clutter Suppression Techniques</h2>
+<p>移动网络中的丰富多径为pmn中的感测参数估计带来了另一个挑战。在典型的环境中，bs接收源自永久或长周期静态对象的许多多径信号。这些信号对于通信是有用的，但是对于固定BS，它们通常对于连续感测是不感兴趣的，因为它们承载很少的新信息。这种不期望的多径信号在传统雷达文献中被称为杂波。在pmn中，如果多径信号在很大程度上保持不变并且在感兴趣的时间段内具有接近零的多普勒频率，则我们将其视为杂波。由于移动网络丰富的多径环境，接收到的信号中可能存在大量杂波。杂波包含很少的信息，最好从发送到感测参数估计器的信号中去除。</p>
+</section>
+<section id="clutter-suppression-techniques-1" class="slide level2">
+<h2>Clutter Suppression Techniques</h2>
+<div class="columns">
+<div class="column">
+<p>可以有两种杂波抑制方式，如图所示: 在估计感测参数之后或之前进行抑制。前者对传感参数估计不引入信号失真，后者可以减少待估计的未知传感参数。高端军用/家用雷达可以同时检测和跟踪数百个物体，并且该能力建立在先进的硬件上，例如成百上千个天线元件的巨大天线阵列。因此，两种方式都可以应用。</p>
+</div><div class="column">
+<p><img data-src="images/06bf75a6c9ddf49641088c08630148f2a99ab97f53541bed6e9367a72fe4e4ba.png"></p>
+</div></div>
+</section>
+<section id="sensing-parameter-estimation" class="slide level2 smaller">
+<h2>Sensing Parameter Estimation</h2>
+<p>Pmn中的感测任务既包括用于定位对象和估计其移动速度的感测参数的显式估计，又包括面向应用的模式识别，例如对象和行为识别和分类。</p>
+<p>我们注意到，传感参数估计是非线性问题，因此无法应用已广泛用于通信信道估计的大多数经典线性估计器。典型的传感参数估计技术可以分类如下: 周期图，例如2D DFT，基于子空间的频谱分析技术，网格上压缩传感 (CS) 算法，离网CS算法和网格致密化以及张量工具。这些技术中的大多数具有比经典信道估计算法更高的复杂度。由于所需的感测速率通常在几毫秒到几秒的量级，因此在bs处可以承受这种高计算复杂度。</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="images/056e5656cc3d571de19caa74d9f53b4b7a0828ef540a173f8a097cda47f591cc.png"></p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/c4af4a2f8095821d7fec96fb8f3083162ddaa79ba73b29c64d27d18e51afc49d.png"></p>
+</div></div>
+</section>
+<section id="resolution-of-sensing-ambiguity" class="slide level2">
+<h2>Resolution of Sensing Ambiguity</h2>
+<p>在pmn中，特别是在上行链路感测中，感测接收器和发送器之间通常没有时钟级同步。在这种情况下，在接收信号中存在定时和载波频率偏移。由于振荡器稳定性，它们两者通常是时变的。在通信中，定时偏移可以被吸收到信道估计中，并且CFO可以被估计和补偿。它们的残差变得足够小，可以忽略。不同地，在感测中，它们引起测量模糊性和准确度降级。定时偏移可以直接引起定时模糊性，然后引起测距模糊性，并且CFO可以引起多普勒估计模糊性，然后引起速度模糊性。它们还防止聚合来自不连续分组的信号以用于联合处理，因为它们引起跨分组或CSI测量的未知和随机相移。因此，解决时钟定时偏移问题非常重要。如果它被解决，则可以有效地实现上行链路感测，需要网络基础设施的很少改变。</p>
+</section>
+<section id="pattern-analysis" class="slide level2">
+<h2>Pattern Analysis</h2>
+<p>使用无线电信号，通过结合机器学习和信号处理技术，可以实现面向应用程序的高级对象，行为和事件识别和分类。可以使用或不使用提供位置和速度信息的感测参数估计结果来实现它们。</p>
+<p>尽管使用移动信号进行模式分析的工作仍处于起步阶段，但我们已经看到了一些有趣的例子。正如我们从许多成功的WiFi传感应用中观察到的那样，我们可以预见它在不久的将来会蓬勃发展。使用WiFi信号进行对象和行为识别和分类已得到很好的证明。pmn具有比WiFi系统更先进的基础设施，包括更大的天线阵列、更强大的信号处理能力以及分布式和协作节点。使用大规模MIMO，pmnbs等同地拥有大量用于感测的 “像素”。它能够一次解析多个物体，并以更好的视野和分辨率获得成像结果，就像光学相机一样。</p>
+</section>
+<section id="蜂窝拓扑下的网络感知" class="slide level2 smaller">
+<h2>蜂窝拓扑下的网络感知</h2>
+<p>mn为蜂窝结构下的无线电感测提供了巨大的机会，这可能远远超出分布式雷达系统的规模和复杂性。蜂窝拓扑下的联网传感的主要挑战仍然是解决不同节点之间的竞争和合作以进行传感性能表征和算法开发的方式。目前这方面的研究几乎是空白。在这里，我们设想了两个潜在的研究方向。</p>
+<ul>
+<li><p>“细胞传感网络” 的基本理论和性能界限: 这是关于研究细胞结构在提高频谱效率和传感性能方面的潜力，并为这种改进开发基本理论和性能界限。类似于通信，蜂窝网络也直观地增加了频率重用因子，并因此增加了用于感测的总体 “容量”。随机几何模型可能是用于分析感测网络中的动态的优秀工具，如在 <sup>1</sup> 中已应用于表征自主车辆网络中的聚集雷达干扰。</p></li>
+<li><p>利用节点分组和协作的分布式感测: 利用联网感测的一种方式是通过对ue进行调度和分组来开发分布式和协作感测技术，并且实现rru之间的协作。一方面，现有的研究表明，分布式雷达技术可以通过提供大的空间多样性和宽角度观测来提高位置分辨率和运动目标检测。可以通过优化波形设计和雷达节点的放置来最大化这种多样性。在pmn中，我们可以对多个ue的感测结果进行分组以改善上行链路感测。另一方面，分布式雷达可以实现高分辨率定位，利用来自不同分布式节点的载波信号的相干相位差 。这需要雷达节点之间的相位同步，并且只能通过对rru进行分组在下行链路感测中潜在地实现。对于这两种情况，我们都可以开发分布式传感技术，利用对分布式波束成形和协作通信的广泛研究工作。在 <sup>2</sup> 中描述了合作检测和定位/感测的一个示例，其中提出了基于广义似然比测试检测器的合作目标检测方案。</p></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn38"><p>Stochastic geometry methods for modeling automotive radar interference</p></li><li id="fn39"><p>Cooperative detection by multi-agent networks in the presence of position uncertainty,</p></li></ol></aside></section>
+<section id="sensing-assisted-communications" class="slide level2">
+<h2>Sensing-Assisted Communications</h2>
+<p>当通信和传感集成时，重要的是要了解它们如何相互受益。在pmn的上下文中，可以利用至少以下技术来改进使用感测结果的通信: 感测辅助波束成形和安全通信。</p>
+</section>
+<section id="sensing-assisted-communications-1" class="slide level2 smaller">
+<h2>Sensing-Assisted Communications</h2>
+<h3 id="感知辅助波束成形">感知辅助波束成形</h3>
+<p>波束成形是用于在某些方向上集中传输以实现高天线阵列增益的重要技术，并且对于毫米波系统至关重要。然而，由于窄波束宽度，一旦LOS传播信道被阻塞，在毫米波通信系统中找到正确的波束成形方向并更新指向方向通常是耗时的。已经提出了利用sub-6GHz信号的传播信息来提高移动网络中毫米波通信的波束成形速度的技术。这些技术利用了两个频带的信道之间的空间相关性，然而，这是特定于地点的，并且由于环境动态而需要实时更新。由于两个频带之间的信号波长的巨大差异，转换也可能是不准确的。相比之下，使用在类似毫米波频段工作的雷达可以潜在地提供详细的传播信息，这对于波束成形更新和跟踪是理想的。</p>
+<p>尽管上述工作证明了PMN中感测辅助波束成形的可行性和潜力，但仍有一些主要问题有待解决以使其实用。一个问题是如何将感测结果转化为波束成形设计。特别地，下行链路感测结果与对象相关联，而通信信道与对象的天线相关联。给定车辆的大小，它们之间可能会有很大的偏移。另一个问题是如何处理多重反射。当存在来自不同方向的多个反射时，信号的相位也将在波束形成中起重要作用，但是它们通常不能在雷达感测中被准确地估计。这两个问题的一个潜在解决方案是在PMN中组合上行链路和下行链路感测。下行链路感测可以为初始波束成形提供快速和粗略的信息，而上行链路感测可以在复杂的传播环境中提供更详细和准确的信息。</p>
+</section>
+<section id="sensing-assisted-communications-2" class="slide level2 smaller">
+<h2>Sensing-Assisted Communications</h2>
+<h3 id="传感辅助安全通信">传感辅助安全通信</h3>
+<p>无线电传感为周围环境中的有源发射器和无源物体提供了信息通道组成。这种详细的信道信息可以用于安全的无线通信，对此的研究仍处于起步阶段。</p>
+<p>详细信道构成信息的一个重要运用是在物理层平安技巧中。当前的物理层安全研究主要基于信道状态信息 <sup>1</sup>，使用例如人工噪声辅助的、面向安全的波束成形和物理层密钥生成方法。在 <sup>2</sup> 中已经尝试了这一点，其中采用人工噪声方法在JCAS系统中实现安全波束成形，以对抗窃听者。基于CSI的物理层密钥生成已被广泛研究，并且被证明对于安全通信非常有效。然而，CSI的保密容量通常是有限的，因为它隐藏了信道传播细节并且是许多传播路径的总和。相比之下，感测结果包含关于一对发射器和接收器之间的环境的更重要的信息。它们可以激发蜂窝通信网络中提供更多信息的秘密密钥生成方法和协议。首先，我们可以表征pmn的保密能力，并开发用于信息加密的实用密钥生成方法</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn23"><p>Multibeam for joint communication and radar sensing using steerable analog antenna arrays,</p></li><li id="fn24"><p>Optimization and quantization of multibeam beamforming vector for joint communication and radio sensing</p></li><li id="fn25"><p>Multibeam optimization for joint communication and radio sensing using analog antenna arrays</p></li><li id="fn26"><p>Millimeter-Wave for 5G: Unifying Communication and Sensing</p></li></ol></aside></section></section>
+<aside><ol class="aside-footnotes"><li id="fn40"><p>A survey on wireless security: Technical challenges, recent advances, and future trends</p></li><li id="fn41"><p>Secure radar-communication systems with malicious targets: Integrating radar, communications and jamming functionalities</p></li></ol></aside></section></section>
 
     </div>
   </div>
