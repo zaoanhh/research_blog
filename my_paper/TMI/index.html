@@ -10,11 +10,9 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.553">
 
-  <meta name="author" content="Ammar Ahmed">
-  <meta name="author" content="Yimin D. Zhang">
-  <meta name="author" content="Braham Hime">
+  <meta name="author" content="Fei Shang, Haohua Du, Panlong Yang, Xin He, Wen Ma, and Xiang-Yang Li">
   <meta name="dcterms.date" content="2024-09-12">
-  <title>Research Tips - Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation</title>
+  <title>Research Tips - Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -32,71 +30,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -394,165 +327,195 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation</h1>
+  <h1 class="title">Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ammar Ahmed 
-</div>
-</div>
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Yimin D. Zhang 
-</div>
-</div>
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Braham Hime 
+Fei Shang, Haohua Du, Panlong Yang, Xin He, Wen Ma, and Xiang-Yang Li 
 </div>
 </div>
 </div>
 
   <p class="date">September 12, 2024</p>
 </section>
-<section id="原论文引用信息" class="slide level2">
-<h2>原论文引用信息</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bibtex number-lines code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a></a><span class="va">@INPROCEEDINGS</span>{<span class="ot">8835674</span>,</span>
-<span id="cb1-2"><a></a>  <span class="dt">author</span>={Ahmed, Ammar and Zhang, Yimin D. and Himed, Braham},</span>
-<span id="cb1-3"><a></a>  <span class="dt">booktitle</span>={2019 IEEE Radar Conference (RadarConf)}, </span>
-<span id="cb1-4"><a></a>  <span class="dt">title</span>={Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation}, </span>
-<span id="cb1-5"><a></a>  <span class="dt">year</span>={2019},</span>
-<span id="cb1-6"><a></a>  <span class="dt">volume</span>={},</span>
-<span id="cb1-7"><a></a>  <span class="dt">number</span>={},</span>
-<span id="cb1-8"><a></a>  <span class="dt">pages</span>={1-5},</span>
-<span id="cb1-9"><a></a>  <span class="dt">doi</span>={10.1109/RADAR.2019.8835674}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="摘要" class="slide level2">
-<h2>摘要</h2>
-<p>在本文中，我们提出了一种新颖的分布式双功能雷达通信 (DFRC) MIMO系统，该系统能够同时执行雷达和通信任务。雷达目标是实现期望的目标定位性能，而通信目标是优化整体数据速率。分布式DFRC MIMO系统通过优化DFRC系统中不同发射机的功率分配来实现这两个目标。在每个发射器处使用雷达波形的字典，并且通过利用波形分集将通信信息嵌入在雷达波形中。所提出的策略可以服务于位于分布式DFRC MIMO系统附近的多个通信接收器。仿真结果验证了所提策略的性能。</p>
-</section>
-<section id="背景" class="slide level2">
-<h2>背景</h2>
-<p>在DFRC系统中，发射的波形服务于雷达和通信功能。雷达操作被认为是DFRC系统的主要目标，而通信操作被认为是次要目标。 最近的DFRC技术可以大致分为两大类。</p>
-<ul>
-<li>第一类包括基于<span class="bg" style="--col: #ef7a82">波形分集</span>的方法，其利用能够执行雷达操作的波形的字典。通过从字典中选择波形作来启用通信操作</li>
-<li>第二类还采用基于<span class="bg" style="--col: #ef7a82">波束成形</span>的空间复用技术来实现DFRC操作。</li>
-</ul>
-</section>
-<section id="背景-1" class="slide level2">
-<h2>背景</h2>
-<p>已知具有广泛分布的天线的多输入多输出 (MIMO) 雷达系统由于增强的空间扩展而提供改进的定位能力。通过增加参与雷达的数量或发射能量，可以进一步提高分布式MIMO雷达的定位性能。 许多旨在提高定位精度的分布式MIMO雷达系统的案例都集中在基于cramer-rao边界 (CRB) 的资源软件方案。 资源感知设计对于网络中传感器节点的部署非常重要，以降低运营成本。 为了增强这些系统的性能，参与的雷达通常与地面站，融合中心或使用无线链路以分布式方式连接。因此，现代分布式雷达需要同时执行雷达和通信功能，同时考虑现场资源限制。<span class="bg" style="--col: #ef7a82">然而，对于分布式MIMO雷达架构的情况，DFRC方法尚未得到充分解决。</span></p>
-</section>
-<section id="做了什么" class="slide level2">
-<h2>做了什么</h2>
-<p>提出了一种用于分布式MIMO雷达的新颖的资源感知DFRC策略。我们讨论了分布式DFRC MIMO系统的<span class="bg" style="--col: #ef7a82">最佳功率分配</span>，以实现所需的目标定位和无线通信性能。定位精度是根据CRB来解决的，而通信性能是根据最佳香农容量来衡量的。仿真结果给出了分布式DFRC MIMO系统中每个发射机的最佳功率分配。</p>
-</section>
-<section>
-<section id="系统建模" class="title-slide slide level1 center" data-background-color="#40666e">
-<h1>系统建模</h1>
+<section id="background" class="slide level2">
+<h2>Background</h2>
+<p>ISAC has been conceptualized, designed, and optimized for making communication and sensing functions complementary to each other. The different goals bring the inherent <span class="alert">trade-off</span> between communication and sensing performance when integrating them together.</p>
 
+<img data-src="images/3eca065258a90fae9888648251abcb88eafe6eab56d133cfcfddd30dd9b50728.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="motivation" class="slide level2">
+<h2>Motivation</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The ISAC system can be formulated by</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[\mathbf{Y}=\mathbf{H}\mathbf{X}+\mathbf{N},\]</span></p>
+<p>where <span class="math inline">\(\mathbf{Y}\)</span> is the received signal, <span class="math inline">\(\mathbf{X}\)</span> is the transmitted signal, <span class="math inline">\(\mathbf{H}\)</span> is the channel status, and <span class="math inline">\(\mathbf{N}\)</span> is the noise that might be introduced by sensed objects.</p>
+</div>
+</div>
+</div>
+<p>Intuitively, the system sensing capability can be evaluated by analyzing how the received signals reflect the channel status, such as sensing <span class="alert">mutual information</span> <span class="math inline">\(I(\mathbf{H};\mathbf{Y})\)</span>.</p>
 </section>
-<section id="雷达子系统" class="slide level2 smaller">
-<h2>雷达子系统</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="images/b66c1ad5a140defa02c7548aa6541ee1f2f5bbc2e482ddecddafa8daffb965c2.png"></p>
-</div><div class="column" style="width:60%;">
+<section id="motivation-1" class="slide level2">
+<h2>Motivation</h2>
+<h4 id="howerve-it-doesnt-work-well-for-the-following-two-reasons.">Howerve, it doesn’t work well for the following two reasons.</h4>
 <ul>
-<li>考虑一个窄带分布式MIMO雷达系统，由 <span class="math inline">\(M\)</span> 个发射机和 <span class="math inline">\(N\)</span> 个接收机组成，它们在二维 (2-D) 坐标系中任意地位于 <span class="math inline">\((x_m，y_m)\)</span> 和 <span class="math inline">\((x_n，y_n)\)</span></li>
-<li>假设目标坐标为 <span class="math inline">\((x,y)\)</span>，其主要目的是跟踪目标位置。</li>
-<li>在每个雷达脉冲期间，每个发射机辐射单位功率正交波形 <span class="math inline">\(s_m(t)\)</span>，即有 <span class="math inline">\((1/T)\int_0^T|s_m(t)|^2dt=1\)</span> 并且 <span class="math inline">\((1/T)\int_0^Ts_m(t)s_n^*(t)dt=0\)</span> 对于 <span class="math inline">\(m \neq n\)</span> 成立。</li>
-<li>第 <span class="math inline">\(m\)</span> 个发射机和第 <span class="math inline">\(n\)</span> 个接收机对应的雷达信号表示为: <span class="math inline">\(s_{m,n}(t)=\sqrt{\alpha_{m,n}p_{m_{\mathrm{tx}}}}h_{m,n}s_m(t-\tau_{m,n})+w_{m,n}(t)\)</span></li>
+<li><p>The relationship between the sensing capability of such features and the signal itself is ambiguous.</p></li>
+<li><p>The sensing capability analysis must be designed to operate for all possible types.</p></li>
 </ul>
+
+<img data-src="images/d7bf6214b1674bba7c32fa10c81bfb6f5118739bcb0bf511020c328433b263b3.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section>
+<section id="what-do-we-do" class="title-slide slide level1 center">
+<h1>What do we do?</h1>
+<p>In this paper, we propose a general sensing channel encoder model to help determine the sensing capability – the upper bound and lower bound of error in restoring the sensed object from given wireless signal features.</p>
+</section>
+<section id="model-definitions" class="slide level2">
+<h2>Model definitions</h2>
+<p>A typical sensing process often comprises several components: the <span class="alert">target status</span> to be sensed (<span class="math inline">\(W\)</span>), the <span class="alert">feature</span> (<span class="math inline">\(X^n\)</span>) designed to sense the status, the sensing <span class="alert">channel embedding</span> (<span class="math inline">\(Y^n\)</span>) obtained through the sensing system, and the <span class="alert">result</span> (<span class="math inline">\(\hat{W}\)</span>) derived after processing the signal.</p>
+
+<img data-src="images/45aed348a0ee0a87ed5652bbb41ece8b0dc938fc2d74f41e4b51740f7d3014e1.png" class="r-stretch"></section>
+<section id="model-definitions-1" class="slide level2">
+<h2>Model definitions</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>DTMI</strong></p>
+</div>
+<div class="callout-content">
+<p>The discrete task mutual information (DTMI) is defined as the mutual information between the feature <span class="math inline">\(X^n\)</span> and the channel embedding <span class="math inline">\(Y^n\)</span>, i.e., <span class="math inline">\(I(X^n;Y^n)\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Conditional error probability</strong></p>
+</div>
+<div class="callout-content">
+<p>The conditional error probability <span class="math inline">\(\xi _i\)</span> when the target status is <span class="math inline">\(w_i\)</span> is defined as: <span class="math display">\[
+        \xi _i = \Pr(\hat{W}\neq w_i|W=w_i).
+        \label{eq:lambda_i}
+    \]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Expected value of the error</strong></p>
+</div>
+<div class="callout-content">
+<p>The expected value of the error, denoted as <span class="math inline">\(P_E^{n}\)</span>, is articulated as follows: <span class="math display">\[
+        P_E^{n} = \sum_{i=1}^{m} p(w_i)\xi _i.
+        \label{eq:error}
+    \]</span></p>
+</div>
+</div>
 </div>
 </div>
 </section>
-<section id="雷达子系统-1" class="slide level2 smaller">
-<h2>雷达子系统</h2>
-<p>可以根据代表均方误差下限的CRB来评估雷达性能：</p>
-<p><span class="math display">\[\sigma_{x,y}(\mathbf{p}_{tx})=\frac{\mathbf{q}^T \mathbf{p}_{tx}}{\mathbf{p}_{tx}^T\mathbf{A}\mathbf{p}_{tx}}\]</span></p>
-<p>其中 <span class="math inline">\(\mathbf{q}=\mathbf{q}_a+\mathbf{q}_b\)</span>，<span class="math inline">\(\mathbf{A}=\mathbf{q}_a\mathbf{q}_b^\mathrm{T}-\mathbf{q}_c\mathbf{q}_c^\mathrm{T}\)</span>, <span class="math inline">\(\mathbf{q}_a = [q_{a_1},q_{a_2},\ldots,q_{a_M}]^\mathrm{T}\)</span>, <span class="math inline">\(\mathbf{q}_b = [q_{b_1},q_{b_2},\ldots,q_{b_M}]^\mathrm{T}\)</span>, <span class="math inline">\(\mathbf{q}_c = [q_{c_1},q_{c_2},\ldots,q_{c_M}]^\mathrm{T}\)</span>，<span class="math inline">\(\xi_m = 8\pi^2\mathcal{B}_m^2/(\sigma_w^2c^2)\)</span>。</p>
-<p><span class="math display">\[\begin{aligned}
-&amp;q_{a_m}= \xi_{m}\underset{n=1}{\sum}\alpha_{m,n}|h_{m,n}|^{2}\Bigg(\frac{x_{m}-x}{D_{m_{\mathrm{tx}}}}+\frac{x_{n}-x}{D_{n_{\mathrm{rx}}}}\Bigg)^{2}, \\
-&amp;q_{b_m}= \xi_{m}\underset{n\boldsymbol{=}1}{\sum}\alpha_{m,n}{\left|h_{m,n}\right|}^{2}{\left(\frac{y_{m}-x}{D_{m_{\mathrm{tx}}}}+\frac{y_{n}-x}{D_{n_{\mathrm{rx}}}}\right)}^{2}, \\
-&amp;q_{c_m}= \xi_{m}\underset{n=1}{\sum}\alpha_{m,n}{\left|h_{m,n}\right|}^{2}\Bigg(\frac{x_{m}-x}{D_{m_{\mathrm{tx}}}}+\frac{x_{n}-x}{D_{n_{\mathrm{rx}}}}\Bigg)\Bigg(\frac{y_{m}-x}{D_{m_{\mathrm{tx}}}}+\frac{y_{n}-x}{D_{n_{\mathrm{rx}}}}\Bigg)
-\end{aligned}\]</span></p>
-</section>
-<section id="通信子系统" class="slide level2">
-<h2>通信子系统</h2>
-<p>考虑位于分布式DFRC MIMO系统附近的 <span class="math inline">\(R\)</span> 个通信接收器。<span class="fg" style="--col: #c3272b">假设从雷达目标反射并在每个通信接收机处接收的信号与来自发射机的视线传输相比具有明显更低的幅度，因此被忽略</span>。 然后，我们可以将第<span class="math inline">\(r\)</span>个接收器处的接收信号表示为</p>
-<p><span class="math display">\[s_{m,r}(t)=\sqrt{\beta_{m,r}p_{m_{\mathrm{tx}}}}g_{m,r}s_{m}(t-\kappa_{m,r})+w_{m,r}(t)\]</span></p>
-<p>根据所实现的香农容量来评估通信性能。从第 <span class="math inline">\(m\)</span> 个发射机到第 <span class="math inline">\(r\)</span> 个接收机的数据速率用香农的容量表示为: <span class="math display">\[\Re_{m,r}=\log_2\left(1+\frac{\left|g_{m,r}\right|^2p_{m_{\text{tx}}}}{\Gamma_{m,r}\sigma_{m,r}^2}\right)=\log_2\left(1+\frac{p_{m,\text{tx}}}{\gamma_{m,r}}\right)\]</span></p>
+<section id="bound" class="slide level2">
+<h2>Bound</h2>
+<div id="imp-lowbound">
+<div id="imp-lowbound" class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Lower bound</strong></p>
+</div>
+<div class="callout-content">
+<p>For a sensing task <span class="math inline">\(W\)</span> with <span class="math inline">\(m\)</span> statuses, we use <span class="math inline">\(n\)</span> independent features to describe the status of the target. The expected value of the error <span class="math inline">\(P_E^{n}\)</span> satisfies the following lower bound: <span class="math display">\[
+        P_E^{n}+ \frac{H(P_E^n)}{\log m}\geq \frac{H(W)-I(X^n;Y^n)}{\log m},
+        \label{eq:lowbound}
+    \]</span> where <span class="math inline">\(H(P_E^n)=-P_E^n \log P_E^n - (1-P_E^n)\log(1-P_E^n)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="imp-upbound">
+<div id="imp-upbound" class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Up bound</strong></p>
+</div>
+<div class="callout-content">
+<p>For a sensing task with <span class="math inline">\(m\)</span> statuss, we use <span class="math inline">\(n\)</span> independent features to describe the status of the target. For sufficiently large <span class="math inline">\(n\)</span>, the expected value of the error <span class="math inline">\(P_E^{n}\)</span> satisfies the following upper bound: <span class="math display">\[
+        P_E^{n}\leq \varepsilon + \sum_{k=1}^m p(w_k) \sum_{j\neq k}^m 2^{3n\varepsilon-\sum_{i=1}^n I(X_i(w_j);Y_i(w_k))}
+        \label{eq:upbound}
+    \]</span></p>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
-<section id="分布式dfrc-mimo系统的最优功率分配" class="title-slide slide level1 center" data-background-color="#40666e">
-<h1>分布式DFRC MIMO系统的最优功率分配</h1>
+<section id="corollary" class="title-slide slide level1 center">
+<h1>Corollary</h1>
+<p>Previous excellent sensing systems have summarized many valuable experiences, such as multi-modal systems tend to achieve better sensing <span class="alert">performance</span>. However, these experiences currently lack theoretical explainability. In this section, we employ sensing channel encoder model and DTMI as tools to attempt to <span class="alert">explain</span> some classic phenomena.</p>
+</section>
+<section id="why-do-multimodal-systems-tend-to-exhibit-superior-performance" class="slide level2">
+<h2>Why do multimodal systems tend to exhibit superior performance?</h2>
+<p>Many previous research works have shown that using multi-modality for sensing helps achieve better performance, which can be explained by the theorem we proved previously.</p>
 
+<img data-src="images/67c39ecccd21c114c54b9b98fe49e7c93ae469d6df56d4f5e3c328452aa6dc80.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="how-do-we-compare-which-of-two-sensing-features-is-better" class="slide level2">
+<h2>How do we compare which of two sensing features is better?</h2>
+<p>In this paper, we propose <span class="alert">DTMI</span> which can reflect the performance of sensing features to a certain extent. Specifically, we consider two features <span class="math inline">\(X\)</span> and <span class="math inline">\(X'\)</span>. After passing through the sensing channel, their corresponding channel embeddings are <span class="math inline">\(Y\)</span> and <span class="math inline">\(Y'\)</span>, respectively. According to <a href="#/bound" class="quarto-xref">Important&nbsp;1</a> and <a href="#/bound" class="quarto-xref">Important&nbsp;2</a>, both the upper and lower bounds of the expected error are related to the DTMI. If the DTMI <span class="math inline">\(I(X;Y)&gt;I(X';Y')\)</span>, the upper and lower bounds of the expected value of the error <span class="math inline">\(P_E\)</span> will be reduced, which means that it is easier to achieve good performance using <span class="math inline">\(X\)</span> as sensing features.</p>
+<p><span class="alert">This necessitates alternative approaches, beyond experimental validation, to assess the performance of designed sensing features.</span></p>
 </section>
-<section id="仅雷达操作" class="slide level2 smaller">
-<h2>仅雷达操作</h2>
-<p>仅雷达操作的最佳功率分配在<sup>1</sup> 中得出:</p>
-<p><span class="math display">\[\begin{aligned}&amp;\text{minimize}&amp;&amp;\mathbf{1}_{1\times M}\mathbf{p}_{\mathrm{tx}}\\&amp;\text{subject to}&amp;&amp;\mathbf{p}_{\mathrm{tx,min}}\leq\mathbf{p}_{\mathrm{tx}}\leq\mathbf{p}_{\mathrm{tx,max}}\\&amp;&amp;&amp;\sigma_{x,y}(\mathbf{p}_{\mathrm{tx}})=\eta.\end{aligned}\]</span></p>
-<p><span class="bg" style="--col: #ef7a82">优化使分布式MIMO雷达的总发射功率最小化，使得实现根据crbn描述的期望的定位精度。</span></p>
-<p>上式可以被宽松为：</p>
-<p><span class="math display">\[\begin{aligned}&amp;\text{minimize}&amp;&amp;\mathbf{1}_{1\times M}\mathbf{p}_{\mathrm{tx}}\\&amp;\text{subject to}&amp;&amp;\mathbf{p}_{\mathrm{tx,min}}\leq\mathbf{p}_{\mathrm{tx}}\leq\mathbf{p}_{\mathrm{tx,max}}\\&amp;&amp;&amp;\mathbf{q}-\eta\mathbf{A}\mathbf{p}_{\mathrm{tx}}\leq\mathbf{0}.\end{aligned}\]</span></p>
-<p>其可以用作应用于原始优化的局部优化的起始点。</p>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Power allocation strategies for target localization in distributed multiple-radar architectures</p></li></ol></aside></section>
-<section id="仅通信系统" class="slide level2 smaller">
-<h2>仅通信系统</h2>
-<p>我们假设从每个发射机发送的波形被广播到位于DFRC发射机附近的所有通信用户。我们假设信道边信息在DFRC发射机和通信接收机处是已知的。因此，我们通过利用传统的<a href="https://levitate-qian.github.io/2021/05/03/Wireless-Communications-Ch-4/">注水法</a>来优化功率分配<sup>1</sup>。对于所有通信接收机，通过同时求解以下等式来实现最大允许发射功率的最佳:</p>
-<p><span class="math display">\[\mathbf{U}\left[\begin{array}{c}\mathbf{p}_{\mathrm{tx}}\\X_{r}\end{array}\right]=\left[\begin{array}{c}P_{\mathrm{total}_{\mathrm{max}}}\\\mathbf{\gamma}_{r}\end{array}\right]\]</span></p>
-<p>其中 <span class="math display">\[\left.\mathbf{U}=\left[\begin{array}{cc}\mathbf{1}_{1\times M}&amp;0\\\mathbf{I}_{M\times M}&amp;-\mathbf{1}_{1\times M}^\mathrm{T}\end{array}\right.\right],\quad\boldsymbol{\gamma}_r=-\left[\begin{array}{c}\gamma_{1,r}\\\gamma_{2,r}\\\vdots\\\gamma_{M,r}\end{array}\right]\]</span></p>
-<p>其中 <span class="math inline">\(X_r\)</span> 表示注水功率水平。</p>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>A. Goldsmith, Wireless Communications, Cambridge University Press, 2005</p></li></ol></aside></section>
-<section id="仅通信系统-1" class="slide level2">
-<h2>仅通信系统</h2>
-<p>可以根据不同的通信用户的信道边信息为不同的通信用户提供不同的最佳功率分配。此外，方程的解如果任何信道具有深衰落，也可以提供负功率。因此，我们可以对于所有的通信接收机为以下约束最小二乘优化问题：</p>
-<p><span id="eq-comm-opt"><span class="math display">\[\begin{aligned}
-\text{minimize}\quad  &amp;\sum_{r=1}^R\left|\mathbf{V}\left[\begin{array}{c}\mathbf{p}_\mathrm{tx}\\X_r\end{array}\right]-\boldsymbol{\gamma}_r\right|_2\\
-\text{subject to}\quad &amp;\mathbf{p}_{\mathrm{tx,min}}\leq\mathbf{p}_{\mathrm{tx}}\leq\mathbf{p}_{\mathrm{tx,max}},\\&amp;\mathbf{1}^{\mathrm{T}}\mathbf{p}_{\mathrm{tx}}\leq P_{\mathrm{total}_{\mathrm{max}}},\\&amp;X_r\geq0,\quad r=1,2,\ldots,R,\end{aligned} \qquad(1)\]</span></span></p>
-</section>
-<section id="双功能雷达-通信" class="slide level2">
-<h2>双功能雷达-通信</h2>
-<p>我们可以在优化问题 <a href="#/仅通信系统-1" class="quarto-xref">Equation&nbsp;1</a> 中加入雷达性能约束，得到如下修正凸优化问题:</p>
-<p><span class="math display">\[\begin{aligned}
-\text{minimize}\quad  &amp;\sum_{r=1}^R\left|\mathbf{V}\left[\begin{array}{c}\mathbf{p}_\mathrm{tx}\\X_r\end{array}\right]-\boldsymbol{\gamma}_r\right|_2\\
-\text{subject to}\quad &amp;\mathbf{p}_{\mathrm{tx,min}}\leq\mathbf{p}_{\mathrm{tx}}\leq\mathbf{p}_{\mathrm{tx,max}},\\&amp;\mathbf{q}-\eta\mathbf{Ap}_\mathrm{tx}\leq\mathbf{0}\\&amp;\mathbf{1}^{\mathrm{T}}\mathbf{p}_{\mathrm{tx}}\leq P_{\mathrm{total}_{\mathrm{max}}},\\&amp;X_r\geq0,\quad r=1,2,\ldots,R,\end{aligned}\]</span></p>
-</section></section>
-<section>
-<section id="信息嵌入" class="title-slide slide level1 center" data-background-color="#40666e">
-<h1>信息嵌入</h1>
+<section id="is-data-pre-processing-a-cure-all-solution" class="slide level2">
+<h2>Is data pre-processing a “cure-all” solution?</h2>
+<p>If the following equation holds, <span class="math display">\[
+        H(W)-I(X^n;D^l) &gt; 1,
+\]</span> lossless sensing cannot be achieved simply by improving the effect of data preprocessing.</p>
 
+<img data-src="images/c7e0da921a789268f3154fe6319b5343ec3d10022043e8ae21772127ddbdc67b.png" class="r-stretch"></section>
+<section id="case-study" class="slide level2">
+<h2>Case study</h2>
+<h3 id="human-detection-based-on-wifi-devices.">Human detection based on WiFi devices.</h3>
+<p><img data-src="images/aacbdce7e1e1c011506977f729c03767006f8cf48043afae63f7e0c420fda186.png"></p>
+<p><img data-src="images/0a5b3c6dc02c3f27e7bf4e9451c7fd1fd1110f12eff13880f46f0713500f3953.png"></p>
 </section>
-<section id="section" class="slide level2 smaller">
-<h2></h2>
-<p>信息嵌入可以通过利用波形分集来完成。如果为每个发射器分配K个雷达波形的字典，则在一个雷达脉冲期间从分布式DFRC MIMO系统发送的总比特为 <span class="math inline">\(M \log_2 K\)</span>，前提是字典不重叠并且所有发射器都处于活动状态。 在通信接收器r处接收的信号可以表示为: <span class="math display">\[\begin{aligned}
-s_r(t)&amp; =\sum_{m=1}^Ms_{m,r}(t) \\
-&amp;=\sum_{m=1}^M\sqrt{\beta_{m,r}p_{m_{\mathrm{tx}}}}g_{m,r}s_m(t-\kappa_{m,r})+w_r(t)
-\end{aligned}\]</span></p>
-<p>可以在通信接收器处利用匹配滤波来通过馈送时间延迟版本来合成嵌入的信息: <span class="math display">\[\begin{aligned}
-y_r(k)&amp; =\frac{1}{T}\int_0^Ts_r(t+k\Delta t)s_m^*(t)dt \\
-&amp;=\left\{\begin{array}{ll}\sqrt{\beta_{m,r}p_{m_{\text{tx}}}}g_{m,r}+w_{r,k}(t),&amp;\text{if }s_m(t)\text{ transmitted,}\\w_{r,k}(t),&amp;\text{otherwise,}\end{array}\right.
-\end{aligned}\]</span></p>
-</section>
-<section id="仿真" class="slide level2">
-<h2>仿真</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="images/962287eabcf021b225b39e8427972431cb8d1dbe9bdffa753168f61b600cceaf.png"></p>
-</div><div class="column" style="width:60%;">
-<p><img data-src="images/5e16bd099478eb2f9c5a9e41f7b547d9af51771c226cb91cc74c6df4b756dc1b.png"></p>
-</div>
-</div>
+<section id="case-study-1" class="slide level2">
+<h2>Case study</h2>
+<h3 id="rfid-based-electrical-cabinet-door-direction-monitoring.">RFID-based electrical cabinet door direction monitoring.</h3>
+<p>Given the cost-effectiveness and ease of deployment of RFID tags, we have developed an algorithm for monitoring cabinet door status using multiple tags. Furthermore, we employ the mutual information of tasks, as proposed in this paper, to assess the system’s performance.</p>
 
-<div class="quarto-auto-generated-content">
+<img data-src="images/e8fcc4835932f118227efe33609094bf56f3b411236c7f5bc84e963ae621584d.png" class="r-stretch"></section>
+<section id="direction-estimation-based-on-music-algorithm-and-electromagnetic-signal." class="slide level2">
+<h2>Direction estimation based on Music algorithm and electromagnetic signal.</h2>
+
+
+<img data-src="images/8f47bfeaf2c1bda284504ada7b25a5f6bd5060b1c518cd2e547242507db0dd3a.png" class="r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
 </section></section>
-
     </div>
   </div>
 

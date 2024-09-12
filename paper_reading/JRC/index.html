@@ -8,11 +8,11 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.56">
+  <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="尚飞">
   <meta name="dcterms.date" content="2024-09-01">
-  <title>Research Tips – 联合雷达和通信</title>
+  <title>Research Tips - 联合雷达和通信</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,7 +31,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/white.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -371,11 +371,14 @@
 <p><span class="math inline">\(P_r=\frac{P_tG_tG_r\lambda^2\sigma F^4}{\left(4\pi\right)^3R^4}\)</span></p>
 <h4 id="range-resolution">Range resolution</h4>
 <p><span class="math inline">\(\Delta R=\frac{c\tau}2\)</span>, <span class="math inline">\(\Delta V=\frac{c}{2f_{c}T_{c}},\)</span></p>
-</div><div class="column" style="width:5%;">
+</div>
+<div class="column" style="width:5%;">
 
-</div><div class="column" style="width:45%;">
+</div>
+<div class="column" style="width:45%;">
 <p><img data-src="images/53333389b55f8b25b1015975e1d903c88f2cf0ba6fd03c65626cdea0c4e7d6ea.png" style="width:100.0%"></p>
-</div><h4 id="ambiguity-function">Ambiguity function</h4>
+</div>
+<h4 id="ambiguity-function">Ambiguity function</h4>
 <p><span class="math inline">\(\mathcal{X}(\beta,f_D)=\int_{-\infty}^{+\infty}s(t)s^*(t-\beta)e^{i2\pi rf_D}dt\)</span></p>
 </section>
 <section id="联合雷达-通信方法" class="slide level2">
@@ -479,9 +482,12 @@ s_{\mathrm{R}}(t)&amp; =A_\text{R}\cos\Bigg(2\pi f_c(t-t_\text{d})+2\pi\int_0^tf
 <h2>多天线JRC系统</h2>
 <div class="column" style="width:50%;">
 <p><img data-src="images/818fde901712de05d6f8919e60f5cb13386a6b110a6309ad55a7624edaf1eb50.png"></p>
-</div><div class="column" style="width:50%;">
+</div>
+<div class="column" style="width:50%;">
 <p>与上述考虑共定位天线的工作不同，[122] 的作者考虑了一个通用的分布式DFRC系统，该系统同时服务于多个信号天线发射机，并检测具有空间分离的发射和接收天线的多个目标，如图14所示。设计目标是分别根据cramer-rao边界 (CRB) 和Shannon的容量实现定位精度和通信速率。为此，作者提出了一个问题，该问题确定了分布式DFRC发射机的功率分配，以最大程度地减少均方定位误差，同时要满足多个接收机的目标通信速率要求。作者证明了所提出问题的凸性，并采用标准的注水算法来获得最佳的功率分配解决方案。</p>
-</div><aside><div>
+</div>
+
+<aside><div>
 <p>Distributed dual-function radar-communication MIMO system with optimized resource allocation</p>
 </div></aside></section>
 <section id="多天线jrc系统-2" class="slide level2">
@@ -798,7 +804,18 @@ s_{\mathrm{R}}(t)&amp; =A_\text{R}\cos\Bigg(2\pi f_c(t-t_\text{d})+2\pi\int_0^tf
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -830,29 +847,7 @@ s_{\mathrm{R}}(t)&amp; =A_\text{R}\cos\Bigg(2\pi f_c(t-t_\text{d})+2\pi\int_0^tf
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp("https:\/\/zaoanhh\.github\.io\/research_blog\/");
@@ -860,7 +855,7 @@ s_{\mathrm{R}}(t)&amp; =A_\text{R}\cos\Bigg(2\pi f_c(t-t_\text{d})+2\pi\int_0^tf
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
