@@ -8,13 +8,13 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.553">
+  <meta name="generator" content="quarto-1.5.56">
 
   <meta name="author" content="Ammar Ahmed">
   <meta name="author" content="Yimin D. Zhang">
   <meta name="author" content="Braham Hime">
   <meta name="dcterms.date" content="2024-09-12">
-  <title>Research Tips - Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation</title>
+  <title>Research Tips – Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -45,7 +45,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -73,7 +73,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -87,7 +87,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -465,8 +465,7 @@ Braham Hime
 <li>在每个雷达脉冲期间，每个发射机辐射单位功率正交波形 <span class="math inline">\(s_m(t)\)</span>，即有 <span class="math inline">\((1/T)\int_0^T|s_m(t)|^2dt=1\)</span> 并且 <span class="math inline">\((1/T)\int_0^Ts_m(t)s_n^*(t)dt=0\)</span> 对于 <span class="math inline">\(m \neq n\)</span> 成立。</li>
 <li>第 <span class="math inline">\(m\)</span> 个发射机和第 <span class="math inline">\(n\)</span> 个接收机对应的雷达信号表示为: <span class="math inline">\(s_{m,n}(t)=\sqrt{\alpha_{m,n}p_{m_{\mathrm{tx}}}}h_{m,n}s_m(t-\tau_{m,n})+w_{m,n}(t)\)</span></li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="雷达子系统-1" class="slide level2 smaller">
 <h2>雷达子系统</h2>
@@ -543,8 +542,7 @@ y_r(k)&amp; =\frac{1}{T}\int_0^Ts_r(t+k\Delta t)s_m^*(t)dt \\
 <p><img data-src="images/962287eabcf021b225b39e8427972431cb8d1dbe9bdffa753168f61b600cceaf.png"></p>
 </div><div class="column" style="width:60%;">
 <p><img data-src="images/5e16bd099478eb2f9c5a9e41f7b547d9af51771c226cb91cc74c6df4b756dc1b.png"></p>
-</div>
-</div>
+</div></div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -795,18 +793,7 @@ y_r(k)&amp; =\frac{1}{T}\int_0^Ts_r(t+k\Delta t)s_m^*(t)dt \\
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -838,7 +825,29 @@ y_r(k)&amp; =\frac{1}{T}\int_0^Ts_r(t+k\Delta t)s_m^*(t)dt \\
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp("https:\/\/zaoanhh\.github\.io\/research_blog\/");
@@ -846,7 +855,7 @@ y_r(k)&amp; =\frac{1}{T}\int_0^Ts_r(t+k\Delta t)s_m^*(t)dt \\
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
