@@ -25,13 +25,13 @@ Note: This theme uses the Roboto font family, which it imports from Google
   from the choice set if the family is installed locally.
 */
 @import url('https://fonts.googleapis.com/css?family=Roboto:200,200i,300,300i,350,350i,400,400i&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Lora:ital,wght@0,400..700;1,350..700&family=Marcellus&family=Noto+Serif:ital,wdth,wght@0,62.5..100,350..900;1,62.5..100,350..900&display=swap');
-
-$font-family-sans-serif: "Noto Serif","Roboto", sans-serif !default;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Lora:ital,wght@0,400..700;1,350..700&family=Marcellus&family=Noto+Serif:ital,wdth,wght@0,62.5..100,400..900;1,62.5..100,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400..900&display=swap');
+$font-family-sans-serif: "Noto Serif SC","Roboto", sans-serif !default;
 $font-family-monospace: 'Fira Code', monospace  !default;
 
 
-$presentation-heading-font: 'Marcellus', sans-serif  !default;
+$presentation-heading-font: 'Marcellus', "Ma Shan Zheng", sans-serif  !default;
 // $presentation-heading-font: "Roboto", sans-serif !default;
 
 $presentation-heading-color: $jet !default;
@@ -117,7 +117,7 @@ $selection-bg: #26351c !default;
   font-style: italic;
   // font-weight: 350;
   font-weight: lighter;
-  font-size: 0.75em;
+  font-size: 0.85em;
 }
 
 .reveal h4 {
@@ -131,6 +131,7 @@ $selection-bg: #26351c !default;
 
 .alert {
   color: $accent2;
+  font-weight: 700;
 }
 
 .fg {
