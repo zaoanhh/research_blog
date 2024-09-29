@@ -105,6 +105,13 @@
     "text": "仿真"
   },
   {
+    "objectID": "paper_reading/JRC/index.html#原论文信息",
+    "href": "paper_reading/JRC/index.html#原论文信息",
+    "title": "联合雷达和通信",
+    "section": "原论文信息",
+    "text": "原论文信息\n@ARTICLE{9393464,\n  author={Luong, Nguyen Cong and Lu, Xiao and Hoang, Dinh Thai and Niyato, Dusit and Kim, Dong In},\n  journal={IEEE Communications Surveys & Tutorials}, \n  title={Radio Resource Management in Joint Radar and Communication: A Comprehensive Survey}, \n  year={2021},\n  volume={23},\n  number={2},\n  pages={780-814},\n  keywords={Radar;Resource management;Radar cross-sections;Interference;Security;Tutorials;Radar detection;Joint radar-communication;spectrum sharing;waveform design;power allocation;interference management;security},\n  doi={10.1109/COMST.2021.3070399}}"
+  },
+  {
     "objectID": "paper_reading/JRC/index.html#无线频谱的价格急剧上升",
     "href": "paper_reading/JRC/index.html#无线频谱的价格急剧上升",
     "title": "联合雷达和通信",
@@ -375,7 +382,7 @@
     "href": "index.html",
     "title": "Research Tips",
     "section": "",
-    "text": "RGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images\n\n\n\n\n\n\npaper\n\n\nRobit\n\n\nPoint Cloud\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nMinghao Gou, Hao-Shu Fang, Zhanda Zhu, Sheng Xu, Chenxi Wang and Cewu Lu\n\n\n\n\n\n\n\n\n\n\n\n\nEnabling Joint Communication and Radar Sensing in Mobile Networks—A Survey\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 12, 2024\n\n\nJ. Andrew Zhang, Md. Lushanur Rahman, Kai Wu, Xiaojing Huang, Y. Jay Guo, Shanzhi Chen, Jinhong Yuan\n\n\n\n\n\n\n\n\n\n\n\n\nDistributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 12, 2024\n\n\nAmmar Ahmed, Yimin D. Zhang, Braham Hime\n\n\n\n\n\n\n\n\n\n\n\n\nTowards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 12, 2024\n\n\nFei Shang, Haohua Du, Panlong Yang, Xin He, Wen Ma, and Xiang-Yang Li\n\n\n\n\n\n\n\n\n\n\n\n\n联合雷达和通信\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 1, 2024\n\n\n尚飞\n\n\n\n\n\n\nNo matching items"
+    "text": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 29, 2024\n\n\nJ. Andrew Zhang, Md. Lushanur Rahman, Kai Wu, Xiaojing Huang, Y. Jay Guo, Shanzhi Chen, Jinhong Yuan\n\n\n\n\n\n\n\n\n\n\n\n\nRGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images\n\n\n\n\n\n\npaper\n\n\nRobit\n\n\nPoint Cloud\n\n\n\n\n\n\n\n\n\nSep 29, 2024\n\n\nMinghao Gou, Hao-Shu Fang, Zhanda Zhu, Sheng Xu, Chenxi Wang and Cewu Lu\n\n\n\n\n\n\n\n\n\n\n\n\nDistributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 29, 2024\n\n\nAmmar Ahmed, Yimin D. Zhang, Braham Hime\n\n\n\n\n\n\n\n\n\n\n\n\nTowards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 29, 2024\n\n\nFei Shang, Haohua Du, Panlong Yang, Xin He, Wen Ma, and Xiang-Yang Li\n\n\n\n\n\n\n\n\n\n\n\n\n联合雷达和通信\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 1, 2024\n\n\n尚飞\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#论文信息",
