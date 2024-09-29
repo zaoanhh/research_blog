@@ -16,6 +16,22 @@ format:
 theme: "white"
 ---
 
+## 原论文信息
+
+```bibtex
+@ARTICLE{9393464,
+  author={Luong, Nguyen Cong and Lu, Xiao and Hoang, Dinh Thai and Niyato, Dusit and Kim, Dong In},
+  journal={IEEE Communications Surveys & Tutorials}, 
+  title={Radio Resource Management in Joint Radar and Communication: A Comprehensive Survey}, 
+  year={2021},
+  volume={23},
+  number={2},
+  pages={780-814},
+  keywords={Radar;Resource management;Radar cross-sections;Interference;Security;Tutorials;Radar detection;Joint radar-communication;spectrum sharing;waveform design;power allocation;interference management;security},
+  doi={10.1109/COMST.2021.3070399}}
+
+```
+
 ## 无线频谱的价格急剧上升
 ::: {.fragment .fade-in-then-semi-out}
 - 韩国电信公司为5g网络的两个频段 (3.5 GHz和28 GHz) 总共支付了33亿美元。
