@@ -1,7 +1,7 @@
 ---
 title: "Research Tips"
 listing:
-  contents: [paper_reading,my_paper]
+  contents: [paper_reading,my_paper,blog]
   sort: "date desc"
   type: default
   categories: true

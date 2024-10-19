@@ -15,8 +15,9 @@ website:
       #   href: https://zaoanhh.github.io/
 format:
   html:
-    # theme: litera ## 衬线字体
-    theme: morph ## 无衬线字体
+    theme: litera ## 衬线字体
+    # # theme: morph ## 无衬线字体
+    # theme: zephyr
     css: styles.css
 
 
