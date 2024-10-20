@@ -243,7 +243,7 @@ IF = \frac{2 \beta d}{c}
 <ol type="1">
 <li>设置雷达参数</li>
 </ol>
-<div id="854ecb30" class="cell" data-execution_count="1">
+<div id="52dfa6d8" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 导入包</span></span>
@@ -262,7 +262,7 @@ IF = \frac{2 \beta d}{c}
 <pre><code>myfig (generic function with 1 method)</code></pre>
 </div>
 </div>
-<div id="7deb8afd" class="cell" data-execution_count="2">
+<div id="dd6086b0" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义常量</span></span>
@@ -296,7 +296,7 @@ IF = \frac{2 \beta d}{c}
 <ol start="2" type="1">
 <li>发射信号, 假设发射的是 cos 信号，频率随时间线性变化，假设初始相位为0。发射信号为 <span class="math inline">\(cos(2 \pi  \int_0^t f(t))\)</span>，其中 <span class="math inline">\(f(t)\)</span> 是随时间变化的频率, <span class="math inline">\(f = f_c + \beta t\)</span></li>
 </ol>
-<div id="0e9fa22a" class="cell" data-execution_count="3">
+<div id="d77b32f8" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="fu">range</span>(<span class="fl">0</span>, stop<span class="op">=</span>Nd<span class="op">*</span>Tchirp, length<span class="op">=</span>Nr<span class="op">*</span>Nd)  <span class="co"># 时间向量</span></span>
@@ -328,7 +328,7 @@ IF = \frac{2 \beta d}{c}
 </div>
 </div>
 <p>3.接收信号, 接收波形可以从发射波形和时延计算。对于目标距离 <span class="math inline">\(r_0\)</span>，信号时延为 <span class="math inline">\(t_d=2r_0/c\)</span>，接收信号为 <span class="math inline">\(cos(2 \pi  \int_0^t f(t - t_d))\)</span>。</p>
-<div id="102316c9" class="cell" data-execution_count="4">
+<div id="f61b2f1e" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>td <span class="op">=</span> <span class="fl">2</span> <span class="op">*</span> r0 <span class="op">/</span> c  <span class="co"># 目标延迟时间</span></span>
@@ -356,7 +356,7 @@ IF = \frac{2 \beta d}{c}
 </div>
 </div>
 <p>发射信号和接收信号的<a href="https://arxiv.org/pdf/2101.06707">时频图</a>对比如下：</p>
-<div id="fe8bedcd" class="cell" data-execution_count="5">
+<div id="4d5fe8ad" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TX_stft = tfd(Rx[1:Nr], Spectrogram(nfft=64, window=hanning,noverlap=63),fs=Fs)</span></span>
@@ -385,7 +385,7 @@ IF = \frac{2 \beta d}{c}
 <ol start="4" type="1">
 <li>计算中频信号。中频信号是接收信号与发射信号相乘，然后低通滤波的结果，为 <span class="math inline">\(\text{IF} = cos(2\pi \int_0^t (f(t-t_d)-f(t)))\)</span>，注意到 <strong>在实际的毫米波设备上，一个chirp信号发完之后会留出很长的空闲时间</strong>，在这里我们只关注一个chirp信号的情况</li>
 </ol>
-<div id="06338254" class="cell" data-execution_count="6">
+<div id="fd9226ef" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>end_index <span class="op">=</span> <span class="fu">round</span>(<span class="dt">Int</span>,(<span class="fu">maximum</span>(t)<span class="op">-</span>td)<span class="op">/</span><span class="fu">maximum</span>(t)<span class="op">*</span>Nr)</span>
@@ -413,7 +413,7 @@ IF = \frac{2 \beta d}{c}
 </div>
 </div>
 </div>
-<div id="d3a8f27a" class="cell" data-execution_count="7">
+<div id="1cfda3b9" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>freq_res <span class="op">=</span> <span class="fu">findfirst</span>(x<span class="op">-&gt;</span>x<span class="op">==</span><span class="fu">maximum</span>(IFX_fft[<span class="fl">1</span><span class="op">:</span><span class="fu">round</span>(<span class="dt">Int</span>,Nr<span class="op">/</span><span class="fl">2</span>)]),IFX_fft[<span class="fl">1</span><span class="op">:</span><span class="fu">round</span>(<span class="dt">Int</span>,Nr<span class="op">/</span><span class="fl">2</span>)])</span>
@@ -427,7 +427,7 @@ IF = \frac{2 \beta d}{c}
 </section>
 <section id="多天线测角度" class="level2">
 <h2 class="anchored" data-anchor-id="多天线测角度">多天线测角度</h2>
-<div id="aac6d75b" class="cell" data-execution_count="8">
+<div id="d1e35478" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>xx <span class="op">=</span> <span class="fu">zeros</span>(<span class="dt">ComplexF64</span>, <span class="fl">181</span>)</span>
@@ -451,7 +451,7 @@ IF = \frac{2 \beta d}{c}
 </div>
 </div>
 </div>
-<div id="62078b93" class="cell" data-execution_count="9">
+<div id="6e04b7ab" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>res_aoa<span class="op">=</span><span class="fu">asin</span>((<span class="fu">findfirst</span>(<span class="fu">abs</span>.(<span class="fu">fftshift</span>(<span class="fu">fft</span>(xx))) <span class="op">.==</span> <span class="fu">maximum</span>(<span class="fu">abs</span>.(<span class="fu">fftshift</span>(<span class="fu">fft</span>(xx)))))<span class="op">-</span><span class="fl">90</span>)<span class="op">/</span><span class="fl">90</span>) <span class="op">/</span> <span class="cn">π</span> <span class="op">*</span><span class="fl">180</span></span>
