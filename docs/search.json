@@ -1,0 +1,765 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#原论文引用信息",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#原论文引用信息",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "原论文引用信息",
+    "text": "原论文引用信息\n@INPROCEEDINGS{8835674,\n  author={Ahmed, Ammar and Zhang, Yimin D. and Himed, Braham},\n  booktitle={2019 IEEE Radar Conference (RadarConf)}, \n  title={Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation}, \n  year={2019},\n  volume={},\n  number={},\n  pages={1-5},\n  doi={10.1109/RADAR.2019.8835674}}"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#摘要",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#摘要",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "摘要",
+    "text": "摘要\n在本文中，我们提出了一种新颖的分布式双功能雷达通信 (DFRC) MIMO系统，该系统能够同时执行雷达和通信任务。雷达目标是实现期望的目标定位性能，而通信目标是优化整体数据速率。分布式DFRC MIMO系统通过优化DFRC系统中不同发射机的功率分配来实现这两个目标。在每个发射器处使用雷达波形的字典，并且通过利用波形分集将通信信息嵌入在雷达波形中。所提出的策略可以服务于位于分布式DFRC MIMO系统附近的多个通信接收器。仿真结果验证了所提策略的性能。"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#背景",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#背景",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "背景",
+    "text": "背景\n在DFRC系统中，发射的波形服务于雷达和通信功能。雷达操作被认为是DFRC系统的主要目标，而通信操作被认为是次要目标。 最近的DFRC技术可以大致分为两大类。\n\n第一类包括基于波形分集的方法，其利用能够执行雷达操作的波形的字典。通过从字典中选择波形作来启用通信操作\n第二类还采用基于波束成形的空间复用技术来实现DFRC操作。"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#背景-1",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#背景-1",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "背景",
+    "text": "背景\n已知具有广泛分布的天线的多输入多输出 (MIMO) 雷达系统由于增强的空间扩展而提供改进的定位能力。通过增加参与雷达的数量或发射能量，可以进一步提高分布式MIMO雷达的定位性能。 许多旨在提高定位精度的分布式MIMO雷达系统的案例都集中在基于cramer-rao边界 (CRB) 的资源软件方案。 资源感知设计对于网络中传感器节点的部署非常重要，以降低运营成本。 为了增强这些系统的性能，参与的雷达通常与地面站，融合中心或使用无线链路以分布式方式连接。因此，现代分布式雷达需要同时执行雷达和通信功能，同时考虑现场资源限制。然而，对于分布式MIMO雷达架构的情况，DFRC方法尚未得到充分解决。"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#做了什么",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#做了什么",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "做了什么",
+    "text": "做了什么\n提出了一种用于分布式MIMO雷达的新颖的资源感知DFRC策略。我们讨论了分布式DFRC MIMO系统的最佳功率分配，以实现所需的目标定位和无线通信性能。定位精度是根据CRB来解决的，而通信性能是根据最佳香农容量来衡量的。仿真结果给出了分布式DFRC MIMO系统中每个发射机的最佳功率分配。"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#雷达子系统",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#雷达子系统",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "雷达子系统",
+    "text": "雷达子系统\n\n\n\n\n\n考虑一个窄带分布式MIMO雷达系统，由 \\(M\\) 个发射机和 \\(N\\) 个接收机组成，它们在二维 (2-D) 坐标系中任意地位于 \\((x_m，y_m)\\) 和 \\((x_n，y_n)\\)\n假设目标坐标为 \\((x,y)\\)，其主要目的是跟踪目标位置。\n在每个雷达脉冲期间，每个发射机辐射单位功率正交波形 \\(s_m(t)\\)，即有 \\((1/T)\\int_0^T|s_m(t)|^2dt=1\\) 并且 \\((1/T)\\int_0^Ts_m(t)s_n^*(t)dt=0\\) 对于 \\(m \\neq n\\) 成立。\n第 \\(m\\) 个发射机和第 \\(n\\) 个接收机对应的雷达信号表示为: \\(s_{m,n}(t)=\\sqrt{\\alpha_{m,n}p_{m_{\\mathrm{tx}}}}h_{m,n}s_m(t-\\tau_{m,n})+w_{m,n}(t)\\)"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#雷达子系统-1",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#雷达子系统-1",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "雷达子系统",
+    "text": "雷达子系统\n可以根据代表均方误差下限的CRB来评估雷达性能：\n\\[\\sigma_{x,y}(\\mathbf{p}_{tx})=\\frac{\\mathbf{q}^T \\mathbf{p}_{tx}}{\\mathbf{p}_{tx}^T\\mathbf{A}\\mathbf{p}_{tx}}\\]\n其中 \\(\\mathbf{q}=\\mathbf{q}_a+\\mathbf{q}_b\\)，\\(\\mathbf{A}=\\mathbf{q}_a\\mathbf{q}_b^\\mathrm{T}-\\mathbf{q}_c\\mathbf{q}_c^\\mathrm{T}\\), \\(\\mathbf{q}_a = [q_{a_1},q_{a_2},\\ldots,q_{a_M}]^\\mathrm{T}\\), \\(\\mathbf{q}_b = [q_{b_1},q_{b_2},\\ldots,q_{b_M}]^\\mathrm{T}\\), \\(\\mathbf{q}_c = [q_{c_1},q_{c_2},\\ldots,q_{c_M}]^\\mathrm{T}\\)，\\(\\xi_m = 8\\pi^2\\mathcal{B}_m^2/(\\sigma_w^2c^2)\\)。\n\\[\\begin{aligned}\n&q_{a_m}= \\xi_{m}\\underset{n=1}{\\sum}\\alpha_{m,n}|h_{m,n}|^{2}\\Bigg(\\frac{x_{m}-x}{D_{m_{\\mathrm{tx}}}}+\\frac{x_{n}-x}{D_{n_{\\mathrm{rx}}}}\\Bigg)^{2}, \\\\\n&q_{b_m}= \\xi_{m}\\underset{n\\boldsymbol{=}1}{\\sum}\\alpha_{m,n}{\\left|h_{m,n}\\right|}^{2}{\\left(\\frac{y_{m}-x}{D_{m_{\\mathrm{tx}}}}+\\frac{y_{n}-x}{D_{n_{\\mathrm{rx}}}}\\right)}^{2}, \\\\\n&q_{c_m}= \\xi_{m}\\underset{n=1}{\\sum}\\alpha_{m,n}{\\left|h_{m,n}\\right|}^{2}\\Bigg(\\frac{x_{m}-x}{D_{m_{\\mathrm{tx}}}}+\\frac{x_{n}-x}{D_{n_{\\mathrm{rx}}}}\\Bigg)\\Bigg(\\frac{y_{m}-x}{D_{m_{\\mathrm{tx}}}}+\\frac{y_{n}-x}{D_{n_{\\mathrm{rx}}}}\\Bigg)\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#通信子系统",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#通信子系统",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "通信子系统",
+    "text": "通信子系统\n考虑位于分布式DFRC MIMO系统附近的 \\(R\\) 个通信接收器。假设从雷达目标反射并在每个通信接收机处接收的信号与来自发射机的视线传输相比具有明显更低的幅度，因此被忽略。 然后，我们可以将第\\(r\\)个接收器处的接收信号表示为\n\\[s_{m,r}(t)=\\sqrt{\\beta_{m,r}p_{m_{\\mathrm{tx}}}}g_{m,r}s_{m}(t-\\kappa_{m,r})+w_{m,r}(t)\\]\n根据所实现的香农容量来评估通信性能。从第 \\(m\\) 个发射机到第 \\(r\\) 个接收机的数据速率用香农的容量表示为: \\[\\Re_{m,r}=\\log_2\\left(1+\\frac{\\left|g_{m,r}\\right|^2p_{m_{\\text{tx}}}}{\\Gamma_{m,r}\\sigma_{m,r}^2}\\right)=\\log_2\\left(1+\\frac{p_{m,\\text{tx}}}{\\gamma_{m,r}}\\right)\\]"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#仅雷达操作",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#仅雷达操作",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "仅雷达操作",
+    "text": "仅雷达操作\n仅雷达操作的最佳功率分配在1 中得出:\n\\[\\begin{aligned}&\\text{minimize}&&\\mathbf{1}_{1\\times M}\\mathbf{p}_{\\mathrm{tx}}\\\\&\\text{subject to}&&\\mathbf{p}_{\\mathrm{tx,min}}\\leq\\mathbf{p}_{\\mathrm{tx}}\\leq\\mathbf{p}_{\\mathrm{tx,max}}\\\\&&&\\sigma_{x,y}(\\mathbf{p}_{\\mathrm{tx}})=\\eta.\\end{aligned}\\]\n优化使分布式MIMO雷达的总发射功率最小化，使得实现根据crbn描述的期望的定位精度。\n上式可以被宽松为：\n\\[\\begin{aligned}&\\text{minimize}&&\\mathbf{1}_{1\\times M}\\mathbf{p}_{\\mathrm{tx}}\\\\&\\text{subject to}&&\\mathbf{p}_{\\mathrm{tx,min}}\\leq\\mathbf{p}_{\\mathrm{tx}}\\leq\\mathbf{p}_{\\mathrm{tx,max}}\\\\&&&\\mathbf{q}-\\eta\\mathbf{A}\\mathbf{p}_{\\mathrm{tx}}\\leq\\mathbf{0}.\\end{aligned}\\]\n其可以用作应用于原始优化的局部优化的起始点。\nPower allocation strategies for target localization in distributed multiple-radar architectures"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#仅通信系统",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#仅通信系统",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "仅通信系统",
+    "text": "仅通信系统\n我们假设从每个发射机发送的波形被广播到位于DFRC发射机附近的所有通信用户。我们假设信道边信息在DFRC发射机和通信接收机处是已知的。因此，我们通过利用传统的注水法来优化功率分配1。对于所有通信接收机，通过同时求解以下等式来实现最大允许发射功率的最佳:\n\\[\\mathbf{U}\\left[\\begin{array}{c}\\mathbf{p}_{\\mathrm{tx}}\\\\X_{r}\\end{array}\\right]=\\left[\\begin{array}{c}P_{\\mathrm{total}_{\\mathrm{max}}}\\\\\\mathbf{\\gamma}_{r}\\end{array}\\right]\\]\n其中 \\[\\left.\\mathbf{U}=\\left[\\begin{array}{cc}\\mathbf{1}_{1\\times M}&0\\\\\\mathbf{I}_{M\\times M}&-\\mathbf{1}_{1\\times M}^\\mathrm{T}\\end{array}\\right.\\right],\\quad\\boldsymbol{\\gamma}_r=-\\left[\\begin{array}{c}\\gamma_{1,r}\\\\\\gamma_{2,r}\\\\\\vdots\\\\\\gamma_{M,r}\\end{array}\\right]\\]\n其中 \\(X_r\\) 表示注水功率水平。\nA. Goldsmith, Wireless Communications, Cambridge University Press, 2005"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#仅通信系统-1",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#仅通信系统-1",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "仅通信系统",
+    "text": "仅通信系统\n可以根据不同的通信用户的信道边信息为不同的通信用户提供不同的最佳功率分配。此外，方程的解如果任何信道具有深衰落，也可以提供负功率。因此，我们可以对于所有的通信接收机为以下约束最小二乘优化问题：\n\\[\\begin{aligned}\n\\text{minimize}\\quad  &\\sum_{r=1}^R\\left|\\mathbf{V}\\left[\\begin{array}{c}\\mathbf{p}_\\mathrm{tx}\\\\X_r\\end{array}\\right]-\\boldsymbol{\\gamma}_r\\right|_2\\\\\n\\text{subject to}\\quad &\\mathbf{p}_{\\mathrm{tx,min}}\\leq\\mathbf{p}_{\\mathrm{tx}}\\leq\\mathbf{p}_{\\mathrm{tx,max}},\\\\&\\mathbf{1}^{\\mathrm{T}}\\mathbf{p}_{\\mathrm{tx}}\\leq P_{\\mathrm{total}_{\\mathrm{max}}},\\\\&X_r\\geq0,\\quad r=1,2,\\ldots,R,\\end{aligned} \\qquad(1)\\]"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#双功能雷达-通信",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#双功能雷达-通信",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "双功能雷达-通信",
+    "text": "双功能雷达-通信\n我们可以在优化问题 Equation 1 中加入雷达性能约束，得到如下修正凸优化问题:\n\\[\\begin{aligned}\n\\text{minimize}\\quad  &\\sum_{r=1}^R\\left|\\mathbf{V}\\left[\\begin{array}{c}\\mathbf{p}_\\mathrm{tx}\\\\X_r\\end{array}\\right]-\\boldsymbol{\\gamma}_r\\right|_2\\\\\n\\text{subject to}\\quad &\\mathbf{p}_{\\mathrm{tx,min}}\\leq\\mathbf{p}_{\\mathrm{tx}}\\leq\\mathbf{p}_{\\mathrm{tx,max}},\\\\&\\mathbf{q}-\\eta\\mathbf{Ap}_\\mathrm{tx}\\leq\\mathbf{0}\\\\&\\mathbf{1}^{\\mathrm{T}}\\mathbf{p}_{\\mathrm{tx}}\\leq P_{\\mathrm{total}_{\\mathrm{max}}},\\\\&X_r\\geq0,\\quad r=1,2,\\ldots,R,\\end{aligned}\\]"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#section",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#section",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "",
+    "text": "信息嵌入可以通过利用波形分集来完成。如果为每个发射器分配K个雷达波形的字典，则在一个雷达脉冲期间从分布式DFRC MIMO系统发送的总比特为 \\(M \\log_2 K\\)，前提是字典不重叠并且所有发射器都处于活动状态。 在通信接收器r处接收的信号可以表示为: \\[\\begin{aligned}\ns_r(t)& =\\sum_{m=1}^Ms_{m,r}(t) \\\\\n&=\\sum_{m=1}^M\\sqrt{\\beta_{m,r}p_{m_{\\mathrm{tx}}}}g_{m,r}s_m(t-\\kappa_{m,r})+w_r(t)\n\\end{aligned}\\]\n可以在通信接收器处利用匹配滤波来通过馈送时间延迟版本来合成嵌入的信息: \\[\\begin{aligned}\ny_r(k)& =\\frac{1}{T}\\int_0^Ts_r(t+k\\Delta t)s_m^*(t)dt \\\\\n&=\\left\\{\\begin{array}{ll}\\sqrt{\\beta_{m,r}p_{m_{\\text{tx}}}}g_{m,r}+w_{r,k}(t),&\\text{if }s_m(t)\\text{ transmitted,}\\\\w_{r,k}(t),&\\text{otherwise,}\\end{array}\\right.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#仿真",
+    "href": "paper_reading/资源优化分配的分布式双功能雷达通信MIMO系统/index.html#仿真",
+    "title": "Distributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation",
+    "section": "仿真",
+    "text": "仿真"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#原论文信息",
+    "href": "paper_reading/JRC/index.html#原论文信息",
+    "title": "联合雷达和通信",
+    "section": "原论文信息",
+    "text": "原论文信息\n@ARTICLE{9393464,\n  author={Luong, Nguyen Cong and Lu, Xiao and Hoang, Dinh Thai and Niyato, Dusit and Kim, Dong In},\n  journal={IEEE Communications Surveys & Tutorials}, \n  title={Radio Resource Management in Joint Radar and Communication: A Comprehensive Survey}, \n  year={2021},\n  volume={23},\n  number={2},\n  pages={780-814},\n  keywords={Radar;Resource management;Radar cross-sections;Interference;Security;Tutorials;Radar detection;Joint radar-communication;spectrum sharing;waveform design;power allocation;interference management;security},\n  doi={10.1109/COMST.2021.3070399}}"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#无线频谱的价格急剧上升",
+    "href": "paper_reading/JRC/index.html#无线频谱的价格急剧上升",
+    "title": "联合雷达和通信",
+    "section": "无线频谱的价格急剧上升",
+    "text": "无线频谱的价格急剧上升\n\n\n韩国电信公司为5g网络的两个频段 (3.5 GHz和28 GHz) 总共支付了33亿美元。\n英国，移动网络运营商被要求为2.5 GHz频段 (用于4g网络) 和3.4 GHz频段 (用于5g网络) 支付13亿。\n德国，监管机构Bundesnetzagentur透露，移动网络运营商的4频段拍卖总额超过了5亿欧元。\n活跃的物联网设备数量预计将达到241亿2030年，需要额外的频谱资源。\n美国联邦通信委员会 (FCC) 完成了第一次5g拍卖，出售了28 GHz频谱许可证，筹集了7.02亿美元\n\n\n\n\n雷达和通信的融合成为趋势"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#雷达技术基本概念和应用",
+    "href": "paper_reading/JRC/index.html#雷达技术基本概念和应用",
+    "title": "联合雷达和通信",
+    "section": "雷达技术基本概念和应用",
+    "text": "雷达技术基本概念和应用\n雷达系统的基本工作原理是将无线电波发射到空中，然后观察接收到的信号 (从目标物体反射)，以确定物体的特征，例如距离，方向，速度，形状甚至材料。因此，雷达系统可以在军事任务 (例如，检测飞机、船只、间谍无人机 (UAV) 和航天器) 和民用 (例如，机器人、自主车辆和地形探索) 中找到许多应用。"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#目标识别和雷达范围",
+    "href": "paper_reading/JRC/index.html#目标识别和雷达范围",
+    "title": "联合雷达和通信",
+    "section": "目标识别和雷达范围",
+    "text": "目标识别和雷达范围\n\nRadar parameter\n\\(R=\\frac{c\\Delta T}{2}\\), \\(v=\\frac{\\sqrt{R_{1}^{2}+R_{2}^{2}-2R_{1}R_{2}\\cos\\alpha}}{|t_{1}-t_{2}|}\\)\nRadar range\n\\(P_r=\\frac{P_tG_tG_r\\lambda^2\\sigma F^4}{\\left(4\\pi\\right)^3R^4}\\)\nRange resolution\n\\(\\Delta R=\\frac{c\\tau}2\\), \\(\\Delta V=\\frac{c}{2f_{c}T_{c}},\\)\n\n\n\n\nAmbiguity function\n\\(\\mathcal{X}(\\beta,f_D)=\\int_{-\\infty}^{+\\infty}s(t)s^*(t-\\beta)e^{i2\\pi rf_D}dt\\)"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#联合雷达-通信方法",
+    "href": "paper_reading/JRC/index.html#联合雷达-通信方法",
+    "title": "联合雷达和通信",
+    "section": "联合雷达-通信方法",
+    "text": "联合雷达-通信方法\n\n\n基于频分的方法: 这是JRC系统最简单的方法。具体来说，要同时使用雷达和通信功能，它们将被分配为在分开的天线上运行并以不同的频率传输。\n基于时分的方法: 这也是用于将两个功能 (即，雷达和通信) 组合到一个系统中的简单解决方案。这种方法的关键思想是使用开关来选择和控制这两个功能的操作。特别是，对于这种方法，交换机将负责分别控制通信和雷达功能的操作。\n双功能雷达通信系统: 这是JRC系统中使用的最流行的方法，尤其是在自治系统中，这主要是由于其出色的功能，例如低成本和频谱使用优化。这种方法的核心思想是将两种功能集成在相同的信号上进行传输。"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#ffcw-信号",
+    "href": "paper_reading/JRC/index.html#ffcw-信号",
+    "title": "联合雷达和通信",
+    "section": "FFCW 信号",
+    "text": "FFCW 信号\n\n\n发射信号为：\\(s_{\\mathrm{T}}(t)=A_{\\mathrm{T}}\\cos\\biggl(2\\pi f_{c}t+2\\pi\\int_{0}^{t}f_{\\mathrm{T}}(\\tau)d\\tau\\biggr)\\)\n接收信号为： \\(\\begin{aligned}\ns_{\\mathrm{R}}(t)& =A_\\text{R}\\cos\\Bigg(2\\pi f_c(t-t_\\text{d})+2\\pi\\int_0^tf_\\text{R}(\\tau)d\\tau\\Bigg) \\\\\n&= A_{\\mathrm{R}}\\cos\\biggl\\{2\\pi\\biggl(f_{c}(t-t_{\\mathrm{d}})+\\frac{B}{T}\\biggl(\\frac{1}{2}t^{2}-t_{d}t\\biggr)+f_{\\mathrm{D}}t\\biggr)\\biggr\\}\n\\end{aligned}\\)"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#ffcw-信号-1",
+    "href": "paper_reading/JRC/index.html#ffcw-信号-1",
+    "title": "联合雷达和通信",
+    "section": "FFCW 信号",
+    "text": "FFCW 信号\n\n经过混频，中频信号为：\\(s_{\\text{IF}}(t)=\\frac{1}{2}\\cos\\biggl(2\\pi f_c\\frac{2R_0}{c}+2\\pi\\biggl(\\frac{2R_0}{c}\\frac{B}{T}+\\frac{2f_cv}{c}\\biggr)t\\biggr)\\)\n并且 \\(v=\\frac{(f_\\mathrm{bu}+f_\\mathrm{bd})c}{4f_c}\\)，\\(R_0=\\frac{(f_\\text{bu}-f_\\text{bd})cT}{4B}\\)"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#ofdm-信号",
+    "href": "paper_reading/JRC/index.html#ofdm-信号",
+    "title": "联合雷达和通信",
+    "section": "OFDM 信号",
+    "text": "OFDM 信号\n\n发射信号为：\\(\\begin{aligned}s(t)&=\\sum_{\\begin{array}{c}n=0\\\\\\end{array}}^{N-1}\\sum_{\\begin{array}{c}m=0\\\\\\end{array}}^{M-1}x_{m,n}\\text{rect}(t-nT_\\text{o})\\times e^{j2\\pi m\\Delta f(t-T_\\text{cp}-nT_\\text{o})},\\end{aligned}\\)"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#jrc系统的潜在应用",
+    "href": "paper_reading/JRC/index.html#jrc系统的潜在应用",
+    "title": "联合雷达和通信",
+    "section": "JRC系统的潜在应用",
+    "text": "JRC系统的潜在应用"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#频谱共享",
+    "href": "paper_reading/JRC/index.html#频谱共享",
+    "title": "联合雷达和通信",
+    "section": "频谱共享",
+    "text": "频谱共享\n\n基于通信信号的方法: 这些方法使用诸如OFDM的标准通信信号用于雷达探测。\n基于雷达信号的方法: 这些方法使用传统的雷达信号，如调频连续波传输通信符号。\n时分方法: 这些方法分别为雷达和通信功能执行时间分配。这些方法的关键问题是如何优化雷达和通信性能之间的权衡。\n空间波束成形方法: 这些方法为通信信号设计波束成形，然后将雷达信号投射到其信道的零空间中，到达通信接收器。"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#基于通信信号的方法",
+    "href": "paper_reading/JRC/index.html#基于通信信号的方法",
+    "title": "联合雷达和通信",
+    "section": "基于通信信号的方法",
+    "text": "基于通信信号的方法\n基于扩频的方案\n这种方法的一般思想如下。首先，例如通过使用PSK调制将数据比特映射到数据符号中。然后，每个数据符号被调制，即与码序列 (例如m序列) 相乘。假定码序列在接收机处是已知的，例如通过使用同步方案。因此，雷达接收机和通信接收机可以分别通过使用基于相关算法的匹配滤波器来估计目标参数和检测数据符号。"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#基于通信信号的方法-1",
+    "href": "paper_reading/JRC/index.html#基于通信信号的方法-1",
+    "title": "联合雷达和通信",
+    "section": "基于通信信号的方法",
+    "text": "基于通信信号的方法\n基于OFDM的方案"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#基于通信信号的方法-2",
+    "href": "paper_reading/JRC/index.html#基于通信信号的方法-2",
+    "title": "联合雷达和通信",
+    "section": "基于通信信号的方法",
+    "text": "基于通信信号的方法\n基于OTFS的方案\n\n\n\nOrthogonal Time-Frequency Space Modulation: A Promising Next-Generation Waveform\nhttps://blog.csdn.net/weixin_39274659/article/details/124453739"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#基于雷达信号的方法",
+    "href": "paper_reading/JRC/index.html#基于雷达信号的方法",
+    "title": "联合雷达和通信",
+    "section": "基于雷达信号的方法",
+    "text": "基于雷达信号的方法\n基于跳频的方案"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#基于雷达信号的方法-1",
+    "href": "paper_reading/JRC/index.html#基于雷达信号的方法-1",
+    "title": "联合雷达和通信",
+    "section": "基于雷达信号的方法",
+    "text": "基于雷达信号的方法\n基于Chirp 信号的方法\n除了FH信号之外，线性调频信号通常应用于雷达系统。chirp信号，也称为扫描信号，是一种频率随chirp速率增加或减少的信号 。在发射啁啾之前，雷达发射器执行所谓的啁啾调制、LFM或FMCW。从目标反射的回波信号由雷达接收机接收。然后，雷达接收机基于发射信号和回波信号之间的相位和频率差，例如通过匹配滤波器，估计目标的距离、速度和方向。通常，在使用FMCM的JRC中，线性调频带宽是影响雷达性能的重要因素。"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#基于时分复用的方法",
+    "href": "paper_reading/JRC/index.html#基于时分复用的方法",
+    "title": "联合雷达和通信",
+    "section": "基于时分复用的方法",
+    "text": "基于时分复用的方法"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#基于波束成形的方法",
+    "href": "paper_reading/JRC/index.html#基于波束成形的方法",
+    "title": "联合雷达和通信",
+    "section": "基于波束成形的方法",
+    "text": "基于波束成形的方法\n\n这种方法通常用于共存的雷达和通信系统。关键思想是将雷达信号投射到其通信接收机信道的零空间中。"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#多天线jrc系统",
+    "href": "paper_reading/JRC/index.html#多天线jrc系统",
+    "title": "联合雷达和通信",
+    "section": "多天线JRC系统",
+    "text": "多天线JRC系统\n\n其中多天线BS将数据发射到下行链路用户，同时在相同毫米波信道上同时检测多个雷达目标。为了最小化通信和雷达波束成形误差的总和，作者制定了一个加权波束成形器设计问题，该问题受非凸恒模约束和发射功率预算的约束。"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#多天线jrc系统-1",
+    "href": "paper_reading/JRC/index.html#多天线jrc系统-1",
+    "title": "联合雷达和通信",
+    "section": "多天线JRC系统",
+    "text": "多天线JRC系统\n\n\n\n与上述考虑共定位天线的工作不同，[122] 的作者考虑了一个通用的分布式DFRC系统，该系统同时服务于多个信号天线发射机，并检测具有空间分离的发射和接收天线的多个目标，如图14所示。设计目标是分别根据cramer-rao边界 (CRB) 和Shannon的容量实现定位精度和通信速率。为此，作者提出了一个问题，该问题确定了分布式DFRC发射机的功率分配，以最大程度地减少均方定位误差，同时要满足多个接收机的目标通信速率要求。作者证明了所提出问题的凸性，并采用标准的注水算法来获得最佳的功率分配解决方案。\n\nDistributed dual-function radar-communication MIMO system with optimized resource allocation"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#多天线jrc系统-2",
+    "href": "paper_reading/JRC/index.html#多天线jrc系统-2",
+    "title": "联合雷达和通信",
+    "section": "多天线JRC系统",
+    "text": "多天线JRC系统\n参考文献1 考虑由RF能量收集2 供电的DFRC发射器。具体地，DFRC发射器首先从无线功率信标采集RF能量，然后用作JRC基站。目标是在雷达和通信性能的约束下最小化功率信标的发射功率。\n\n\n\n\n\nResource allocation for a wireless powered integrated radar and communication systemWireless networks with RF energy harvesting: A contemporary survey"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#crc系统的功率分配",
+    "href": "paper_reading/JRC/index.html#crc系统的功率分配",
+    "title": "联合雷达和通信",
+    "section": "CRC系统的功率分配",
+    "text": "CRC系统的功率分配\n\nCRC系统中的功率分配: 其中通信子系统在与雷达子系统相同的频带上操作，这显著提高了频谱效率。参考文献1考虑具有单个通信用户和雷达的CRC系统。为了使雷达SINR相对于受下行链路通信速率和功率限制的单个目标最大化，作者提出了一个问题，该问题确定了通信的发射协方差矩阵，雷达的发射预编码器，以及雷达子采样，以相对于下行链路通信速率和功率约束最大化雷达SINR。通过顺序凸规划技术解决该问题。\nJoint transmit designs for coexistence of MIMO wireless communications and sparse sensing radars in clutter"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#summary",
+    "href": "paper_reading/JRC/index.html#summary",
+    "title": "联合雷达和通信",
+    "section": "Summary",
+    "text": "Summary\n\n基于率失真的最小均方误差是表征通信吞吐量与雷达参数估计精度之间权衡的常用度量。\n通信的平均路径损耗与雷达的平均路径损耗之比在可以通过功率分配实现的最佳MI范围中起着关键作用。较大的比率通常表示可实现的MI的较大范围。\n通过进一步利用空间分集，具有分布式天线的DFRC系统的性能优于具有并置天线的DFRC系统。\n在现实系统中，可以在没有雷达目标的情况下估计环境杂波。杂波的负面影响可以通过预编码技术来减轻1。\n\nJ. Nocedal and S. Wright, Numerical Optimization. New York, NY, USA: Springer, 2006."
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#crc-系统",
+    "href": "paper_reading/JRC/index.html#crc-系统",
+    "title": "联合雷达和通信",
+    "section": "CRC 系统",
+    "text": "CRC 系统\n从系统信息可用性的角度来看，CRC系统的设计可以分为三种类型: 非合作，合作和协同设计。对于非合作和合作类型的系统，在子系统之间有和没有信息交换的情况下设计了干扰管理方案。此外，协同设计的系统例如在波形和发射功率方面联合配置子系统。从设计目标的角度来看，干扰管理的研究可以分为两类: 通信接收机处的雷达干扰消除和雷达接收机处的通信干扰消除。\n在雷达接收器处，除了雷达目标回波之外，存在从诸如建筑物和树木的其它物体反射的不想要的信号。这些不想要的信号被称为杂波，其被认为是要在雷达接收器处去除的干扰。"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#dfrc-系统",
+    "href": "paper_reading/JRC/index.html#dfrc-系统",
+    "title": "联合雷达和通信",
+    "section": "DFRC 系统",
+    "text": "DFRC 系统\n在CRC系统中，交叉干扰是独立的，并且在每个单独的雷达和/或接收器处执行消除。不同地，在DFRC系统中，通信信号与雷达目标回波相关，因为它们来自相同的源。消除雷达目标回波中的通信信号涉及以原始形式重建接收到的信号，这比通信系统中的干扰消除更具挑战性，因为不精确地减去重建信号会导致更多的残留，从而导致雷达动态范围的严重下降，通过雷达处理一系列信号强度的能力来衡量。"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#summary-1",
+    "href": "paper_reading/JRC/index.html#summary-1",
+    "title": "联合雷达和通信",
+    "section": "Summary",
+    "text": "Summary\n\n为了消除雷达干扰，最近提出的一种有效技术是将雷达波形投射到通信和雷达子系统之间的信道的零空间上。然而，对于不完善的CSI，零空间投影技术可能与损害检测性能的目标未对准。因此，为了使用这种技术，需要精确的CSI。\n利用雷达波形的知识，通信系统可以通过直接减法技术来抑制雷达干扰。然而，如果波形信息在信息共享期间被干扰器拦截，则干扰信号可以被设计为损害雷达检测。因此，保护通信和雷达子系统之间的信息共享与干扰减轻设计一样重要。\n在DFRC系统中，通信性能相当受整个系统中累积的同信道干扰的影响，而雷达性能主要受最强干扰源的限制1。\n由于相互干扰，DFRC收发器必须配备足够的动态范围和模数分辨率，以确保数字化信号保持不失真的。\n尽管更宽的天线方向性使雷达能够在更大的范围内进行检测，但由于干扰水平增加，总体可检测范围可能会减小。因此，应该考虑干扰减轻来适当地配置天线方向性。\n\nExtension of the OFDM joint radar-communication system for a multipath, multiuser scenario"
+  },
+  {
+    "objectID": "paper_reading/JRC/index.html#大规模访问和资源管理",
+    "href": "paper_reading/JRC/index.html#大规模访问和资源管理",
+    "title": "联合雷达和通信",
+    "section": "大规模访问和资源管理",
+    "text": "大规模访问和资源管理\nJRC有望在具有高密度基站和移动设备的动态无线环境中实现。这在JRC系统中引发了大量的访问和资源管理问题。\n\n大规模访问管理: 在雷达接收器使用目标的回波来检测目标。雷达接收机的问题是在存在噪声和干扰的情况下区分来自目标的回波和来自移动用户的通信信号。\n与位置相关的资源管理: 除了来自大量移动用户的通信信号外，JRC系统的雷达和通信组件的空间位置在JRC性能中起着重要作用。但是，大多数现有文献都没有明确地对系统组件的位置进行建模。主要的挑战是理解移动性的影响 (例如，在雷达目标和通信接收器中)，其导致系统性能中的时间校正。不能适应动态位置变化的任何资源分配方案都将导致缺陷系统。因此，考虑移动性来设计依赖于位置的资源分配具有提高利用系统资源 (例如，频率、时间和能量) 的效率的巨大潜力。\n大规模JRC系统的资源管理: 除了移动性之外，JRC系统的性能还受到在相同频带上运行的共存雷达、通信和JRC系统的空间分布的显著影响。此外，根据大型系统的空间分布来表征大型系统的影响是了解JRC性能和现实实现中资源管理设计的关键。随机几何 [163] 是建模和分析大型系统空间分布随机性的有力工具，可用于JRC系统的分析研究。\n配备JRC的AVs的资源管理: 诸如DFRC之类的JRC一直是自动驾驶车辆 (即配备DFRC的av) 的有前途的技术。然而，一个主要问题是如何有效地调度DFRC的雷达功能和通信功能。其他类型的传感器，例如视频和激光雷达，在天气好的时候可以更有效地工作。AV的问题是确定最佳决策，即雷达模式或通信模式，以最大化雷达性能和通信性能。这是具有挑战性的，因为环境状态 (例如，天气和道路状态) 以及通信信道状态是动态的和不确定的。为了解决这个问题，可以开发诸如强化学习 (RL) 或深度强化学习 (DRL) 之类的学习算法，以允许AV快速获得最佳策略，而无需任何有关环境的先验信息。\n具有激励机制的资源管理: 值得注意的是，配备DFRC的av实际上充当IoT设备，其感测周围环境 (例如，交通状况)，然后将感测数据传输到聚合单元 (例如，路边单元) 以供进一步处理。数据可以是具有大尺寸的图像或视频文件。因此，配备有dfrc的av可能需要来自服务提供商 (sp) 的大量频谱来同时执行雷达功能和通信功能。为了激励服务提供商和配备有DFRC的av参与频谱分配市场，问题在于增强服务提供商和配备有DFRC的av两者的效用。在这样一个多买方多卖方的市场中，Stackelberg博弈和匹配理论可以作为有效的解决方案，以最大化所有利益相关者的效用。"
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#background",
+    "href": "my_paper/TMI/index.html#background",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Background",
+    "text": "Background\nISAC has been conceptualized, designed, and optimized for making communication and sensing functions complementary to each other. The different goals bring the inherent trade-off between communication and sensing performance when integrating them together."
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#motivation",
+    "href": "my_paper/TMI/index.html#motivation",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Motivation",
+    "text": "Motivation\n\n\n\n\n\n\nThe ISAC system can be formulated by\n\n\n\\[\\mathbf{Y}=\\mathbf{H}\\mathbf{X}+\\mathbf{N},\\]\nwhere \\(\\mathbf{Y}\\) is the received signal, \\(\\mathbf{X}\\) is the transmitted signal, \\(\\mathbf{H}\\) is the channel status, and \\(\\mathbf{N}\\) is the noise that might be introduced by sensed objects.\n\n\n\nIntuitively, the system sensing capability can be evaluated by analyzing how the received signals reflect the channel status, such as sensing mutual information \\(I(\\mathbf{H};\\mathbf{Y})\\)."
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#motivation-1",
+    "href": "my_paper/TMI/index.html#motivation-1",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Motivation",
+    "text": "Motivation\nHowerve, it doesn’t work well for the following two reasons.\n\nThe relationship between the sensing capability of such features and the signal itself is ambiguous.\nThe sensing capability analysis must be designed to operate for all possible types."
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#model-definitions",
+    "href": "my_paper/TMI/index.html#model-definitions",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Model definitions",
+    "text": "Model definitions\nA typical sensing process often comprises several components: the target status to be sensed (\\(W\\)), the feature (\\(X^n\\)) designed to sense the status, the sensing channel embedding (\\(Y^n\\)) obtained through the sensing system, and the result (\\(\\hat{W}\\)) derived after processing the signal."
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#model-definitions-1",
+    "href": "my_paper/TMI/index.html#model-definitions-1",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Model definitions",
+    "text": "Model definitions\n\n\n\n\n\n\nDTMI\n\n\nThe discrete task mutual information (DTMI) is defined as the mutual information between the feature \\(X^n\\) and the channel embedding \\(Y^n\\), i.e., \\(I(X^n;Y^n)\\).\n\n\n\n\n\n\n\n\n\n\nConditional error probability\n\n\nThe conditional error probability \\(\\xi _i\\) when the target status is \\(w_i\\) is defined as: \\[\n        \\xi _i = \\Pr(\\hat{W}\\neq w_i|W=w_i).\n        \\label{eq:lambda_i}\n    \\]\n\n\n\n\n\n\n\n\n\n\n\nExpected value of the error\n\n\nThe expected value of the error, denoted as \\(P_E^{n}\\), is articulated as follows: \\[\n        P_E^{n} = \\sum_{i=1}^{m} p(w_i)\\xi _i.\n        \\label{eq:error}\n    \\]"
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#bound",
+    "href": "my_paper/TMI/index.html#bound",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Bound",
+    "text": "Bound\n\n\n\n\n\n\n\nLower bound\n\n\nFor a sensing task \\(W\\) with \\(m\\) statuses, we use \\(n\\) independent features to describe the status of the target. The expected value of the error \\(P_E^{n}\\) satisfies the following lower bound: \\[\n        P_E^{n}+ \\frac{H(P_E^n)}{\\log m}\\geq \\frac{H(W)-I(X^n;Y^n)}{\\log m},\n        \\label{eq:lowbound}\n    \\] where \\(H(P_E^n)=-P_E^n \\log P_E^n - (1-P_E^n)\\log(1-P_E^n)\\).\n\n\n\n\n\n\n\n\n\n\n\nUp bound\n\n\nFor a sensing task with \\(m\\) statuss, we use \\(n\\) independent features to describe the status of the target. For sufficiently large \\(n\\), the expected value of the error \\(P_E^{n}\\) satisfies the following upper bound: \\[\n        P_E^{n}\\leq \\varepsilon + \\sum_{k=1}^m p(w_k) \\sum_{j\\neq k}^m 2^{3n\\varepsilon-\\sum_{i=1}^n I(X_i(w_j);Y_i(w_k))}\n        \\label{eq:upbound}\n    \\]"
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#why-do-multimodal-systems-tend-to-exhibit-superior-performance",
+    "href": "my_paper/TMI/index.html#why-do-multimodal-systems-tend-to-exhibit-superior-performance",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Why do multimodal systems tend to exhibit superior performance?",
+    "text": "Why do multimodal systems tend to exhibit superior performance?\nMany previous research works have shown that using multi-modality for sensing helps achieve better performance, which can be explained by the theorem we proved previously."
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#how-do-we-compare-which-of-two-sensing-features-is-better",
+    "href": "my_paper/TMI/index.html#how-do-we-compare-which-of-two-sensing-features-is-better",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "How do we compare which of two sensing features is better?",
+    "text": "How do we compare which of two sensing features is better?\nIn this paper, we propose DTMI which can reflect the performance of sensing features to a certain extent. Specifically, we consider two features \\(X\\) and \\(X'\\). After passing through the sensing channel, their corresponding channel embeddings are \\(Y\\) and \\(Y'\\), respectively. According to Important 1 and Important 2, both the upper and lower bounds of the expected error are related to the DTMI. If the DTMI \\(I(X;Y)&gt;I(X';Y')\\), the upper and lower bounds of the expected value of the error \\(P_E\\) will be reduced, which means that it is easier to achieve good performance using \\(X\\) as sensing features.\nThis necessitates alternative approaches, beyond experimental validation, to assess the performance of designed sensing features."
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#is-data-pre-processing-a-cure-all-solution",
+    "href": "my_paper/TMI/index.html#is-data-pre-processing-a-cure-all-solution",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Is data pre-processing a “cure-all” solution?",
+    "text": "Is data pre-processing a “cure-all” solution?\nIf the following equation holds, \\[\n        H(W)-I(X^n;D^l) &gt; 1,\n\\] lossless sensing cannot be achieved simply by improving the effect of data preprocessing."
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#case-study",
+    "href": "my_paper/TMI/index.html#case-study",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Case study",
+    "text": "Case study\nHuman detection based on WiFi devices."
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#case-study-1",
+    "href": "my_paper/TMI/index.html#case-study-1",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Case study",
+    "text": "Case study\nRFID-based electrical cabinet door direction monitoring.\nGiven the cost-effectiveness and ease of deployment of RFID tags, we have developed an algorithm for monitoring cabinet door status using multiple tags. Furthermore, we employ the mutual information of tasks, as proposed in this paper, to assess the system’s performance."
+  },
+  {
+    "objectID": "my_paper/TMI/index.html#direction-estimation-based-on-music-algorithm-and-electromagnetic-signal.",
+    "href": "my_paper/TMI/index.html#direction-estimation-based-on-music-algorithm-and-electromagnetic-signal.",
+    "title": "Towards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder",
+    "section": "Direction estimation based on Music algorithm and electromagnetic signal.",
+    "text": "Direction estimation based on Music algorithm and electromagnetic signal."
+  },
+  {
+    "objectID": "blog/fmcw_julia/index.html",
+    "href": "blog/fmcw_julia/index.html",
+    "title": "基于 Julia 的 FMCW 雷达工作原理仿真",
+    "section": "",
+    "text": "本文介绍了fmcw测距的julia仿真。"
+  },
+  {
+    "objectID": "blog/fmcw_julia/index.html#ffcw-测距",
+    "href": "blog/fmcw_julia/index.html#ffcw-测距",
+    "title": "基于 Julia 的 FMCW 雷达工作原理仿真",
+    "section": "FFCW 测距",
+    "text": "FFCW 测距\n雷达通常也被叫做调频连续波（FMCW）雷达是一个使用频率调制来测量目标的距离的系统。在频率调制中，电磁波的频率随时间线性增加。或者说，发射频率会以恒定速率改变。这种频率随着时间线性增加的信号被称为 chirp。FMCW 系统测量发射信号和反射信号频率的瞬时差异δf，这直接和反射的 chirp 的时间差成比例。这个时间差能用来计算目标的距离。\n\n上图（左）显示了一个 chirp 频率随时间变化的表现，右边显示频率随时间线性增加的 chirp 的幅度随时间变化图。\n雷达前面的单目标产生的中频信号是一个固定频率音调，这个频率由下式给出：\n\\[\nIF = \\frac{2 \\beta d}{c}\n\\]\n这里 \\(d\\) 是目标到雷达的距离，单位 m，\\(c\\) 是光速，m/s，\\(\\beta\\) 是 chirp 斜率，由 chirp 持续时间内带宽的变化率得到。因此，我们可以对中频信号做 FFT 得到频率，再通过测量频率来计算距离。"
+  },
+  {
+    "objectID": "blog/fmcw_julia/index.html#测距仿真",
+    "href": "blog/fmcw_julia/index.html#测距仿真",
+    "title": "基于 Julia 的 FMCW 雷达工作原理仿真",
+    "section": "测距仿真",
+    "text": "测距仿真\n\n设置雷达参数\n\n\n\nCode\n# 导入包\nusing FFTW, SignalAnalysis\nusing CairoMakie, LinearAlgebra \nusing DSP\nCairoMakie.activate!(type=\"svg\")\nfunction myfig(;length_div_width=4/2,linewidth=28,fig_width_div_linewidth=0.5,scale=2.0)\n    cm_to_pt = 28.3464566929134\n    fig_length = floor(Int,linewidth * fig_width_div_linewidth * cm_to_pt * scale)\n    fig_width = floor(Int,fig_length / length_div_width)\n    return Figure(size =(fig_length,fig_width),pt_per_unit = 1)\nend\n\n\nmyfig (generic function with 1 method)\n\n\n\n\nCode\n# 定义常量\nmaxR = 200.0      # 最大范围 (m)\nrangeRes = 1.0    # 范围分辨率 (m)\nmaxV = 70.0       # 最大速度 (m/s)\n# const fc = 77e9         # 载波频率 (Hz)\nfc = 0.0         # 载波频率 (Hz)\nc = 3e8           # 光速 (m/s)\n\n# 目标参数\nr0 = 100.0        # 目标距离 (m)\nv0 = 70.0         # 目标速度 (m/s)\n\n# 计算带宽和其他参数\nB = c / (2 * rangeRes)  # 带宽 (Hz)\nTchirp = 2.5 * 2 * maxR / c  # Chirp时间 (s)\nendle_time = 6.3e-6     # 结束时间 (s)\nslope = B / Tchirp      # Chirp斜率 (Hz/s)\nf_IFmax = (slope * 2 * maxR) / c  # 最大IF频率 (Hz)\nf_IF = (slope * 2 * r0) / c  # 当前IF频率 (Hz)\n\n# ADC采样点数和其他参数\nNd = 1          # Chirp数量\nNr = 1024         # ADC采样点数\nvres = (c / fc) / (2 * Nd * (Tchirp + endle_time))  # 速度分辨率 (m/s)\nFs = Nr / Tchirp        # 采样率 (samples/s)\nB\n\n\n\n发射信号, 假设发射的是 cos 信号，频率随时间线性变化，假设初始相位为0。发射信号为 \\(cos(2 \\pi  \\int_0^t f(t))\\)，其中 \\(f(t)\\) 是随时间变化的频率, \\(f = f_c + \\beta t\\)\n\n\n\nCode\nt = range(0, stop=Nd*Tchirp, length=Nr*Nd)  # 时间向量\ndt = t[2] - t[1]  # 时间步长\nfreq = fc .+ mod.(slope .* t,B)  # 发射信号的频率\nangle_freq = [sum(freq[1:i].*dt) for i in axes(t,1)]  # 发射信号的角度频率\n\n# 生成发射波形\nTx = cos.(2 * pi * angle_freq)  # 发射波形\n\nfig_tx = myfig(length_div_width=3,linewidth=28)\nax_tx = Axis(fig_tx[1, 1], xlabel=\"Time (s)\", ylabel=\"Amplitude\",title=\"发射信号\")\nlines!(ax_tx, t[1:Nr], Tx[1:Nr])\n\nax_freq = Axis(fig_tx[1, 2], xlabel=\"Time (s)\", ylabel=\"Frequency (GHz)\", title=\"频率随时间的变化\")\nlines!(ax_freq, t[1:Nr], freq[1:Nr]./1e9)\nfig_tx\n\n\n┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.\n└ @ Makie C:\\Users\\SHF_1\\.julia\\packages\\Makie\\6c4lt\\src\\scenes.jl:229\n\n\n\n\n\n\n\n\n\n3.接收信号, 接收波形可以从发射波形和时延计算。对于目标距离 \\(r_0\\)，信号时延为 \\(t_d=2r_0/c\\)，接收信号为 \\(cos(2 \\pi  \\int_0^t f(t - t_d))\\)。\n\n\nCode\ntd = 2 * r0 / c  # 目标延迟时间\nfreq_rx = [t_now &gt; td ? fc .+ mod.(slope .* (t_now.-td),B) : fc for t_now in t]   # 接收信号的频率\nangle_freq_rx = [sum(freq_rx[1:i].*dt) for i in axes(t,1)]  # 接收信号的角度频率\nRx = cos.(2 * pi .* angle_freq_rx)  # 接收信号\nfig_rx = myfig(length_div_width=3,linewidth=28)\nax_rx = Axis(fig_rx[1, 1], xlabel=\"Time (s)\", ylabel=\"Amplitude\",title=\"接收信号\")\nlines!(ax_rx, t[1:Nr], Rx[1:Nr])\n\nax_freq = Axis(fig_rx[1, 2], xlabel=\"Time (s)\", ylabel=\"Frequency (GHz)\", title=\"频率随时间的变化\")\nlines!(ax_freq, t[1:Nr].+td, freq_rx[1:Nr]./1e9)\nfig_rx\n\n\n┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.\n└ @ Makie C:\\Users\\SHF_1\\.julia\\packages\\Makie\\6c4lt\\src\\scenes.jl:229\n\n\n\n\n\n\n\n\n\n发射信号和接收信号的时频图对比如下：\n\n\nCode\n# TX_stft = tfd(Rx[1:Nr], Spectrogram(nfft=64, window=hanning,noverlap=63),fs=Fs)\nTX_stft = tfd(Tx[1:Nr], Wigner(nfft=256, smooth=10, method=:CM1980, window=hamming),fs=Fs)\nRX_stft = tfd(Rx[1:Nr], Wigner(nfft=256, smooth=10, method=:CM1980, window=hamming),fs=Fs)\nfig_stft = myfig(length_div_width=3,linewidth=28)\nax_tx_stft = Axis(fig_stft[1, 1], xlabel=\"Time (s)\", ylabel=\"Frequency (GHz)\",title=\"发射信号\")\nheatmap!(ax_tx_stft,TX_stft.time,TX_stft.freq ./1e9,TX_stft.power',colormap=:roma)\n\nax_rx_stft = Axis(fig_stft[1, 2], xlabel=\"Time (s)\", ylabel=\"Frequency (GHz)\",title=\"接收信号\")\nheatmap!(ax_rx_stft,RX_stft.time,RX_stft.freq ./ 1e9,RX_stft.power',colormap=:roma)\nfig_stft\n\n\n┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.\n└ @ Makie C:\\Users\\SHF_1\\.julia\\packages\\Makie\\6c4lt\\src\\scenes.jl:229\n\n\n\n\n\n\n\n\n\n\n计算中频信号。中频信号是接收信号与发射信号相乘，然后低通滤波的结果，为 \\(\\text{IF} = cos(2\\pi \\int_0^t (f(t-t_d)-f(t)))\\)，注意到 在实际的毫米波设备上，一个chirp信号发完之后会留出很长的空闲时间，在这里我们只关注一个chirp信号的情况\n\n\n\nCode\nend_index = round(Int,(maximum(t)-td)/maximum(t)*Nr)\nIF_angle_freq_all = [sum((freq[1:i].-freq_rx[1:i]).*dt) for i in axes(t,1)]\nIF_angle_freq = IF_angle_freq_all[end_index+1:Nr]  # 中频信号的角度频率\n\nIFx = cos.(2 * pi .* IF_angle_freq)  # 中频信号\nfig_ifx = myfig(length_div_width=3,linewidth=28)\nax_ifx = Axis(fig_ifx[1, 1], xlabel=\"Time (s)\", ylabel=\"Amplitude\",title=\"接收信号\")\nlines!(ax_ifx, t[end_index+1:Nr], IFx)\nIFX_fft = (abs.(fft([i&gt;length(IFx) ? 0.0 : IFx[i] for i in 1:Nr])))\nax_ifx = Axis(fig_ifx[1, 2], xlabel=\"频率 (GHz)\", ylabel=\"Amplitude\", title=\"FFT \")\nlines!(ax_ifx, IFX_fft[1:round(Int,Nr/2)]./Nr)\nfig_ifx\n\n\n┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.\n└ @ Makie C:\\Users\\SHF_1\\.julia\\packages\\Makie\\6c4lt\\src\\scenes.jl:229\n\n\n\n\n\n\n\n\n\n\n\nCode\nfreq_res = findfirst(x-&gt;x==maximum(IFX_fft[1:round(Int,Nr/2)]),IFX_fft[1:round(Int,Nr/2)])\nres = (freq_res / Nr ) * Tchirp *c\nprintln(\"目标距离为: \",res,\" m\")\n\n\n目标距离为: 98.6328125 m"
+  },
+  {
+    "objectID": "blog/fmcw_julia/index.html#多天线测角度",
+    "href": "blog/fmcw_julia/index.html#多天线测角度",
+    "title": "基于 Julia 的 FMCW 雷达工作原理仿真",
+    "section": "多天线测角度",
+    "text": "多天线测角度\n\n\nCode\nxx = zeros(ComplexF64, 181)\nθ = π /3\nnum = 30\nxx[1:num] .= exp.((1:num) .* 1im .* sin(θ) .* π )\nfig_test = myfig(length_div_width=3,linewidth=28)\nax_test = Axis(fig_test[1, 1], xlabel=\"Real\", ylabel=\"Imaginary\",title=\"复数\")\nlines!(ax_test, collect(-90:90),abs.(fftshift(fft(xx))))\nfig_test\n\n\n┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.\n└ @ Makie C:\\Users\\SHF_1\\.julia\\packages\\Makie\\6c4lt\\src\\scenes.jl:229\n\n\n\n\n\n\n\n\n\n\n\nCode\nres_aoa=asin((findfirst(abs.(fftshift(fft(xx))) .== maximum(abs.(fftshift(fft(xx)))))-90)/90) / π *180\nprintln(\"目标角度为: \",res_aoa,\" °\")\n\n\n目标角度为: 61.375449046574644 °"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Research Tips",
+    "section": "",
+    "text": "基于 Julia 的 FMCW 雷达工作原理仿真\n\n\n\n\n\n\ncode\n\n\nJulia\n\n\nradar\n\n\n\n\n\n\n\n\n\nOct 20, 2024\n\n\nFei Shang\n\n\n\n\n\n\n\n\n\n\n\n\nEnabling Joint Communication and Radar Sensing in Mobile Networks—A Survey\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 29, 2024\n\n\nJ. Andrew Zhang, Md. Lushanur Rahman, Kai Wu, Xiaojing Huang, Y. Jay Guo, Shanzhi Chen, Jinhong Yuan\n\n\n\n\n\n\n\n\n\n\n\n\nRGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images\n\n\n\n\n\n\npaper\n\n\nRobit\n\n\nPoint Cloud\n\n\n\n\n\n\n\n\n\nSep 29, 2024\n\n\nMinghao Gou, Hao-Shu Fang, Zhanda Zhu, Sheng Xu, Chenxi Wang and Cewu Lu\n\n\n\n\n\n\n\n\n\n\n\n\nDistributed Dual-Function Radar-Communication MIMO System with Optimized Resource Allocation\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 29, 2024\n\n\nAmmar Ahmed, Yimin D. Zhang, Braham Hime\n\n\n\n\n\n\n\n\n\n\n\n\nTowards the limits: Sensing Capability Measurement for ISAC Through Channel Encoder\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 29, 2024\n\n\nFei Shang, Haohua Du, Panlong Yang, Xin He, Wen Ma, and Xiang-Yang Li\n\n\n\n\n\n\n\n\n\n\n\n\n联合雷达和通信\n\n\n\n\n\n\npaper\n\n\nISAC\n\n\n\n\n\n\n\n\n\nSep 1, 2024\n\n\n尚飞\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#论文信息",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#论文信息",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "论文信息",
+    "text": "论文信息\n@ARTICLE{9585321,\n  author={Zhang, J. Andrew and Rahman, Md. Lushanur and Wu, Kai and Huang, Xiaojing and Guo, Y. Jay and Chen, Shanzhi and Yuan, Jinhong},\n  journal={IEEE Communications Surveys & Tutorials}, \n  title={Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey}, \n  year={2022},\n  volume={24},\n  number={1},\n  pages={306-345},\n  doi={10.1109/COMST.2021.3122519}\n  }"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#背景",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#背景",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "背景",
+    "text": "背景\n集成C & S系统的最初概念可以追溯到20世纪60年代，并且主要用于开发多模式或多功能军用雷达。在早期，大多数此类系统属于具有分离波形的C & S类型。关于国内系统2010年的JCAS的研究有限。在过去的十年中，JCAS的研究基于简单的点对点通信，如车载网络和复杂的移动/蜂窝网络。前者可以在自动驾驶中找到很好的应用，而后者可能会彻底改变当前仅通信的移动网络。\nJCAS具有将无线电感知集成到大规模移动网络中的潜力，创造了我们所说的感知移动网络 (pmn)。通过 “感知”，我们指的是通过无线电视觉和对现有移动网络的推断来感知环境的附加能力。这种感知可以远远超出定位和跟踪，使移动网络能够 “看到” 和理解环境。从当前的移动网络发展而来，PMN有望充当无处不在的辐射感应网络，同时提供不妥协的移动通信服务。它可以建立在现有的移动网络基础设施之上，而无需对网络结构和设备进行重大更改。它将释放移动网络的最大能力，并避免构建单独的广域无线电感知网络的高昂基础设施成本。在大的覆盖范围的情况下，集成的通信和感知能力有望实现许多新的应用，对于这些应用，当前的感知解决方案要么不切实际，要么成本太高。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#背景-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#背景-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "背景",
+    "text": "背景"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#潜在应用",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#潜在应用",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "潜在应用",
+    "text": "潜在应用\n大规模感知对于我们的工业和社会的发展变得越来越重要。 它是颠覆性物联网应用和各种智能计划 (如智能城市和智能交通) 的关键推动者。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#基本分类",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#基本分类",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "基本分类",
+    "text": "基本分类\n\n\n\n以雷达为中心的设计: 在主雷达系统中实现通信功能 (或将通信集成到雷达中);\n以通信为中心的设计: 在主通信系统中实现无线电/雷达感知功能 (或将雷达集成到通信中);\n联合设计和优化: 不受底层系统和信号约束的技术"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#基本分类-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#基本分类-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "基本分类",
+    "text": "基本分类"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#以通信为中心的设计-在主要通信系统中实现感知",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#以通信为中心的设计-在主要通信系统中实现感知",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "以通信为中心的设计: 在主要通信系统中实现感知",
+    "text": "以通信为中心的设计: 在主要通信系统中实现感知\n将感知集成到通信中的两个基本问题是：\n\n如何在感知接收器和发射器位于同一位置的单静态设置中实现全双工操作\n如何在双静态或多静态设置中去除由于空间分离的发射器和 (感知) 接收器之间的通常未锁定的时钟而引起的时钟异步影响。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#没有基础系统的联合设计",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#没有基础系统的联合设计",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "没有基础系统的联合设计",
+    "text": "没有基础系统的联合设计\n可以开发JCAS技术而不限于现有的通信或雷达系统。从这个意义上讲，可以通过考虑通信和感知的基本要求来设计和优化它们，从而可能在两个功能之间提供更好的折衷。 毫米波和 (亚) 太赫兹波JCAS系统是促进这种联合设计的很好的例子。一方面，毫米波和太赫兹信号具有大带宽和短波长，为高速率通信和高精度感知提供了巨大的潜力。另一方面，毫米波和太赫兹系统正在兴起。它们尚未得到广泛部署，太赫兹系统的标准尚未开发。毫米波和太赫兹JCAS可以促进许多新的令人兴奋的应用，包括室内和室外。关于毫米波JCAS的现有研究已经证明了其在室内和车载网络中的可行性和潜力。作者 1 提供了基于mmwave的JCAS的深入信号处理方面，重点是JCAS系统的波形设计。有工作2 设想了未来用于室内感知的毫米波JCAS。mmWave JCAS系统的混合波束成形设计进行了研究 3 。研究者 4 设计了一种自适应毫米波波形结构。研究者 5 研究了汽车应用的JCAS波形的设计和选择，其中通过分析系统模型并列举设计参数的影响，提供了相位调制连续波JCAS和基于OFDMA的JCAS波形之间的比较。研究者 6 7 开发了多波束技术，以允许使用公共传输信号在不同方向进行C & S。波束成形向量被设计和优化以实现快速波束更新并实现C & S之间的平衡性能。研究者 8 研究了太赫兹大规模MIMO JCAS系统的波束成形设计。\nToward millimeter-wave joint radar communications: A signal processing perspectiveFuture millimeter-wave indoor systems: A blueprint for joint communication and sensingHybrid beamforming with sub-arrayed MIMO radar: Enabling joint sensing and communication at mmWave bandAdaptive virtual waveform design for millimeter-wave joint communication–radarA mmWave automotive joint radar-communications systemMultibeam for joint communication and radar sensing using steerable analog antenna arraysOptimization and quantization of multibeam beamforming vector for joint communication and radio sensingTerahertz-band joint ultra-massive MIMO radar-communications: Model-based and modelfree hybrid beamforming"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#jsac-系统的优势",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#jsac-系统的优势",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "JSAC 系统的优势",
+    "text": "JSAC 系统的优势\n\n频谱效率: 理想情况下，通过完全共享可用于无线通信和雷达的频谱，频谱效率可以增加一倍;\n波束成形效率: 波束成形性能可以通过利用从感知获得的信道结构来提高，例如，快速波束适应信道动态和波束方向优化;\n降低成本/尺寸: 与两个分离的系统相比，联合系统可以显着降低收发器的成本和尺寸；\nC & S的互惠互利: C & S可以通过整合相互受益。通信链路可以在用于感知的多个节点之间提供更好的协调; 并且感知向通信提供环境感知，具有改进的安全性和性能的潜力。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "系统平台和基础设施",
+    "text": "系统平台和基础设施\n根据网络设置，我们描述了可以实现JCAS的两种类型的拓扑，即云无线电接入网络 (CRAN) 和独立BS。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "系统平台和基础设施",
+    "text": "系统平台和基础设施\nCRAN\n典型的CRAN由一个中央单元和多个分布式天线单元组成，这些单元称为远程无线电单元 (rru)。Rru通常经由光纤连接到CRAN中心。量化的射频信号或基带信号可以在rru和中央单元之间传输。在CRAN的PMN中，密集分布的rru由中央单元协调，为ue提供通信服务。对于C & S两者，由CRAN中心收集和处理它们从它们自身、其它rru或从ue接收的信号。CRAN中央单元托管用于处理通信功能的原始基带单元 (BBU) 池和用于感知的新感知处理单元。此设置与分布式雷达系统的拓扑结构一致。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施-2",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#系统平台和基础设施-2",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "系统平台和基础设施",
+    "text": "系统平台和基础设施\nStandalone BS\nCRAN拓扑对于在pmn中实现感知不是必需的。独立BS还可以使用来自其自己的发送信号或来自ue的接收信号来执行感知。这实际上是文献中广泛考虑的典型且更简单的设置。这种设置包括可以部署在家庭中的小型BS，这推动了边缘计算和感知的概念。像WiFi感知1一样，这样的小BS可以用于支持室内感知应用，例如跌倒检测和房屋监视。它还包括一个路边单元 (RSU)，它是移动网络的一部分，但专门用于支持车辆通信2。\nA survey on behavior recognition using WiFi channel state informationBayesian predictive beamforming for vehicular networks: A low-overhead joint radar-communication approach"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#三类典型的感知",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#三类典型的感知",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "三类典型的感知",
+    "text": "三类典型的感知"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#summary-and-insights",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#summary-and-insights",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "Summary and Insights",
+    "text": "Summary and Insights\n\nPMN可以从当前的移动网络演进，其中在网络侧或UE侧实现感知。网络侧感知具有更高的处理能力和更好的信息访问的优点，因此是优选的。它可以在一个独立的BS中实现，也可以在多个BS或rru中以协作的方式实现；\n在PMN中可以实现三种类型的感知: 使用下行链路通信信号的下行链路有源和无源感知，以及使用上行链路通信信号的上行链路感知。三种类型的感知操作的比较。它们可以单独实现，也可以一起实现；\n几乎所有的通信信号都可以用于感知，具有各自的优点和缺点。表IX中提供了三种类型的这种信号的比较。总的来说，参考信号 (诸如用于通信中的信道估计的DMRS信号) 通常具有用于感知的最佳属性。但是，当需要更多信号时，数据有效载荷和同步信号块可以被使用。由于不同的属性以及因此对感知的不同性能影响，需要仔细规划和优化这些信号用于感知的组合使用。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#从复杂的移动信号中提取感知参数",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#从复杂的移动信号中提取感知参数",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "从复杂的移动信号中提取感知参数",
+    "text": "从复杂的移动信号中提取感知参数\n移动网络的复杂信号结构使得pmn中的感知参数估计具有挑战性。现代移动网络是一种复杂的异构网络，连接着不同的设备，这些设备占用了在时间、频率和空间上交错和不连续的交错资源。由于多用户接入、多样化和分散的资源分配以及空间复用，移动信号也非常复杂。也用于感知的通信信号是使用多用户MIMO和OFDMA技术随机调制的，并且可以针对每个用户分段-在时间、频率或空间上不连续。 由于这种信号结构，大多数现有的感知参数估计技术不能直接应用于pmn。例如，有源雷达感知技术主要传输线性调频 (LFM) 调制发射信号; 大多数无源双静态和多静态雷达考虑简单的单载波和OFDM信号。\n感知参数描述了信号在环境中的传播以及信道的详细组成。它们通常具有连续但不具有离散值。因此，大多数现有的信道估计和定位算法也不能直接应用。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#联合设计与优化",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#联合设计与优化",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "联合设计与优化",
+    "text": "联合设计与优化\nJCAS以及pmn中的一个关键研究问题是如何联合设计和优化C & S的信号和系统。许多研究已经调查了波形和基本信号参数对关节系统性能的影响。这样的波形和系统参数优化可以导致独立系统中的性能改进，但是与处于高级 (即，系统和网络级别) 的那些相比，其具有较小的影响。C & S在系统和网络级别有非常不同的要求。例如，在多用户MIMO通信系统中，发射的信号是多用户随机符号的混合，而理想的MIMO雷达感知信号是未调制且正交的。当使用阵列时，雷达感知侧重于优化虚拟子阵列的形成和结构，以增加天线孔径，然后提高分辨率，但通信强调波束成形增益和方向性。这种冲突的要求可能使联合设计和优化非常具有挑战性。需要更多的研究来利用共性并抑制两个功能之间的冲突。另一个重要问题是C & S如何通过整合从彼此中获益更多。这一点远未得到很好的理解。目前的研究仅限于传播路径优化和安全通信。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#网络感知",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#网络感知",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "网络感知",
+    "text": "网络感知\n将感知集成到移动通信网络中提供了在蜂窝结构下进行无线电感知的巨大机会。然而，关于蜂窝拓扑下的感知的研究仍然非常有限。用于通信的蜂窝结构被设计为极大地增加频率重用因子，从而提高频谱效率和通信容量。蜂窝感知网络直观地还增加了频率重用因子，并且因此增加了总体 “感知” 容量。一方面，这种蜂窝感知网络几乎没有已知的性能界限，除了有限数量的稍微相关的工作，例如共存雷达和蜂窝通信系统的性能分析和使用干扰OFDM信号的雷达感知。另一方面，尽管存在关于分布式雷达和多基站雷达的研究，但是考虑和利用蜂窝结构的感知算法 (诸如共小区干扰、节点协作以及基站上的感知切换) 仍有待开发。挑战在于如何解决蜂窝拓扑下不同基站之间的竞争与合作，以实现网络感知的性能表征和算法开发。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "性能界限",
+    "text": "性能界限\n有两种类型的性能界限可用于表征pmn中感知的性能界限。一种是基于互信息 (MI)，另一种是基于感知参数的估计精度，例如cramer-rao下界 。\nMI 1 可以用作测量雷达和通信性能的工具。具体地，对于通信，可以采用无线信道和接收的通信信号之间的MI作为波形优化准则，而对于感知，使用感知信道和感知信号之间的条件MI2 3。因此，用于感知的MI测量关于信道、传播环境的多少信息被传送到接收器。因此，最大化MI对于更依赖于特征信号提取而不是感知参数估计的感知应用 (例如，用于目标识别) 特别有用。MI和容量的使用对于通信社区是众所周知的。\nMutual information based radar waveform design for joint radar and cellular communication systemsInformation theory and radar waveform designInformation-theoretic optimal radar waveform design"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "性能界限",
+    "text": "性能界限\n让我们考虑简化的信号模型来说明MI的公式。\\(\\mathbf{H}_s\\) 和 \\(\\mathbf{H}_c\\) 分别标识感知信道和通信信道，\\(\\mathbf{Y}_s\\) 和 \\(\\mathbf{Y}_c\\) 是接收到的感知信号和通信信号。令 \\(\\mathbf{X} = f(\\mathbf{S})\\) 是发射信号，其中 \\(\\mathbf{S}\\) 是信息符号, 函数 \\(f\\) 可以是线性或者非线性的。当使用空间预编码矩阵 \\(\\mathbf{P}\\) 代替 \\(f\\) 时，接收信号可以被表示为：\n\\[\\begin{aligned}\\mathbf{Y}_{s}&=\\mathbf{H}_{s}\\mathbf{PS}+\\mathbf{Z};\\\\\\mathbf{Y}_{c}&=\\mathbf{H}_{c}\\mathbf{PS}+\\mathbf{Z},\\end{aligned}\\]\n通信和感知的MI表达式可以表示为：\n\\[I(\\mathbf{H}_s;\\mathbf{Y}_s|\\mathbf{X})=h(\\mathbf{Y}_s|\\mathbf{X})-h(\\mathbf{Z}),\\text{ for sensing;}\\\\I(\\mathbf{S};\\mathbf{Y}_c|\\mathbf{H}_c)=h(\\mathbf{Y}_c|\\mathbf{H}_c)-h(\\mathbf{Z}),\\text{ for comm.}\\]\nJCAS系统的MI已在一些出版物中进行了研究和报告。它们通常通过联合优化两个MI表达式及其在上式中的变化来进行。研究者 1 的工作为JCAS系统制定了雷达互信息和通信信道容量，并提供了初步的数值结果。此外，研究者 2通过最大化MI表达式研究了JCAS系统的雷达波形优化。研究者 3还通过最大化JCAS系统中雷达检测的通信数据速率和条件互信息的加权和，提出了一种优化的OFDM波形。\nRadar mutual information and communication channel capacity of integrated radar-communication system using MIMOMutual information based radar waveform design for joint radar and cellular communication systemsRobust OFDM integrated radar and communications waveform design based on information theory"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限-2",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#性能界限-2",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "性能界限",
+    "text": "性能界限\nCRLB是一种更传统的度量，已广泛用于表征雷达中参数估计的下限 1。对于PMN，在使用UMTS (3g) 窄带移动信号的无源感测场景中，报告 2 了关于CRLB的最接近的工作。然而，CRLB表达式并不总是以闭合形式可用，特别是对于mimo-ofdm信号，主要是因为接收信号是感测参数的非线性函数。因此，尽管可以找到它们并对其进行数值评估，但CRLB度量不容易应用于分析优化。将它们与另一个成本函数一起应用于优化甚至更加困难。\nCramer Rao bound on target localization estimation in MIMO radar systemsCramérRao bounds for UMTS-based passive multistatic radar"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "波形优化",
+    "text": "波形优化"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "波形优化",
+    "text": "波形优化\n空间优化\n对于关于pmn中的预编码矩阵 \\(\\mathbf{P}\\) 的空间优化。\n\n一种方法是优化信号转换函数 \\(f (\\cdot)\\)，以使发送信号X的统计特性最适合于C & S。\n另一种方法是将感测波形添加到基础通信波形，同时考虑用于目的地节点的两个波形的相干组合。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-2",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-2",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "波形优化",
+    "text": "波形优化\n空间优化\n在第一种方法中，当优化是关于空间预编码矩阵时，其被设计为改变所发送的信号的统计特性。该方法特别适用于为C & S联合制定的成本函数的全局优化。基本优化公式如下:\n\\[\\begin{aligned}\\arg\\max_{{\\mathbf{P}}}&&\\lambda(\\mathbf{P}),\\\\\\mathrm{subject~to}&&\\text{Constraints} 1,2,\\cdots,\\end{aligned}\\]\n其中 \\(\\lambda (\\mathbf{P})\\) 是目标函数。在定义目标函数和约束时可以有各种方法和组合。每个可以用于通信或单独感测，或加权联合函数。一些示例如下。在1中，在多用户MIMO下行链路通信的信号干扰噪声比 (SINR) 的限制下，通过最小化生成的信号与期望的感测波形之间的差异来实现波形优化。进一步利用多目标函数来权衡生成的波形与所需波形之间的相似性 2。在 3 中，提出了自适应加权最优和帕累托最优波形设计方法，以同时提高距离和速度的估计精度以及通信信道容量。在 4 中，通过考虑涉及通信容量和crlb的多目标函数来优化OFDM系统中子载波的加权向量，以用于感测参数的估计。该方法的一个主要缺点是，一旦通信或感测设置改变，就需要优化或重新设计预编码矩阵。\nToward dual-functional radar-communication systems: Optimal waveform designMU-MIMO communications with MIMO radar: From co-existence to joint transmission,”Multiobjective optimal waveform design for OFDM integrated radar and communication systemsAdaptive OFDM integrated radar and communications waveform design based on information theory"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-3",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-3",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "波形优化",
+    "text": "波形优化\n空间优化\n在第二种方法中，可以预先为C & S中的一个或两个设计基本波形，然后以联合优化C & S性能的方式将两个波形相加。基本思想可以用数学表示如下:\n\\[\\begin{aligned} & \\arg\\max_{\\alpha, \\mathbf{P}_c, \\text{or} \\mathbf{P}_s} \\quad & \\lambda (\\mathbf{P}), \\\\\n& \\text{subject to} \\quad &\\text{Constraints} 1,2,\\cdots\\end{aligned}\\]\n其中 \\(\\mathbf{P}_c\\) 和 \\(\\mathbf{P}_s\\) 分别是主要针对通信和感测的预编码矩阵，并且 \\(\\mathbf{P}\\) 是 \\(\\mathbf{P}_c\\) 和 \\(\\mathbf{P}_s\\) 的函数。例如 \\(\\mathbf{P} = \\alpha \\mathbf{P}_c + (1 − \\alpha) \\mathbf{P}_s\\)，其中 \\(\\alpha\\) 是复数标量。该方法对于使用定向波束成形的毫米波系统特别有用。一个例子是可从 1，其中多波束的方法提出灵活地产生通信和传感子波束使用模拟天线阵列。在 2 3 中进一步研究了组合两个子光束的优化。当然，多波束的效率与C & S的要求有关。根据 4，获得正确的解决方案的波束转向和波束宽度适应JCAS操作高度依赖于环境背景。实际上，反射器位置、阻挡高度、运动速度和其他环境背景因素可能对多波束方法的效率具有显著影响。\nMultibeam for joint communication and radar sensing using steerable analog antenna arrays,Optimization and quantization of multibeam beamforming vector for joint communication and radio sensingMultibeam optimization for joint communication and radio sensing using analog antenna arraysMillimeter-Wave for 5G: Unifying Communication and Sensing"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-4",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-4",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "波形优化",
+    "text": "波形优化\n时域和频域\n优化可以是关于帧结构、子载波占用、功率分配和导频设计的，并且通常需要移动信号的一些轻微改变。可以关于信号格式和资源分配两者来优化帧中的前导码部分。典型的通信帧由前导码和数据有效载荷组成，并且在蜂窝网络中，它们经由逻辑信道来构造。前导通常包含未调制的和正交信号，其可以直接用于感测。对于mimo-ofdm信号，前导码信号的格式可以被设计为模仿传统的雷达波形，同时保持通信所需的属性。例如，在 1 中，基于mimo-ofdm JCAS生成MIMO雷达中常用的正交线性调频 (LFM) 信号。还可以通过在mimo-ofdm雷达 2 中结合非等距子载波的思想来设计前导码的子载波占用，以平衡C & R的性能。还可以优化前导码或导频的间隔以改善感测性能，同时保持通信效率。如果连续发送分组，则这也可以通过改变分组上的数据有效载荷的长度来实现。\nWaveform design for integration of MIMO radar and communication based on orthogonal frequency division complex modulationOFDM-MIMO radar with optimized nonequidistant subcarrier interleaving"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-5",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#波形优化-5",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "波形优化",
+    "text": "波形优化\n利用下一代信令格式进行优化\n大多数以通信为中心的JCAS系统已在信号载波或OFDM(A) 系统上制定，这与雷达中使用的那些波形一致。联合JCAS波形设计还可以应用于下一代通信信号，诸如正交时间-频率空间 (OTFS) 1 信令和快于奈奎斯特 (FTN) 调制。为了降低OTFS传感的传统高复杂度，在 2 中提出了一种有效的贝叶斯学习方案，以及通过结合真实目标的运动参数限制的先验知识来减少测量矩阵的维度。这些工作证明了OTFS JCAS系统的可行性和潜在效率。尽管没有OTFS JCAS的波形优化结果，但我们推测可以以类似于OFDM的方式进行。特别地，预编码可以在空间域之外更有效地应用，例如应用到延迟-多普勒域。\nRadar sensing with OTFS: Embracing ISI and ICI to surpass the ambiguity barrierLow-complexity parameter learning for OTFS modulation based automotive radar"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#天线阵列设计",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#天线阵列设计",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "天线阵列设计",
+    "text": "天线阵列设计\n对于无线电感测，具有独立RF链的每个天线就像相机中的像素。但是无线电系统允许对发送和接收的信号进行更灵活的控制和处理。因此，除了用于波形优化的MIMO预编码之外，我们还可以对pmn中的天线阵列进行更多设计，如最后一个小节中所讨论的。表XIV中呈现了这些技术的分类，包括虚拟阵列设计、稀疏阵列设计和空间调制。下面详细说明这些技术。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#天线阵列设计-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#天线阵列设计-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "天线阵列设计",
+    "text": "天线阵列设计\n虚拟MIMO和天线分组\nC & S之间的天线阵列设计存在许多矛盾的要求。波束成形和天线放置是两个很好的例子。对于波束成形，通常需要具有变化的波束成形和窄波束宽度的阵列来进行感测; 然而，在至少一个分组周期期间，通信需要固定且准确指向的波束以获得非时变信道，并且需要多波束以支持SDMA。对于天线放置，MIMO雷达通常需要特殊的天线间隔，以实现增加的虚拟天线孔径 1; 而MIMO通信侧重于波束成形增益，空间分集和空间复用，因此，天线之间的低相关性更为重要。这些不同且矛盾的要求需要新的天线设计方法。一个潜在的解决方案是引入天线分组和虚拟子阵列的概念。通过将现有天线划分为两个或更多个组/虚拟子阵列，我们可以指定C & S的任务并优化跨天线组的设计。\n\n Phased-MIMO radar: A tradeoff between phased-array and MIMO radars"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#天线阵列设计-2",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#天线阵列设计-2",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "天线阵列设计",
+    "text": "天线阵列设计\n稀疏阵列设计\n除了天线分组之外，稀疏阵列设计是利用自由度的另一种方法，当天线的总数固定时，可以通过配置天线的位置来实现该自由度。 稀疏阵列或稀疏阵列的设计 1，例如共素阵列 2，通常被认为是最佳地将给定数量的天线放置在大量 (均匀) 网格点的子集上 3。以这种方式，少量天线可以跨越具有高空间分辨率和低旁瓣的大阵列孔径。\n稀疏阵列设计特别适用于具有数十到数百个天线但具有有限数量的RF链的大规模MIMO阵列，即开关阵列或混合阵列。这种设置可以在pmn中以降低的成本提供更多的自由度和潜在的性能增强。例如，稀疏阵列设计可以为通信部分添加索引调制; 而稀疏阵列设计可以为雷达探测提供更好的空间分辨率。为此，一些有趣的问题仍有待解决，例如如何制定满足两个目标的问题以及C & S之间的新权衡。\nSynthesizing beam-scannable thinned massive antenna array utilizing modiﬁed iterative FFT for millimeter-wave communicationDirectionof-arrival estimation for coprime array via virtual array interpolationSparse transmit array design for dual-function radar communications by antenna selection"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#天线阵列设计-3",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#天线阵列设计-3",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "天线阵列设计",
+    "text": "天线阵列设计\n空间调制\n\n\n\n\n\n空间调制使用一组天线索引来调制信息比特，并且已经针对通信系统进行了广泛的研究 1。对于多天线JCAS系统，也可以潜在地应用空间调制。在 2 中，利用类似于空间调制的概念来提高跳频MIMO DFRC系统中的通信数据速率。在 3 中，通过根据传输的消息分配天线元件，将空间调制应用于JCAS，通过在天线选择中嵌入额外的数据位来实现增加的通信速率。尽管这些工作是基于脉冲和连续波雷达，但通过将天线选择添加到现有的时空调制中，它们可以潜在地扩展到PMN。特别地，PMN中的富散射环境提供空间信道之间的较低相关性，导致潜在的更好性能。\nSuper-resolution mmWave channel estimation for generalized spatial modulation systemsAccurate channel estimation for frequency-hopping dual-function radar communicationsSpatial modulation for joint radar-communications systems: Design, analysis, and hardware prototype"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#天线阵列设计-4",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#天线阵列设计-4",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "天线阵列设计",
+    "text": "天线阵列设计\n可重新配置智能Surface辅助JCAS\n可重构智能表面 (RIS) ，也称为可重构智能元表面或智能反射表面，可以被视为一种特殊类型的中继 “天线” 阵列，用于影响信号传播。环境对象涂有电磁和可重新配置的超表面的人造薄膜，可以对其进行控制以对无线电传播进行整形。RIS提供大量的空间自由度，其通常可以被建模为可调节的相移。使用RIS可以通过增加波束成形增益，减少干扰和减少衰落来显着提高通信性能; 它还可以通过生成位置相关的无线电指纹和定向感测来对感测产生显着影响。因此，为了分别改善雷达和通信的性能，对RIS进行了广泛的研究。尽管有限，但有关RIS辅助JCAS的研究正在兴起。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#clutter-suppression-techniques",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#clutter-suppression-techniques",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "Clutter Suppression Techniques",
+    "text": "Clutter Suppression Techniques\n移动网络中的丰富多径为pmn中的感测参数估计带来了另一个挑战。在典型的环境中，bs接收源自永久或长周期静态对象的许多多径信号。这些信号对于通信是有用的，但是对于固定BS，它们通常对于连续感测是不感兴趣的，因为它们承载很少的新信息。这种不期望的多径信号在传统雷达文献中被称为杂波。在pmn中，如果多径信号在很大程度上保持不变并且在感兴趣的时间段内具有接近零的多普勒频率，则我们将其视为杂波。由于移动网络丰富的多径环境，接收到的信号中可能存在大量杂波。杂波包含很少的信息，最好从发送到感测参数估计器的信号中去除。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#clutter-suppression-techniques-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#clutter-suppression-techniques-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "Clutter Suppression Techniques",
+    "text": "Clutter Suppression Techniques\n\n\n可以有两种杂波抑制方式，如图所示: 在估计感测参数之后或之前进行抑制。前者对传感参数估计不引入信号失真，后者可以减少待估计的未知传感参数。高端军用/家用雷达可以同时检测和跟踪数百个物体，并且该能力建立在先进的硬件上，例如成百上千个天线元件的巨大天线阵列。因此，两种方式都可以应用。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#sensing-parameter-estimation",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#sensing-parameter-estimation",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "Sensing Parameter Estimation",
+    "text": "Sensing Parameter Estimation\nPmn中的感测任务既包括用于定位对象和估计其移动速度的感测参数的显式估计，又包括面向应用的模式识别，例如对象和行为识别和分类。\n我们注意到，传感参数估计是非线性问题，因此无法应用已广泛用于通信信道估计的大多数经典线性估计器。典型的传感参数估计技术可以分类如下: 周期图，例如2D DFT，基于子空间的频谱分析技术，网格上压缩传感 (CS) 算法，离网CS算法和网格致密化以及张量工具。这些技术中的大多数具有比经典信道估计算法更高的复杂度。由于所需的感测速率通常在几毫秒到几秒的量级，因此在bs处可以承受这种高计算复杂度。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#resolution-of-sensing-ambiguity",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#resolution-of-sensing-ambiguity",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "Resolution of Sensing Ambiguity",
+    "text": "Resolution of Sensing Ambiguity\n在pmn中，特别是在上行链路感测中，感测接收器和发送器之间通常没有时钟级同步。在这种情况下，在接收信号中存在定时和载波频率偏移。由于振荡器稳定性，它们两者通常是时变的。在通信中，定时偏移可以被吸收到信道估计中，并且CFO可以被估计和补偿。它们的残差变得足够小，可以忽略。不同地，在感测中，它们引起测量模糊性和准确度降级。定时偏移可以直接引起定时模糊性，然后引起测距模糊性，并且CFO可以引起多普勒估计模糊性，然后引起速度模糊性。它们还防止聚合来自不连续分组的信号以用于联合处理，因为它们引起跨分组或CSI测量的未知和随机相移。因此，解决时钟定时偏移问题非常重要。如果它被解决，则可以有效地实现上行链路感测，需要网络基础设施的很少改变。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#pattern-analysis",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#pattern-analysis",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "Pattern Analysis",
+    "text": "Pattern Analysis\n使用无线电信号，通过结合机器学习和信号处理技术，可以实现面向应用程序的高级对象，行为和事件识别和分类。可以使用或不使用提供位置和速度信息的感测参数估计结果来实现它们。\n尽管使用移动信号进行模式分析的工作仍处于起步阶段，但我们已经看到了一些有趣的例子。正如我们从许多成功的WiFi传感应用中观察到的那样，我们可以预见它在不久的将来会蓬勃发展。使用WiFi信号进行对象和行为识别和分类已得到很好的证明。pmn具有比WiFi系统更先进的基础设施，包括更大的天线阵列、更强大的信号处理能力以及分布式和协作节点。使用大规模MIMO，pmnbs等同地拥有大量用于感测的 “像素”。它能够一次解析多个物体，并以更好的视野和分辨率获得成像结果，就像光学相机一样。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#蜂窝拓扑下的网络感知",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#蜂窝拓扑下的网络感知",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "蜂窝拓扑下的网络感知",
+    "text": "蜂窝拓扑下的网络感知\nmn为蜂窝结构下的无线电感测提供了巨大的机会，这可能远远超出分布式雷达系统的规模和复杂性。蜂窝拓扑下的联网传感的主要挑战仍然是解决不同节点之间的竞争和合作以进行传感性能表征和算法开发的方式。目前这方面的研究几乎是空白。在这里，我们设想了两个潜在的研究方向。\n\n“细胞传感网络” 的基本理论和性能界限: 这是关于研究细胞结构在提高频谱效率和传感性能方面的潜力，并为这种改进开发基本理论和性能界限。类似于通信，蜂窝网络也直观地增加了频率重用因子，并因此增加了用于感测的总体 “容量”。随机几何模型可能是用于分析感测网络中的动态的优秀工具，如在 1 中已应用于表征自主车辆网络中的聚集雷达干扰。\n利用节点分组和协作的分布式感测: 利用联网感测的一种方式是通过对ue进行调度和分组来开发分布式和协作感测技术，并且实现rru之间的协作。一方面，现有的研究表明，分布式雷达技术可以通过提供大的空间多样性和宽角度观测来提高位置分辨率和运动目标检测。可以通过优化波形设计和雷达节点的放置来最大化这种多样性。在pmn中，我们可以对多个ue的感测结果进行分组以改善上行链路感测。另一方面，分布式雷达可以实现高分辨率定位，利用来自不同分布式节点的载波信号的相干相位差 。这需要雷达节点之间的相位同步，并且只能通过对rru进行分组在下行链路感测中潜在地实现。对于这两种情况，我们都可以开发分布式传感技术，利用对分布式波束成形和协作通信的广泛研究工作。在 2 中描述了合作检测和定位/感测的一个示例，其中提出了基于广义似然比测试检测器的合作目标检测方案。\n\nStochastic geometry methods for modeling automotive radar interferenceCooperative detection by multi-agent networks in the presence of position uncertainty,"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#sensing-assisted-communications",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#sensing-assisted-communications",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "Sensing-Assisted Communications",
+    "text": "Sensing-Assisted Communications\n当通信和传感集成时，重要的是要了解它们如何相互受益。在pmn的上下文中，可以利用至少以下技术来改进使用感测结果的通信: 感测辅助波束成形和安全通信。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#sensing-assisted-communications-1",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#sensing-assisted-communications-1",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "Sensing-Assisted Communications",
+    "text": "Sensing-Assisted Communications\n感知辅助波束成形\n波束成形是用于在某些方向上集中传输以实现高天线阵列增益的重要技术，并且对于毫米波系统至关重要。然而，由于窄波束宽度，一旦LOS传播信道被阻塞，在毫米波通信系统中找到正确的波束成形方向并更新指向方向通常是耗时的。已经提出了利用sub-6GHz信号的传播信息来提高移动网络中毫米波通信的波束成形速度的技术。这些技术利用了两个频带的信道之间的空间相关性，然而，这是特定于地点的，并且由于环境动态而需要实时更新。由于两个频带之间的信号波长的巨大差异，转换也可能是不准确的。相比之下，使用在类似毫米波频段工作的雷达可以潜在地提供详细的传播信息，这对于波束成形更新和跟踪是理想的。\n尽管上述工作证明了PMN中感测辅助波束成形的可行性和潜力，但仍有一些主要问题有待解决以使其实用。一个问题是如何将感测结果转化为波束成形设计。特别地，下行链路感测结果与对象相关联，而通信信道与对象的天线相关联。给定车辆的大小，它们之间可能会有很大的偏移。另一个问题是如何处理多重反射。当存在来自不同方向的多个反射时，信号的相位也将在波束形成中起重要作用，但是它们通常不能在雷达感测中被准确地估计。这两个问题的一个潜在解决方案是在PMN中组合上行链路和下行链路感测。下行链路感测可以为初始波束成形提供快速和粗略的信息，而上行链路感测可以在复杂的传播环境中提供更详细和准确的信息。"
+  },
+  {
+    "objectID": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#sensing-assisted-communications-2",
+    "href": "paper_reading/Enabling Joint Communication and Radar Sensing in Mobile Networks/index.html#sensing-assisted-communications-2",
+    "title": "Enabling Joint Communication and Radar Sensing in Mobile Networks—A Survey",
+    "section": "Sensing-Assisted Communications",
+    "text": "Sensing-Assisted Communications\n传感辅助安全通信\n无线电传感为周围环境中的有源发射器和无源物体提供了信息通道组成。这种详细的信道信息可以用于安全的无线通信，对此的研究仍处于起步阶段。\n详细信道构成信息的一个重要运用是在物理层平安技巧中。当前的物理层安全研究主要基于信道状态信息 1，使用例如人工噪声辅助的、面向安全的波束成形和物理层密钥生成方法。在 2 中已经尝试了这一点，其中采用人工噪声方法在JCAS系统中实现安全波束成形，以对抗窃听者。基于CSI的物理层密钥生成已被广泛研究，并且被证明对于安全通信非常有效。然而，CSI的保密容量通常是有限的，因为它隐藏了信道传播细节并且是许多传播路径的总和。相比之下，感测结果包含关于一对发射器和接收器之间的环境的更重要的信息。它们可以激发蜂窝通信网络中提供更多信息的秘密密钥生成方法和协议。首先，我们可以表征pmn的保密能力，并开发用于信息加密的实用密钥生成方法\n\n\n\n\n\n\nA survey on wireless security: Technical challenges, recent advances, and future trendsSecure radar-communication systems with malicious targets: Integrating radar, communications and jamming functionalities"
+  },
+  {
+    "objectID": "paper_reading/RGBandPC/index.html#背景",
+    "href": "paper_reading/RGBandPC/index.html#背景",
+    "title": "RGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images",
+    "section": "背景",
+    "text": "背景\n抓取是机器人技术中的一个基本而重要的问题，是机器人操纵的基础。尽管这一问题至关重要，但解决这一问题的办法远远不能令人满意。\n\n传统方法 利用物理分析来找到合适的抓握姿势。然而，这些方法需要不总是可用的精确对象模型。将这些算法应用于看不见的对象也很困难。此外，这些方法通常是耗时且计算昂贵的。\n研究人员开始探索基于数据驱动的方案。Fang等人 1，Ni等人 2 和Mousavian等人 3 将RGBD摄像机捕获的部分视角点云馈送到神经网络，以获得6自由度的抓握姿势。然而，由于潜在的传感器故障，深度数据与RGB数据相比不稳定。\n\nGraspNet-1Billion: A LargeScale Benchmark for General Object GraspingPointNet++ Grasping: Learning An End-to-end Spatial Grasp Generation Algorithm from Sparse Point Clouds6-dof graspnet: Variational grasp generation for object manipulation"
+  },
+  {
+    "objectID": "paper_reading/RGBandPC/index.html#rgbd-grasp",
+    "href": "paper_reading/RGBandPC/index.html#rgbd-grasp",
+    "title": "RGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images",
+    "section": "RGBD-Grasp",
+    "text": "RGBD-Grasp\n在本文中，我们介绍了rgbd-grasp，这是一种7自由度的抓取检测管道。我们将单眼RGBD图像作为输入，并输出6自由度抓手姿势以及抓手的宽度作为附加自由度。"
+  },
+  {
+    "objectID": "paper_reading/RGBandPC/index.html#优势",
+    "href": "paper_reading/RGBandPC/index.html#优势",
+    "title": "RGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images",
+    "section": "优势",
+    "text": "优势\n\n这是使用单眼RGBD图像生成高DoF抓握姿势的首次尝试。RGB图像的使用使该方法更加稳定，并且高自由度的抓取姿势解决了平面限制的问题。\n尽管该方法由两个阶段组成，但是每个阶段都有效地运行。在我们的实验中，它以10.5 FPS的速度运行，满足实时操作的要求。\n得益于深度CNN和GraspNet-1Billion数据集的大规模数据 1，该方法不仅可以很好地处理可见或相似的对象，而且还可以推广到新对象。\n\nGraspNet-1Billion: A LargeScale Benchmark for General Object Grasping"
+  },
+  {
+    "objectID": "paper_reading/RGBandPC/index.html#问题陈述",
+    "href": "paper_reading/RGBandPC/index.html#问题陈述",
+    "title": "RGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images",
+    "section": "问题陈述",
+    "text": "问题陈述\nDefinitions\n\n\n\n\n\n\nGrasp Pose\n\n\n\\[\n\\mathcal{P} = (x,y,z,r_x,r_y,r_z,w)\n\\] 其中\\(x\\)、\\(y\\)和\\(z\\)表示夹具的平移，而\\(r_x\\)、\\(r_y\\)和\\(r_z\\)表示旋转，\\(w\\)表示相应的宽度。\n\n\n\n\n\n\n\n\n\nRGBD Image\n\n\n\\[\n\\mathcal{I}=(\\mathcal{C},\\mathcal{D})\n\\]\n\\(\\mathcal{C}\\) 是RGB图像，\\(\\mathcal{D}\\)是深度信息。\n\n\n\n\n\n\n\n\n\nGripper Configuration\n\n\n\\[\n\\mathcal{G}=(h,l,w_{max})\n\\]"
+  },
+  {
+    "objectID": "paper_reading/RGBandPC/index.html#问题陈述-1",
+    "href": "paper_reading/RGBandPC/index.html#问题陈述-1",
+    "title": "RGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images",
+    "section": "问题陈述",
+    "text": "问题陈述\nProblem Statement\n令 \\(\\mathcal{E}\\) 表示包括机器人和物体的环境，并且 \\(s(\\mathcal{E}，\\mathcal{I}，\\mathcal{G}，\\mathcal{P})\\) 表示指示抓握成功与否的二进制变量。如果物体被成功地举起，则抓握是成功的。给定RGBD图像 \\(\\mathbf{I}\\) 和抓取器配置G，我们的目标是找到一组抓取姿势 \\(\\mathbf{P} = \\{\\mathcal{P}_1，\\mathcal{P}_2，\\cdots,\\mathcal{P}_k\\}\\)，在给定固定\\(k\\)的情况下最大化抓取成功率： \\[\\{\\mathcal{P}_1^*,\\mathcal{P}_2^*,\\cdots,\\mathcal{P}_k^*\\}=\\text{argmax}\\sum_{\\begin{array}{c}|\\mathbf{P}|=k\\\\\\end{array}}\\text{Prob}(s=1|\\mathcal{E},\\mathcal{I},\\mathcal{G},\\mathcal{P}_i).\\]"
+  },
+  {
+    "objectID": "paper_reading/RGBandPC/index.html#方法",
+    "href": "paper_reading/RGBandPC/index.html#方法",
+    "title": "RGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images",
+    "section": "方法",
+    "text": "方法\n我们将问题分解为两个子问题。\n\nAngle-View Net (AVN) 在图像的不同位置生成抓取器方向： \\[\\mathcal{P}_{img}=(u,v,r_x,r_y,r_z,c)\\]\n我们收集那些具有高置信度分数的预测，并计算它们的宽度和到图像平面的距离，给定相机固有参数和基于Fast Analytic Searching (FAS) 的深度图像： \\[\\mathcal{P}_{cam}=(x,y,z,r_x,r_y,r_z,w)\\]"
+  },
+  {
+    "objectID": "paper_reading/RGBandPC/index.html#方法-1",
+    "href": "paper_reading/RGBandPC/index.html#方法-1",
+    "title": "RGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images",
+    "section": "方法",
+    "text": "方法\nAngle-View Net"
+  },
+  {
+    "objectID": "paper_reading/RGBandPC/index.html#方法-2",
+    "href": "paper_reading/RGBandPC/index.html#方法-2",
+    "title": "RGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images",
+    "section": "方法",
+    "text": "方法\nFast Analytic Searching\n\n\n\n\nFAS模块的图示。上图: 点云由深度图像重建。对具有不同宽度和到图像平面的不同距离的候选者进行采样。我们对这些候选人进行碰撞和空检查。红色候选对象与场景点云碰撞，这违反了第一条规则。紫色的候选人在他们的抓取空间中没有意义，这违反了第二条规则。剩下的蓝色候选者被认为是良好的抓握姿势。下图: 在所有良好的抓握姿势中，我们进行抓握姿势非最大抑制，以找到距离最大，宽度最小的姿势。"
+  },
+  {
+    "objectID": "paper_reading/RGBandPC/index.html#评估",
+    "href": "paper_reading/RGBandPC/index.html#评估",
+    "title": "RGB Matters: Learning 7-DoF Grasp Poses on Monocular RGBD Images",
+    "section": "评估",
+    "text": "评估"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n你好"
+  }
+]
