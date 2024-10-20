@@ -1,6 +1,6 @@
 project:
   type: website
-
+  output-dir: docs
 website:
   title: "Research Tips"
   navbar:
@@ -19,6 +19,7 @@ format:
     # # theme: morph ## 无衬线字体
     # theme: zephyr
     css: styles.css
-
+execute:
+  freeze: auto
 
 
