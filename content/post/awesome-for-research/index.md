@@ -65,6 +65,12 @@ weight: 1       # You can add weight to some posts to override the default sorti
 - [JuMP.jl](https://github.com/jump-dev/JuMP.jl)：JuMP 是一种嵌入在[Julia](https://julialang.org/)中的领域特定[数学优化建模语言。您可以访问](https://en.wikipedia.org/wiki/Mathematical_optimization)[jump.dev](https://jump.dev/)了解更多信息。
 - [sciml](https://sciml.ai/): 可组合的开源软件，用于科学机器学习，支持微分编程。运用最新技术构建基于物理学的AI，使用便捷.
 
+## 公开数据集
+- [Deepsense](https://www.deepsense6g.net/): DeepSense 6G is a real-world multi-modal dataset that comprises coexisting multi-modal sensing and communication data, such as mmWave wireless communication, Camera, GPS data, LiDAR, and Radar, collected in realistic wireless environments
+- [Capture24](https://github.com/OxWearables/capture24) The purpose of the CAPTURE-24 dataset is to serve as a training dataset for developing Human Activity Recognition (HAR) classifiers.
+- [physionet](https://physionet.org/) 复杂生理信号数据集
+
+
 ## 科研观点
 
 - 杨铮老师：[想法是怎样炼成的](http://tns.thss.tsinghua.edu.cn/~yangzheng/files/%E6%83%B3%E6%B3%95%E6%98%AF%E6%80%8E%E6%A0%B7%E7%82%BC%E6%88%90%E7%9A%84.pdf)
