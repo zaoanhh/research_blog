@@ -7,6 +7,7 @@ tags:
 image: 
 categories:
   - code
+slug: julia-fmcw-radar-simulation
 ---
 
 本文介绍了fmcw测距的julia仿真。
