@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Awesome on Fei's Research Blog</title><link>https://zaoanhh.github.io/research_blog/categories/awesome/</link><description>Recent content in Awesome on Fei's Research Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 23 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://zaoanhh.github.io/research_blog/categories/awesome/index.xml" rel="self" type="application/rss+xml"/><item><title>Awesome for research</title><link>https://zaoanhh.github.io/research_blog/p/hello-world/</link><pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate><guid>https://zaoanhh.github.io/research_blog/p/hello-world/</guid><description>&lt;img src="https://zaoanhh.github.io/research_blog/p/hello-world/cover.jpg" alt="Featured image of post Awesome for research" /&gt;&lt;h2 id="绘图"&gt;绘图
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/garrettj403/SciencePlots/tree/master" target="_blank" rel="noopener"
+&gt;python matplotlib style&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Julia绘图，&lt;a class="link" href="https://docs.makie.org/stable/" target="_blank" rel="noopener"
+&gt;Makie.jl&lt;/a&gt;，&lt;a class="link" href="https://beautiful.makie.org/dev/" target="_blank" rel="noopener"
+&gt;makie的示例&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/nschloe/tikzplotlib" target="_blank" rel="noopener"
+&gt;matplotlib to tikz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/JuliaTeX/PGFPlots.jl?tab=readme-ov-file" target="_blank" rel="noopener"
+&gt;julia的tikz绘图&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;图标、插画网站：&lt;a class="link" href="https://www.iconfont.cn/search/index?searchType=icon&amp;amp;q=%E9%A5%AE%E6%96%99&amp;amp;page=1&amp;amp;fromCollection=1&amp;amp;fills=&amp;amp;tag=" target="_blank" rel="noopener"
+&gt;阿里巴巴&lt;/a&gt;、&lt;a class="link" href="https://huaban.com/" target="_blank" rel="noopener"
+&gt;花瓣&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/zaoanhh/makie_theme_for_paper" target="_blank" rel="noopener"
+&gt;控制绘图字号与正文一致的办法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/potamides/DeTikZify" target="_blank" rel="noopener"
+&gt;DeTikZify&lt;/a&gt;：手绘图转tikz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="实验管理"&gt;实验管理
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://mlflow.org/docs/latest/" target="_blank" rel="noopener"
+&gt;MLflow&lt;/a&gt;：MLflow 是一个开源平台，专为帮助机器学习从业者和团队应对机器学习流程的复杂性而构建。MLflow 专注于机器学习项目的完整生命周期，确保每个阶段都可管理、可追溯且可复现。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/SwanHubX/SwanLab" target="_blank" rel="noopener"
+&gt;swanlab&lt;/a&gt;：一个开源、现代化设计的深度学习训练跟踪与可视化工具，同时支持云端/离线使用，适配30+主流框架，与实验代码轻松集成&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/JuliaAI/DearDiary.jl" target="_blank" rel="noopener"
+&gt;DearDiary.jl&lt;/a&gt;: Julia 的轻量级但功能强大的机器学习实验跟踪工具。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://zaoanhh.github.io/research_blog/p/pytorch-lightning--hydra-%e5%b7%a5%e7%a8%8b%e5%8c%96%e5%ae%9e%e8%b7%b5" target="_blank" rel="noopener"
+&gt;pytorch lighting + hydra&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="文档"&gt;文档
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/sphinx-doc/sphinx" target="_blank" rel="noopener"
+&gt;Sphinx&lt;/a&gt;: 可以从python函数注释中生成文档&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://documenter.juliadocs.org/stable/#Documenter.jl" target="_blank" rel="noopener"
+&gt;**Documenter.jl&lt;/a&gt;：**可以从julia函数注释中生成文档&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/chidiwilliams/buzz/tree/main" target="_blank" rel="noopener"
+&gt;buzz&lt;/a&gt;: 离线语音转写&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="写作--slide"&gt;写作 &amp;amp; slide
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://quarto.org/" target="_blank" rel="noopener"
+&gt;Quarto&lt;/a&gt;: 一个markdown语言的扩展版，可以嵌入python、julia、r语言的执行，并且可以方便的把文件输出为pdf、latex、html、website等&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://plutojl.org/" target="_blank" rel="noopener"
+&gt;Pluto.jl&lt;/a&gt;: 一个julia的notebook，相较于jupyter最大的区别是它会保持变量的全局一致性。在jupyter的不同cell中我们可以对一个变量赋予不同的值，甚至出现cel的交叉执行，这使得执行结果依赖cel的执行顺序。pluto避免了这一点，笔记本的输出是一致的。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/lqiang67/tex-diary" target="_blank" rel="noopener"
+&gt;tex-diary&lt;/a&gt;：这是一个基于 LaTeX 的研究日志系统，用于创建、整理和编译每日 LaTeX 笔记，并可将其生成 PDF 文档和 HTML 博客。该系统采用极简的标签系统，方便用户进行内容管理。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/overleaf-workshop/Overleaf-Workshop" target="_blank" rel="noopener"
+&gt;Overleaf-Workshop&lt;/a&gt;：在 VSCode 中打开 Overleaf (ShareLatex) 项目，并支持完全协作。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/pdfpc/pdfpc" target="_blank" rel="noopener"
+&gt;pdfpc&lt;/a&gt;：pdfpc 是一款基于 GTK 的演示应用程序，它使用类似 Keynote 的多显示器输出功能，在演示过程中为演讲者提供元信息。它可以在一个屏幕上显示普通的演示窗口，同时在另一个屏幕上显示更全面的概览信息，例如下一张幻灯片的图片、演示剩余时间等等。pdfpc 处理的输入文件是 PDF 文档，而大多数现代演示软件都可以创建 PDF 文档。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Cimbali/pympress" target="_blank" rel="noopener"
+&gt;pympress&lt;/a&gt;：与pdfpc功能差不多&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/acroper/BeamerQt" target="_blank" rel="noopener"
+&gt;BeamerQt&lt;/a&gt;：BeamerQT 是一款用户友好的图形界面，旨在简化 Beamer 演示文稿的创建过程，无需手动编辑与幻灯片关联的 LaTeX 代码。它提供了一套全面的功能，允许用户定义布局、插入内容（包括文本、代码块和图像）以及配置主题的一些高级设置。BeamerQT 使 LaTeX 初学者和高级用户都能轻松创建精彩的演示文稿，并将注意力集中在内容创作而非代码编写上。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/zaoanhh/phd-thesis-beamer--template" target="_blank" rel="noopener"
+&gt;Fei’s beamer theme&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="计算库"&gt;计算库
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/NVlabs/sionna" target="_blank" rel="noopener"
+&gt;**sionna&lt;/a&gt;：**Sionna™ 是一个基于 Python 的开源库，用于通信系统研究。&lt;/p&gt;
+&lt;p&gt;它由以下软件包组成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://nvlabs.github.io/sionna/rt/index.html" target="_blank" rel="noopener"
+&gt;Sionna RT——&lt;/a&gt;一款速度极快的独立式射线追踪器，用于无线电传播建模。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://nvlabs.github.io/sionna/phy/index.html" target="_blank" rel="noopener"
+&gt;Sionna PHY——&lt;/a&gt;无线和光通信系统的链路级仿真器&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://nvlabs.github.io/sionna/sys/index.html" target="_blank" rel="noopener"
+&gt;Sionna SYS——&lt;/a&gt;基于物理层抽象的系统级模拟器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/TuringLang/Turing.jl" target="_blank" rel="noopener"
+&gt;Turing.jl&lt;/a&gt;：Julia 中的概率编程和贝叶斯推理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/JuliaAI/MLJ.jl" target="_blank" rel="noopener"
+&gt;MLJ.jl&lt;/a&gt;：MLJ（Julia 中的机器学习）是一个用 Julia 编写的工具箱，它提供了一个通用的接口和元算法，用于选择、调整、评估、组合和比较&lt;a class="link" href="https://juliaai.github.io/MLJ.jl/stable/model_browser/#Model-Browser" target="_blank" rel="noopener"
+&gt;200 多个用 Julia 和其他语言编写的机器学习模型&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/LuxDL/Lux.jl" target="_blank" rel="noopener"
+&gt;Lux.jl&lt;/a&gt;：JuliaLang 中的优雅且高性能的深度学习，兼具 Julia 的优雅外形和 XLA 的性能&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/JuliaDynamics/Associations.jl" target="_blank" rel="noopener"
+&gt;Associations.jl&lt;/a&gt;：用于量化关联、独立性测试和数据因果推断的算法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/jump-dev/JuMP.jl" target="_blank" rel="noopener"
+&gt;JuMP.jl&lt;/a&gt;：JuMP 是一种嵌入在&lt;a class="link" href="https://julialang.org/" target="_blank" rel="noopener"
+&gt;Julia&lt;/a&gt;中的领域特定&lt;a class="link" href="https://en.wikipedia.org/wiki/Mathematical_optimization" target="_blank" rel="noopener"
+&gt;数学优化建模语言。您可以访问&lt;/a&gt;&lt;a class="link" href="https://jump.dev/" target="_blank" rel="noopener"
+&gt;jump.dev&lt;/a&gt;了解更多信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://sciml.ai/" target="_blank" rel="noopener"
+&gt;sciml&lt;/a&gt;: 可组合的开源软件，用于科学机器学习，支持微分编程。运用最新技术构建基于物理学的AI，使用便捷.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="公开数据集"&gt;公开数据集
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.deepsense6g.net/" target="_blank" rel="noopener"
+&gt;Deepsense&lt;/a&gt;: DeepSense 6G is a real-world multi-modal dataset that comprises coexisting multi-modal sensing and communication data, such as mmWave wireless communication, Camera, GPS data, LiDAR, and Radar, collected in realistic wireless environments&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/OxWearables/capture24" target="_blank" rel="noopener"
+&gt;Capture24&lt;/a&gt; The purpose of the CAPTURE-24 dataset is to serve as a training dataset for developing Human Activity Recognition (HAR) classifiers.&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://physionet.org/" target="_blank" rel="noopener"
+&gt;physionet&lt;/a&gt; 复杂生理信号数据集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="科研观点"&gt;科研观点
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;杨铮老师：&lt;a class="link" href="http://tns.thss.tsinghua.edu.cn/~yangzheng/files/%E6%83%B3%E6%B3%95%E6%98%AF%E6%80%8E%E6%A0%B7%E7%82%BC%E6%88%90%E7%9A%84.pdf" target="_blank" rel="noopener"
+&gt;想法是怎样炼成的&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
