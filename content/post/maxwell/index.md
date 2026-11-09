@@ -5,7 +5,6 @@ date: 2025-12-04T20:33:55+08:00
 image: 17ae533fe55873c77952e2b0e47a012a05546a6b6fff515370fdda2619e01389.png
 math: 
 license: 
-hidden: false
 categories:
   - paper
 tags:

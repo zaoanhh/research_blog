@@ -2,24 +2,20 @@
 mainSections = ["post"]
 # Output page's full content in RSS.
 rssFullContent = true
-favicon = "/favicon.png"
+favicon = "img/favicon.png"
 
 [footer]
 since = 2025
 customText = ""
 
 [dateFormat]
-published = "Jan 02, 2006"
-lastUpdated = "Jan 02, 2006 15:04 MST"
+published = ":date_full"
+lastUpdated = ":date_full"
 
 [sidebar]
 emoji = "🍥"
 subtitle = "君子食无求饱，居无求安，敏于事而不讷于言，就有道而正焉"
-
-[sidebar.avatar]
-enabled = true
-local = true
-src = "img/logo.png"
+avatar = "img/logo.png"
 
 [article]
 headingAnchor = false
@@ -59,16 +55,11 @@ type = "toc"
 site = ""
 card = "summary_large_image"
 
-[defaultImage.opengraph]
-enabled = false
-local = false
-src = ""
-
 [colorScheme]
 toggle = true
 default = "auto"
 
-[imageProcessing.cover]
+[imageProcessing.thumbnail]
 enabled = true
 
 [imageProcessing.content]
@@ -107,14 +98,13 @@ autoCreateIssue = false
 [comments.waline]
 serverURL = ""
 lang = ""
-visitor = ""
-avatar = ""
-emoji = ["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+pageview = ""
+emoji = ["https://unpkg.com/@waline/emojis@1.0.1/weibo"]
 requiredMeta = ["name", "email", "url"]
-placeholder = ""
 
 [comments.waline.locale]
 admin = "Admin"
+placeholder = ""
 
 [comments.twikoo]
 envId = ""

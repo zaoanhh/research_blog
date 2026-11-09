@@ -6,6 +6,10 @@ on:
     pull_request:
         branches: [master]
 
+env:
+    GO_VERSION: "1.25.5"
+    DART_SASS_VERSION: "1.97.1"
+
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -16,28 +20,43 @@ jobs:
             contents: write
 
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
               with:
                   fetch-depth: 0
 
             - name: Cache Hugo resources
-              uses: actions/cache@v4
+              uses: actions/cache@v5
               env:
                   cache-name: cache-hugo-resources
               with:
                   path: resources
-                  key: ${{ env.cache-name }}
+                  key: ${{ env.cache-name }}-${{ hashFiles('go.sum') }}
+                  restore-keys: |
+                      ${{ env.cache-name }}-
 
-            - uses: actions/setup-go@v5
+            - uses: actions/setup-go@v6
               with:
-                  go-version: "^1.17.0"
-            - run: go version
+                  go-version: ${{ env.GO_VERSION }}
+
+            - name: Install Dart Sass
+              run: |
+                  curl -sLJO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+                  mkdir -p "${HOME}/.local"
+                  tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+                  rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+                  echo "${HOME}/.local/dart-sass" >> "${GITHUB_PATH}"
 
             - name: Setup Hugo
-              uses: peaceiris/actions-hugo@v2
+              uses: peaceiris/actions-hugo@v3
               with:
                   hugo-version: "latest"
                   extended: true
+
+            - name: Verify installations
+              run: |
+                  hugo version
+                  go version
+                  sass --version
 
             - name: Build
               run: hugo --minify --gc

@@ -3,7 +3,6 @@ title: "PyTorch Lightning + Hydra 工程化实践"
 description: 
 date: 2025-11-23T21:43:40+08:00
 image: 
-hidden: false
 tags:
   - pytorch
   - hydra

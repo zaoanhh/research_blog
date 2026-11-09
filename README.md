@@ -16,7 +16,7 @@ It comes with a basic theme structure and configuration. GitHub action has been 
 
 3. And voila! You're ready to go. The codespace has been configured with the latest version of Hugo extended, just run `hugo server` in the terminal and see your new site in action.
 
-4. Check `config` folder for the configuration files. You can edit them to suit your needs. Make sure to update the `baseurl` property in `config/_default/config.toml` to your site's URL.
+4. Check `config` folder for the configuration files. You can edit them to suit your needs. Make sure to update the `baseURL` property in `config/_default/config.toml` to your site's URL.
 
 5. Open Settings -> Pages. Change the build branch from `master` to `gh-pages`.
 ![Build](https://github.com/namanh11611/hugo-theme-stack-starter/assets/16586200/12c763cd-bead-4923-b610-8788f388fcb5)
@@ -26,18 +26,18 @@ It comes with a basic theme structure and configuration. GitHub action has been 
 
 ---
 
-In case you don't want to use GitHub codespace, you can also run this template in your local machine. **You need to install Git, Go and Hugo extended locally.**
+In case you don't want to use GitHub codespace, you can also run this template in your local machine. **You need to install Git, Go and Hugo extended (v0.157.0 or newer) locally.**
 
 ## Update theme manually
 
 Run:
 
 ```bash
-hugo mod get -u github.com/CaiJimmy/hugo-theme-stack/v3
+hugo mod get -u github.com/CaiJimmy/hugo-theme-stack/v4
 hugo mod tidy
 ```
 
-> This starter template has been configured with `v3` version of theme. Due to the limitation of Go module, once the `v4` or up version of theme is released, you need to update the theme manually. (Modifying `config/module.toml` file)
+> This starter template has been configured with `v4` version of theme. Due to the limitation of Go module, once the `v5` or up version of theme is released, you need to update the theme manually. (Modifying `config/module.toml` file)
 
 ## Deploy to another static page hostings
 

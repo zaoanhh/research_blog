@@ -1,0 +1,5 @@
+{{- /* Hugo removed the built-in gist shortcode in v0.156.0. */ -}}
+{{- $username := .Get 0 -}}
+{{- $gistID := .Get 1 -}}
+{{- $file := .Get 2 -}}
+<script src="https://gist.github.com/{{ $username }}/{{ $gistID }}.js{{ with $file }}?file={{ . }}{{ end }}"></script>
