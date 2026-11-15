@@ -1,0 +1,506 @@
+<!doctype html><html lang=zh dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="这个架构利用 PyTorch Lightning 处理训练循环，利用 Hydra 处理复杂的参数配置和实验管理。\n前置准备 安装必要的库：\nBash\n1 pip install pytorch-lightning hydra-core tensorboard 项目目录结构 Hydra 严格依赖文件结构，请确保你的项目符合以下层级：\n"><title>PyTorch Lightning + Hydra 工程化实践</title><link rel=canonical href=https://zaoanhh.github.io/research_blog/p/pytorch-lightning--hydra-%E5%B7%A5%E7%A8%8B%E5%8C%96%E5%AE%9E%E8%B7%B5/><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"><link rel=stylesheet href=/research_blog/scss/style.min.6c875234350e518395efbf51958523b0852fb2215ab8cb81358f9317153eba2d.css><meta property='og:title' content="PyTorch Lightning + Hydra 工程化实践"><meta property='og:description' content="这个架构利用 PyTorch Lightning 处理训练循环，利用 Hydra 处理复杂的参数配置和实验管理。\n前置准备 安装必要的库：\nBash\n1 pip install pytorch-lightning hydra-core tensorboard 项目目录结构 Hydra 严格依赖文件结构，请确保你的项目符合以下层级：\n"><meta property='og:url' content='https://zaoanhh.github.io/research_blog/p/pytorch-lightning--hydra-%E5%B7%A5%E7%A8%8B%E5%8C%96%E5%AE%9E%E8%B7%B5/'><meta property='og:site_name' content="Fei's Research Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='pytorch'><meta property='article:tag' content='hydra'><meta property='article:tag' content='lightning'><meta property='article:published_time' content='2025-11-23T21:43:40+08:00'><meta property='article:modified_time' content='2025-11-23T21:43:40+08:00'><meta name=twitter:title content="PyTorch Lightning + Hydra 工程化实践"><meta name=twitter:description content="这个架构利用 PyTorch Lightning 处理训练循环，利用 Hydra 处理复杂的参数配置和实验管理。\n前置准备 安装必要的库：\nBash\n1 pip install pytorch-lightning hydra-core tensorboard 项目目录结构 Hydra 严格依赖文件结构，请确保你的项目符合以下层级：\n"><link rel="shortcut icon" href=/research_blog/img/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/research_blog/><img src=/research_blog/img/logo.png width=980 height=980 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/research_blog/>Fei's Research Blog</a></h1><h2 class=site-description>君子食无求饱，居无求安，敏于事而不讷于言，就有道而正焉</h2></div></header><ol class=menu-social><li><a href=mailto:feishang@hku.hk title=Email rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg></a></li><li><a href=https://github.com/CaiJimmy/hugo-theme-stack title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/research_blog/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/research_blog/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/research_blog/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/research_blog/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Links</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav class=toc-nav id=TableOfContents><ol><li><a href=#前置准备>前置准备</a></li><li><a href=#项目目录结构>项目目录结构</a></li><li><a href=#配置文件编写-yaml>配置文件编写 (YAML)</a><ol><li><a href=#confmodeldefault_modelyaml><code>conf/model/default_model.yaml</code></a></li><li><a href=#conftraindefault_trainyaml><code>conf/train/default_train.yaml</code></a></li><li><a href=#confconfigyaml><code>conf/config.yaml</code></a></li></ol></li><li><a href=#模型代码-python>模型代码 (Python)</a><ol><li><a href=#srcmodelpy><code>src/model.py</code></a></li></ol></li><li><a href=#主程序-python>主程序 (Python)</a><ol><li><a href=#mainpy><code>main.py</code></a></li></ol></li><li><a href=#如何运行实验>如何运行实验</a><ol><li><a href=#基础运行>基础运行</a></li><li><a href=#动态修改参数-override>动态修改参数 (Override)</a></li><li><a href=#多重运行-multirun--grid-search>多重运行 (Multirun / Grid Search)</a></li><li><a href=#进阶技巧使用-instantiate-更优雅的写法>进阶技巧：使用 <code>instantiate</code> (更优雅的写法)</a></li></ol></li><li><a href=#查看结果>查看结果</a></li><li><a href=#修改log位置>修改log位置</a><ol><li><a href=#1-修改输出文件夹路径-hydra-配置>1. 修改输出文件夹路径 (Hydra 配置)</a></li><li><a href=#2-修改日志文件夹名称-logger-配置>2. 修改日志文件夹名称 (Logger 配置)</a></li><li><a href=#3-修改模型权重文件名-checkpoint-回调>3. 修改模型权重文件名 (Checkpoint 回调)</a></li><li><a href=#4-完整整合示例>4. 完整整合示例</a></li><li><a href=#confconfigyaml-1><code>conf/config.yaml</code></a></li><li><a href=#mainpy-1><code>main.py</code></a></li><li><a href=#最终效果>最终效果</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/research_blog/categories/code/ style=background-color:#beefe2;color:#0f3d31>Code</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/research_blog/p/pytorch-lightning--hydra-%E5%B7%A5%E7%A8%8B%E5%8C%96%E5%AE%9E%E8%B7%B5/>PyTorch Lightning + Hydra 工程化实践</a></h2></div><footer class=article-meta><div class=inline-meta><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published datetime=2025-11-23T21:43:40+08:00>2025年11月23日星期日</time>
+<svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 5 分钟</time></div></footer></div></header><aside class=article-toc><details><summary><div class=article-toc-title><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6-6 6"/></svg>
+<span>目录</span></div></summary><nav class=toc-nav><ol><li><a href=#前置准备>前置准备</a></li><li><a href=#项目目录结构>项目目录结构</a></li><li><a href=#配置文件编写-yaml>配置文件编写 (YAML)</a><ol><li><a href=#confmodeldefault_modelyaml><code>conf/model/default_model.yaml</code></a></li><li><a href=#conftraindefault_trainyaml><code>conf/train/default_train.yaml</code></a></li><li><a href=#confconfigyaml><code>conf/config.yaml</code></a></li></ol></li><li><a href=#模型代码-python>模型代码 (Python)</a><ol><li><a href=#srcmodelpy><code>src/model.py</code></a></li></ol></li><li><a href=#主程序-python>主程序 (Python)</a><ol><li><a href=#mainpy><code>main.py</code></a></li></ol></li><li><a href=#如何运行实验>如何运行实验</a><ol><li><a href=#基础运行>基础运行</a></li><li><a href=#动态修改参数-override>动态修改参数 (Override)</a></li><li><a href=#多重运行-multirun--grid-search>多重运行 (Multirun / Grid Search)</a></li><li><a href=#进阶技巧使用-instantiate-更优雅的写法>进阶技巧：使用 <code>instantiate</code> (更优雅的写法)</a></li></ol></li><li><a href=#查看结果>查看结果</a></li><li><a href=#修改log位置>修改log位置</a><ol><li><a href=#1-修改输出文件夹路径-hydra-配置>1. 修改输出文件夹路径 (Hydra 配置)</a></li><li><a href=#2-修改日志文件夹名称-logger-配置>2. 修改日志文件夹名称 (Logger 配置)</a></li><li><a href=#3-修改模型权重文件名-checkpoint-回调>3. 修改模型权重文件名 (Checkpoint 回调)</a></li><li><a href=#4-完整整合示例>4. 完整整合示例</a></li><li><a href=#confconfigyaml-1><code>conf/config.yaml</code></a></li><li><a href=#mainpy-1><code>main.py</code></a></li><li><a href=#最终效果>最终效果</a></li></ol></li></ol></nav></details></aside><section class=article-content><p>这个架构利用 <strong>PyTorch Lightning</strong> 处理训练循环，利用 <strong>Hydra</strong> 处理复杂的参数配置和实验管理。</p><h2 id=前置准备>前置准备</h2><p>安装必要的库：</p><p>Bash</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pip install pytorch-lightning hydra-core tensorboard
+</span></span></code></pre></td></tr></table></div></div><h2 id=项目目录结构>项目目录结构</h2><p>Hydra 严格依赖文件结构，请确保你的项目符合以下层级：</p><p>Plaintext</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=nx>my_project</span><span class=o>/</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=nx>conf</span><span class=o>/</span>                   <span class=err>#</span> <span class=p>[</span><span class=nx>配置文件夹</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=nx>config</span><span class=p>.</span><span class=nx>yaml</span>         <span class=err>#</span> <span class=nx>主入口配置</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=nx>model</span><span class=o>/</span>              <span class=err>#</span> <span class=nx>模型参数组</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>└──</span> <span class=nx>default_model</span><span class=p>.</span><span class=nx>yaml</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>└──</span> <span class=nx>train</span><span class=o>/</span>              <span class=err>#</span> <span class=nx>训练参数组</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>       <span class=err>└──</span> <span class=nx>default_train</span><span class=p>.</span><span class=nx>yaml</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=nx>src</span><span class=o>/</span>                    <span class=err>#</span> <span class=p>[</span><span class=nx>源码文件夹</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=nx>__init__</span><span class=p>.</span><span class=nx>py</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>└──</span> <span class=nx>model</span><span class=p>.</span><span class=nx>py</span>            <span class=err>#</span> <span class=nx>LightningModule</span> <span class=nx>定义</span>
+</span></span><span class=line><span class=cl><span class=err>└──</span> <span class=nx>main</span><span class=p>.</span><span class=nx>py</span>                 <span class=err>#</span> <span class=p>[</span><span class=nx>主入口</span><span class=p>]</span> <span class=nx>连接</span> <span class=nx>Hydra</span> <span class=nx>和</span> <span class=nx>Lightning</span>
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=配置文件编写-yaml>配置文件编写 (YAML)</h2><h3 id=confmodeldefault_modelyaml><code>conf/model/default_model.yaml</code></h3><p>定义模型的超参数。</p><p>YAML</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># 模型相关参数</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>input_dim</span><span class=p>:</span><span class=w> </span><span class=m>28</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>hidden_dim</span><span class=p>:</span><span class=w> </span><span class=m>64</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>learning_rate</span><span class=p>:</span><span class=w> </span><span class=m>0.01</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=conftraindefault_trainyaml><code>conf/train/default_train.yaml</code></h3><p>定义 Trainer 的参数。</p><p>YAML</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># 训练器相关参数</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>max_epochs</span><span class=p>:</span><span class=w> </span><span class=m>10</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>accelerator</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;auto&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>devices</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>batch_size</span><span class=p>:</span><span class=w> </span><span class=m>32</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=confconfigyaml><code>conf/config.yaml</code></h3><p>主配置文件，用于组合各个模块。</p><p>YAML</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>defaults</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>model</span><span class=p>:</span><span class=w> </span><span class=l>default_model   </span><span class=w> </span><span class=c># 默认使用 conf/model/default_model.yaml</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>train</span><span class=p>:</span><span class=w> </span><span class=l>default_train   </span><span class=w> </span><span class=c># 默认使用 conf/train/default_train.yaml</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>_self_                 </span><span class=w> </span><span class=c># 固定写法，表示覆盖顺序</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># 全局通用配置</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>seed</span><span class=p>:</span><span class=w> </span><span class=m>42</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>project_name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;hydra_lightning_demo&#34;</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><hr><h2 id=模型代码-python>模型代码 (Python)</h2><h3 id=srcmodelpy><code>src/model.py</code></h3><p>保持模型代码纯净，只在 <code>__init__</code> 接收参数。</p><p>Python</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pytorch_lightning</span> <span class=k>as</span> <span class=nn>pl</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch.nn</span> <span class=k>as</span> <span class=nn>nn</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch.nn.functional</span> <span class=k>as</span> <span class=nn>F</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>LitModel</span><span class=p>(</span><span class=n>pl</span><span class=o>.</span><span class=n>LightningModule</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>input_dim</span><span class=p>,</span> <span class=n>hidden_dim</span><span class=p>,</span> <span class=n>learning_rate</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 关键：保存超参数，这会将参数写入 hparams.yaml 并记录到日志中</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>save_hyperparameters</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>layer1</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Linear</span><span class=p>(</span><span class=n>input_dim</span> <span class=o>*</span> <span class=n>input_dim</span><span class=p>,</span> <span class=n>hidden_dim</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>layer2</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Linear</span><span class=p>(</span><span class=n>hidden_dim</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>forward</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>x</span> <span class=o>=</span> <span class=n>x</span><span class=o>.</span><span class=n>view</span><span class=p>(</span><span class=n>x</span><span class=o>.</span><span class=n>size</span><span class=p>(</span><span class=mi>0</span><span class=p>),</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>layer2</span><span class=p>(</span><span class=n>F</span><span class=o>.</span><span class=n>relu</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>layer1</span><span class=p>(</span><span class=n>x</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>training_step</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>batch</span><span class=p>,</span> <span class=n>batch_idx</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>x</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=n>batch</span>
+</span></span><span class=line><span class=cl>        <span class=n>logits</span> <span class=o>=</span> <span class=bp>self</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>loss</span> <span class=o>=</span> <span class=n>F</span><span class=o>.</span><span class=n>cross_entropy</span><span class=p>(</span><span class=n>logits</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 记录日志</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=s2>&#34;train_loss&#34;</span><span class=p>,</span> <span class=n>loss</span><span class=p>,</span> <span class=n>prog_bar</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>loss</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>configure_optimizers</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 使用 self.hparams 访问保存的参数</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>torch</span><span class=o>.</span><span class=n>optim</span><span class=o>.</span><span class=n>Adam</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>parameters</span><span class=p>(),</span> <span class=n>lr</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>hparams</span><span class=o>.</span><span class=n>learning_rate</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=主程序-python>主程序 (Python)</h2><h3 id=mainpy><code>main.py</code></h3><p>这是整个系统的控制中心。</p><p>Python</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>hydra</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>omegaconf</span> <span class=kn>import</span> <span class=n>DictConfig</span><span class=p>,</span> <span class=n>OmegaConf</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pytorch_lightning</span> <span class=k>as</span> <span class=nn>pl</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pytorch_lightning.loggers</span> <span class=kn>import</span> <span class=n>TensorBoardLogger</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>torch.utils.data</span> <span class=kn>import</span> <span class=n>DataLoader</span><span class=p>,</span> <span class=n>TensorDataset</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>src.model</span> <span class=kn>import</span> <span class=n>LitModel</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 1. 设置 Hydra 装饰器，指向 conf 目录</span>
+</span></span><span class=line><span class=cl><span class=nd>@hydra.main</span><span class=p>(</span><span class=n>version_base</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>config_path</span><span class=o>=</span><span class=s2>&#34;conf&#34;</span><span class=p>,</span> <span class=n>config_name</span><span class=o>=</span><span class=s2>&#34;config&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>(</span><span class=n>cfg</span><span class=p>:</span> <span class=n>DictConfig</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;--- Current Configuration ---</span><span class=se>\n</span><span class=si>{</span><span class=n>OmegaConf</span><span class=o>.</span><span class=n>to_yaml</span><span class=p>(</span><span class=n>cfg</span><span class=p>)</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 设置随机种子</span>
+</span></span><span class=line><span class=cl>    <span class=n>pl</span><span class=o>.</span><span class=n>seed_everything</span><span class=p>(</span><span class=n>cfg</span><span class=o>.</span><span class=n>seed</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 2. 实例化模型</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 从 cfg.model 中读取参数</span>
+</span></span><span class=line><span class=cl>    <span class=n>model</span> <span class=o>=</span> <span class=n>LitModel</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=n>input_dim</span><span class=o>=</span><span class=n>cfg</span><span class=o>.</span><span class=n>model</span><span class=o>.</span><span class=n>input_dim</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>hidden_dim</span><span class=o>=</span><span class=n>cfg</span><span class=o>.</span><span class=n>model</span><span class=o>.</span><span class=n>hidden_dim</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>learning_rate</span><span class=o>=</span><span class=n>cfg</span><span class=o>.</span><span class=n>model</span><span class=o>.</span><span class=n>learning_rate</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 模拟数据 (通常这里会使用 LightningDataModule)</span>
+</span></span><span class=line><span class=cl>    <span class=n>fake_data</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>randn</span><span class=p>(</span><span class=mi>100</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>28</span><span class=p>,</span> <span class=mi>28</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>fake_labels</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=p>(</span><span class=mi>100</span><span class=p>,))</span>
+</span></span><span class=line><span class=cl>    <span class=n>train_loader</span> <span class=o>=</span> <span class=n>DataLoader</span><span class=p>(</span><span class=n>TensorDataset</span><span class=p>(</span><span class=n>fake_data</span><span class=p>,</span> <span class=n>fake_labels</span><span class=p>),</span> <span class=n>batch_size</span><span class=o>=</span><span class=n>cfg</span><span class=o>.</span><span class=n>train</span><span class=o>.</span><span class=n>batch_size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 3. 配置 Logger</span>
+</span></span><span class=line><span class=cl>    <span class=c1># Hydra 会自动切换工作目录到 outputs/日期/时间，</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 所以 save_dir 设置为 &#34;.&#34; 表示当前 Hydra 生成的目录</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span> <span class=o>=</span> <span class=n>TensorBoardLogger</span><span class=p>(</span><span class=n>save_dir</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span> <span class=n>name</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=n>version</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 4. 实例化 Trainer</span>
+</span></span><span class=line><span class=cl>    <span class=n>trainer</span> <span class=o>=</span> <span class=n>pl</span><span class=o>.</span><span class=n>Trainer</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=n>max_epochs</span><span class=o>=</span><span class=n>cfg</span><span class=o>.</span><span class=n>train</span><span class=o>.</span><span class=n>max_epochs</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>accelerator</span><span class=o>=</span><span class=n>cfg</span><span class=o>.</span><span class=n>train</span><span class=o>.</span><span class=n>accelerator</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>devices</span><span class=o>=</span><span class=n>cfg</span><span class=o>.</span><span class=n>train</span><span class=o>.</span><span class=n>devices</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>=</span><span class=n>logger</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>enable_progress_bar</span><span class=o>=</span><span class=kc>True</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 5. 开始训练</span>
+</span></span><span class=line><span class=cl>    <span class=n>trainer</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>train_loader</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=如何运行实验>如何运行实验</h2><p>在终端中执行以下命令，体验 Hydra 的强大功能。</p><h3 id=基础运行>基础运行</h3><p>使用默认配置运行：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=line><span class=cl>python main.py
+</span></span></code></pre></td></tr></table></div></div><p><em>注：日志会自动保存在 <code>outputs/YYYY-MM-DD/HH-MM-SS/</code> 目录下。</em></p><h3 id=动态修改参数-override>动态修改参数 (Override)</h3><p>不修改代码，直接在命令行改变学习率和 Epoch：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>python main.py model.learning_rate<span class=o>=</span>0.001 train.max_epochs<span class=o>=</span><span class=m>20</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=多重运行-multirun--grid-search>多重运行 (Multirun / Grid Search)</h3><p><strong>这是对比实验的核心功能</strong>。一条命令运行 4 组实验（2种 hidden_dim * 2种 learning_rate）：</p><p>Bash</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>python main.py -m model.hidden_dim<span class=o>=</span>64,128 model.learning_rate<span class=o>=</span>0.01,0.001
+</span></span></code></pre></td></tr></table></div></div><p><em>注：Hydra 会在 <code>multirun/</code> 目录下为每组实验生成独立的子文件夹和日志。</em></p><h3 id=进阶技巧使用-instantiate-更优雅的写法>进阶技巧：使用 <code>instantiate</code> (更优雅的写法)</h3><p>上面的 <code>main.py</code> 中，我们手动把 <code>cfg.model.xxx</code> 传给了 <code>LitModel</code>。如果你参数很多，这很麻烦。
+Hydra 提供了一个高级功能：<strong>Object Instantiation</strong>。</p><ol><li><p><strong>修改 YAML</strong>，加入 <code>_target_</code> 指向类路径：YAML</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># conf/model/small.yaml</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>_target_</span><span class=p>:</span><span class=w> </span><span class=l>src.model.LitModel </span><span class=w> </span><span class=c># &lt;--- 关键</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>input_dim</span><span class=p>:</span><span class=w> </span><span class=m>28</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>hidden_dim</span><span class=p>:</span><span class=w> </span><span class=m>64</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>learning_rate</span><span class=p>:</span><span class=w> </span><span class=m>0.01</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div></li></ol><hr><ol><li><p><strong>修改 <code>main.py</code></strong>，使用 <code>hydra.utils.instantiate</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>hydra</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@hydra.main</span><span class=p>(</span><span class=o>...</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>(</span><span class=n>cfg</span><span class=p>:</span> <span class=n>DictConfig</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 这行代码会自动寻找 _target_ 指向的类，</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 并把 yaml 里剩下的参数全部传给这个类的 __init__</span>
+</span></span><span class=line><span class=cl>    <span class=n>model</span> <span class=o>=</span> <span class=n>hydra</span><span class=o>.</span><span class=n>utils</span><span class=o>.</span><span class=n>instantiate</span><span class=p>(</span><span class=n>cfg</span><span class=o>.</span><span class=n>model</span><span class=p>)</span> 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>trainer</span> <span class=o>=</span> <span class=n>pl</span><span class=o>.</span><span class=n>Trainer</span><span class=p>(</span><span class=o>...</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>trainer</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=o>...</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div></li></ol><h2 id=查看结果>查看结果</h2><p>使用 TensorBoard 查看所有实验的对比：</p><p>Bash</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 如果是单次运行</span>
+</span></span><span class=line><span class=cl>tensorboard --logdir outputs
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 如果使用了 -m 多重运行</span>
+</span></span><span class=line><span class=cl>tensorboard --logdir multirun
+</span></span></code></pre></td></tr></table></div></div><p>在 TensorBoard 的 <strong>HPARAMS</strong> 标签页中，你可以直观地看到 Parallel Coordinates 图，展示 <code>learning_rate</code> 和 <code>hidden_dim</code> 如何影响最终的 Loss。</p><h2 id=修改log位置>修改log位置</h2><p>修改保存地址和文件名主要涉及到两个层面：</p><ol><li><strong>文件夹结构（Hydra 控制）</strong>：决定了整个实验的输出目录在哪里（例如从默认的 <code>outputs/日期/时间</code> 改为 <code>experiments/实验名/</code>）。</li><li><strong>模型文件名（PyTorch Lightning 控制）</strong>：决定了 <code>.ckpt</code> 权重文件叫什么名字（例如从 <code>epoch=0-step=100.ckpt</code> 改为 <code>best-acc=0.98.ckpt</code>）。</li></ol><p>以下是具体的修改方法：</p><hr><h3 id=1-修改输出文件夹路径-hydra-配置>1. 修改输出文件夹路径 (Hydra 配置)</h3><p>默认情况下，Hydra 会在 <code>outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}</code> 创建目录。要自定义它，你需要在 <strong><code>conf/config.yaml</code></strong> 中添加 <code>hydra</code> 配置节点。</p><p><strong>修改 <code>conf/config.yaml</code>：</strong></p><p>YAML</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>defaults</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>model</span><span class=p>:</span><span class=w> </span><span class=l>default_model</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>train</span><span class=p>:</span><span class=w> </span><span class=l>default_train</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>_self_</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># 定义一个项目名或实验名</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>experiment_name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;my_custom_experiment&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># --- Hydra 配置核心 ---</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>hydra</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>run</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># 修改单次运行的输出路径</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># 示例：./logs/my_custom_experiment/2023-10-27_10-30/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>dir</span><span class=p>:</span><span class=w> </span><span class=l>./logs/${experiment_name}/${now:%Y-%m-%d_%H-%M-%S}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>sweep</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># 修改多重运行 (-m) 的根目录和子目录</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>dir</span><span class=p>:</span><span class=w> </span><span class=l>./multirun_logs/${experiment_name}/${now:%Y-%m-%d_%H-%M-%S}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>subdir</span><span class=p>:</span><span class=w> </span><span class=l>${hydra.job.num}</span><span class=w> </span><span class=c># 子文件夹名为 0, 1, 2...</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>这样设置后，你的实验文件就不会散落在 <code>outputs</code> 里，而是整齐地存放在 <code>logs/</code> 下。</p><hr><h3 id=2-修改日志文件夹名称-logger-配置>2. 修改日志文件夹名称 (Logger 配置)</h3><p>在 <code>main.py</code> 中初始化 <code>TensorBoardLogger</code> 时，如果你的 Hydra 路径已经很精确了（比如上面已经精确到了秒），通常我们希望 Logger <strong>不要再创建子文件夹</strong>（不要再搞个 <code>version_0</code>），而是直接写在当前目录。</p><p><strong>修改 <code>main.py</code>：</strong></p><p>Python</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># &#34;.&#34; 表示直接使用 Hydra 创建好的那个目录，不创建新的子文件夹</span>
+</span></span><span class=line><span class=cl><span class=c1># name=&#34;&#34; 和 version=&#34;&#34; 能够去除额外的目录层级</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span> <span class=o>=</span> <span class=n>TensorBoardLogger</span><span class=p>(</span><span class=n>save_dir</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span> <span class=n>name</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=n>version</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><hr><h3 id=3-修改模型权重文件名-checkpoint-回调>3. 修改模型权重文件名 (Checkpoint 回调)</h3><p>这是最重要的一步。你需要使用 PyTorch Lightning 的 <code>ModelCheckpoint</code> 回调来自定义保存的文件名（例如包含验证集准确率）。</p><p><strong>修改 <code>main.py</code>：</strong></p><p>Python</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pytorch_lightning.callbacks</span> <span class=kn>import</span> <span class=n>ModelCheckpoint</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ... 在 main 函数中 ...</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>(</span><span class=n>cfg</span><span class=p>:</span> <span class=n>DictConfig</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=c1># ... 模型初始化代码 ...</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># --- 定义 Checkpoint 回调 ---</span>
+</span></span><span class=line><span class=cl>    <span class=n>checkpoint_callback</span> <span class=o>=</span> <span class=n>ModelCheckpoint</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=n>dirpath</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span>                  <span class=c1># 保存路径：直接存在当前 Hydra 目录下</span>
+</span></span><span class=line><span class=cl>        <span class=n>filename</span><span class=o>=</span><span class=s2>&#34;best-</span><span class=si>{epoch:02d}</span><span class=s2>-</span><span class=si>{val_loss:.2f}</span><span class=s2>&#34;</span><span class=p>,</span> <span class=c1># 文件名格式</span>
+</span></span><span class=line><span class=cl>        <span class=n>monitor</span><span class=o>=</span><span class=s2>&#34;val_loss&#34;</span><span class=p>,</span>           <span class=c1># 监控的指标 (需在 training_step 用 self.log 记录过)</span>
+</span></span><span class=line><span class=cl>        <span class=n>mode</span><span class=o>=</span><span class=s2>&#34;min&#34;</span><span class=p>,</span>                   <span class=c1># &#34;min&#34; 表示 loss 越小越好</span>
+</span></span><span class=line><span class=cl>        <span class=n>save_top_k</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span>                 <span class=c1># 只保存最好的 1 个模型</span>
+</span></span><span class=line><span class=cl>        <span class=n>save_last</span><span class=o>=</span><span class=kc>True</span>                <span class=c1># 额外保存一个 last.ckpt (最新的模型，以防中断)</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>trainer</span> <span class=o>=</span> <span class=n>pl</span><span class=o>.</span><span class=n>Trainer</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=c1># ... 其他参数 ...</span>
+</span></span><span class=line><span class=cl>        <span class=n>callbacks</span><span class=o>=</span><span class=p>[</span><span class=n>checkpoint_callback</span><span class=p>],</span> <span class=c1># 注册回调</span>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>=</span><span class=n>logger</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>trainer</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>train_loader</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>注意：你在 filename 里使用的 {val_loss} 必须在你的 LitModel 代码里通过 self.log(&ldquo;val_loss&rdquo;, &mldr;) 记录过，否则会报错。</p></blockquote><hr><h3 id=4-完整整合示例>4. 完整整合示例</h3><p>把你现在的 <code>conf/config.yaml</code> 和 <code>main.py</code> 更新为以下内容：</p><h3 id=confconfigyaml-1><code>conf/config.yaml</code></h3><p>YAML</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>defaults</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>model</span><span class=p>:</span><span class=w> </span><span class=l>default_model</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>train</span><span class=p>:</span><span class=w> </span><span class=l>default_train</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>_self_</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>experiment_name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;resnet_cifar10&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>hydra</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>run</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># 最终路径: logs/resnet_cifar10/2023-xx-xx_12-00-00/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>dir</span><span class=p>:</span><span class=w> </span><span class=l>logs/${experiment_name}/${now:%Y-%m-%d_%H-%M-%S}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>sweep</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>dir</span><span class=p>:</span><span class=w> </span><span class=l>multirun/${experiment_name}/${now:%Y-%m-%d_%H-%M-%S}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>subdir</span><span class=p>:</span><span class=w> </span><span class=l>run_${hydra.job.num}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=mainpy-1><code>main.py</code></h3><p>Python</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>hydra</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>omegaconf</span> <span class=kn>import</span> <span class=n>DictConfig</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pytorch_lightning</span> <span class=k>as</span> <span class=nn>pl</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pytorch_lightning.loggers</span> <span class=kn>import</span> <span class=n>TensorBoardLogger</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pytorch_lightning.callbacks</span> <span class=kn>import</span> <span class=n>ModelCheckpoint</span>
+</span></span><span class=line><span class=cl><span class=c1># ... import your model ...</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@hydra.main</span><span class=p>(</span><span class=n>version_base</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>config_path</span><span class=o>=</span><span class=s2>&#34;conf&#34;</span><span class=p>,</span> <span class=n>config_name</span><span class=o>=</span><span class=s2>&#34;config&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>(</span><span class=n>cfg</span><span class=p>:</span> <span class=n>DictConfig</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>pl</span><span class=o>.</span><span class=n>seed_everything</span><span class=p>(</span><span class=mi>42</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>model</span> <span class=o>=</span> <span class=o>...</span> <span class=c1># 初始化你的模型</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 1. 设置日志器：直接写在 Hydra 目录下</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span> <span class=o>=</span> <span class=n>TensorBoardLogger</span><span class=p>(</span><span class=n>save_dir</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span> <span class=n>name</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=n>version</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 2. 设置模型保存规则</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 假设模型里 log 了 &#39;val_acc&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>checkpoint_callback</span> <span class=o>=</span> <span class=n>ModelCheckpoint</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=n>dirpath</span><span class=o>=</span><span class=s2>&#34;checkpoints&#34;</span><span class=p>,</span>  <span class=c1># 会在 Hydra 目录下创建一个 checkpoints 文件夹</span>
+</span></span><span class=line><span class=cl>        <span class=n>filename</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>{epoch:02d}</span><span class=s2>-</span><span class=si>{val_acc:.4f}</span><span class=s2>&#34;</span><span class=p>,</span> <span class=c1># 比如: 05-0.9821.ckpt</span>
+</span></span><span class=line><span class=cl>        <span class=n>monitor</span><span class=o>=</span><span class=s2>&#34;val_acc&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>mode</span><span class=o>=</span><span class=s2>&#34;max&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>save_top_k</span><span class=o>=</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>trainer</span> <span class=o>=</span> <span class=n>pl</span><span class=o>.</span><span class=n>Trainer</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=n>max_epochs</span><span class=o>=</span><span class=n>cfg</span><span class=o>.</span><span class=n>train</span><span class=o>.</span><span class=n>max_epochs</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>=</span><span class=n>logger</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>callbacks</span><span class=o>=</span><span class=p>[</span><span class=n>checkpoint_callback</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>        <span class=c1># ...</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>trainer</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=o>...</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=最终效果>最终效果</h3><p>运行后，你的文件结构会非常清晰：</p><p>Plaintext</p><p>logs/
+└── resnet_cifar10/ &lt;&ndash; config.yaml 中的 experiment_name
+└── 2023-11-20_10-30-00/ &lt;&ndash; 时间戳
+├── .hydra/ &lt;&ndash; Hydra 的配置备份
+├── checkpoints/ &lt;&ndash; ModelCheckpoint 创建的文件夹
+│ └── 05-0.9821.ckpt &lt;&ndash; 自定义的文件名
+├── events.out.tfevents&mldr; &lt;&ndash; TensorBoard 日志
+└── hparams.yaml &lt;&ndash; PL 自动保存的参数</p></section><footer class="article-meta article-footer"><section class=article-tags><a href=/research_blog/tags/pytorch/>Pytorch</a>
+<a href=/research_blog/tags/hydra/>Hydra</a>
+<a href=/research_blog/tags/lightning/>Lightning</a></section><section class="article-copyright inline-meta"><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=[".main-article",".widget--toc"];e.forEach(e=>{const t=document.querySelector(e);t&&renderMathInElement(t,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})})</script></article><aside><h2 class=section-title>相关文章</h2><div class=subsection-list><div class=article-list--tile><article><a href=/research_blog/p/julia-fmcw-radar-simulation/><div class=article-details><h2 class=article-title>基于 Julia 的 FMCW 雷达工作原理仿真</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2025 -
+2026 Fei's Research Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=4.0.3>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><script type=module>
+    import gallery from '\/research_blog\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script></main></div><script type=text/javascript src=/research_blog/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js defer></script></body></html>
