@@ -17,11 +17,18 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "hugo",
+            "command": "hugo --minify --gc --cleanDestinationDir",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
+            "problemMatcher": []
+        },
+        {
+            "label": "Deploy to gh-pages",
+            "type": "shell",
+            "command": "./scripts/deploy.sh",
+            "group": "build",
             "problemMatcher": []
         }
     ]

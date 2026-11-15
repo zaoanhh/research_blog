@@ -1,10 +1,10 @@
 name: Deploy to Github Pages
 
+# Deployment is now done locally with ./scripts/deploy.sh (build + push to
+# the gh-pages branch). This workflow is kept only as a manual fallback for
+# when GitHub Actions is available again.
 on:
-    push:
-        branches: [master]
-    pull_request:
-        branches: [master]
+    workflow_dispatch:
 
 env:
     GO_VERSION: "1.25.5"

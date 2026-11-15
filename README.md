@@ -4,7 +4,7 @@
 
 This is a quick start template for [Hugo theme Stack](https://github.com/CaiJimmy/hugo-theme-stack). It uses [Hugo modules](https://gohugo.io/hugo-modules/) feature to load the theme.
 
-It comes with a basic theme structure and configuration. GitHub action has been set up to deploy the theme to a public GitHub page automatically. Also, there's a cron job to update the theme automatically everyday.
+It comes with a basic theme structure and configuration. **This repository builds and deploys locally**: the site is rendered on your machine and pushed to the `gh-pages` branch, which GitHub Pages serves. GitHub Actions is no longer needed; the workflow files are kept as manual fallbacks only.
 
 ## Get started
 
@@ -21,21 +21,49 @@ It comes with a basic theme structure and configuration. GitHub action has been 
 5. Open Settings -> Pages. Change the build branch from `master` to `gh-pages`.
 ![Build](https://github.com/namanh11611/hugo-theme-stack-starter/assets/16586200/12c763cd-bead-4923-b610-8788f388fcb5)
 
-6. Once you're done editing the site, just commit it and push it. GitHub action will deploy the site automatically to GitHub page asociated with the repository.
-![GitHub action](https://user-images.githubusercontent.com/5889006/156916881-90b8bb9b-1925-4e60-9d7a-8026cda729bf.png)
+6. Once you're done editing the site, commit it, push `master`, then publish the rendered site from your machine:
+
+```bash
+./scripts/deploy.sh
+```
+
+The script builds with `hugo --minify --gc`, stages the output in a temporary git worktree, and force-pushes it to `gh-pages` as a single fresh commit, then waits for the GitHub Pages build to finish. See [Local build & deploy](#local-build--deploy) for details.
 
 ---
 
 In case you don't want to use GitHub codespace, you can also run this template in your local machine. **You need to install Git, Go and Hugo extended (v0.157.0 or newer) locally.**
 
-## Update theme manually
+## Local build & deploy
 
-Run:
+Everything happens locally; no CI runner or Actions minutes are used.
+
+Requirements: Git, Go, rsync, and Hugo **extended** >= 0.157, plus push credentials for `origin` (`gh auth login` or a git credential helper).
 
 ```bash
-hugo mod get -u github.com/CaiJimmy/hugo-theme-stack/v4
-hugo mod tidy
+./scripts/deploy.sh                 # build + deploy to gh-pages + wait for Pages
+./scripts/deploy.sh --skip-build    # publish the existing public/ as-is
+./scripts/deploy.sh --no-wait       # do not poll the Pages build status
+./scripts/deploy.sh -m "message"    # custom commit message
 ```
+
+What it does:
+
+1. `hugo --minify --gc --cleanDestinationDir` renders the site into `public/`.
+2. The output is synced into `.deploy-gh-pages/`, a temporary git worktree (ignored by git).
+3. A parentless commit is created and force-pushed to `gh-pages`, so the branch always contains exactly one commit with the generated files. If the output is identical to what is already published, the push is skipped.
+4. When `gh` is available, the script polls the Pages build API and prints the live URL.
+
+Preview locally with `hugo server -D`; build only with `hugo --minify --gc --cleanDestinationDir`.
+
+GitHub Pages must be configured once under *Settings -> Pages*: source **Deploy from a branch**, branch `gh-pages`, folder `/ (root)`. This repository is already configured that way.
+
+## Update theme
+
+```bash
+./scripts/update-theme.sh
+```
+
+It runs `hugo mod get -u` + `hugo mod tidy`, verifies the site still builds, and leaves the `go.mod`/`go.sum` changes for you to review and commit. (The old daily workflow is kept as a manual fallback only.)
 
 > This starter template has been configured with `v4` version of theme. Due to the limitation of Go module, once the `v5` or up version of theme is released, you need to update the theme manually. (Modifying `config/module.toml` file)
 
